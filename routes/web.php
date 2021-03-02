@@ -24,3 +24,11 @@ Route::get('home', function () {
 Route::get('restaurant', function () {
     return view('restaurant');
 });
+
+Route::get('my_orders', function(){
+  return view('dashboard.overview');
+});
+
+Route::get('overview', function(){
+  return view('dashboard.my_orders');
+});

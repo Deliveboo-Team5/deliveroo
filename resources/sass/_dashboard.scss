@@ -1,0 +1,69 @@
+.desk_dash {
+  height: vh;
+  max-width: 300px;
+  background-color: #F5F7FA;
+
+  ul{
+    position: fixed;
+    top: 60px;
+    left: 20px;
+
+  }
+}
+
+.mob_dash{
+  height: vh;
+  width: 50px;
+
+  ul{
+    position: fixed;
+    top: 60px;
+    left: 20px;
+
+  }
+}
+
+
+.dashboard .card{
+  width: 200px;
+  margin: 10px;
+}
+
+.dashboard .stat-data{
+  width: 100%;
+  height: 600px;
+  background-color: #F5F7FA;
+  margin: 22px;
+  border-radius: 5px;
+}
+
+
+.orders-list{
+  margin-left: 5px;
+
+  h3{
+    margin-bottom: 20px;
+  }
+
+  ul li{
+    display: inline;
+  }
+
+  .card{
+    padding-top: 4px;
+    height: 80px;
+    width: 100%;
+  }
+
+  :not(:last-child){
+    margin-bottom: 50px;
+  }
+
+  .card-body ul li:not(:last-child)::after{
+    content: " | ";
+  }
+}
+
+.order-details{
+  margin-left: 50px;
+}

@@ -1,46 +1,17 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
 
+// Variables
+@import 'variables';
 
-.container {
-    margin-top: 1rem;
-}
+// Bootstrap
+// @import '~bootstrap/scss/bootstrap';
 
-.category {
-    height: 100px;
-    width: 200px;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    background-image: url('https://co-restaurants.roocdn.com/images/7ad71ac1a9374b26bd749b9c365f14c6eb8b28c5/shortcut/sushi-1.png?width=334.00000497698784&amp;height=176.00000262260437&amp;fit=crop&amp;bg-color=00ccbc&amp;auto=webp&amp;format=png');
-    background-size: 100% 100%;
-    position: relative;
-}
+// Common
+@import 'common';
 
-.category-name {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    margin-left: 0.5rem;
-}
+// Dashboard
+@import 'dashboard';
 
-.restaurant {
-    height: 250px;
-    margin-top: 1rem;
-}
-
-.food {
-    width: 100%;
-    height: 100px;
-    margin-top: 0.5rem;
-    padding: 0.5rem;
-
-    & > .price {
-        position: absolute;
-        right: 0;
-        margin-right: 0.5rem;
-    }
-}
-
-
-
-img.img-restaurant {
-    width: 100%;
-}
+// Reastaurant
+@import 'restaurant';

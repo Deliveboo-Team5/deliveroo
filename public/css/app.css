@@ -1,3 +1,69 @@
+@import url(https://fonts.googleapis.com/css?family=Nunito);.desk_dash {
+  height: vh;
+  max-width: 300px;
+  background-color: #F5F7FA;
+}
+
+.desk_dash ul {
+  position: fixed;
+  top: 60px;
+  left: 20px;
+}
+
+.mob_dash {
+  height: vh;
+  width: 50px;
+}
+
+.mob_dash ul {
+  position: fixed;
+  top: 60px;
+  left: 20px;
+}
+
+.dashboard .card {
+  width: 200px;
+  margin: 10px;
+}
+
+.dashboard .stat-data {
+  width: 100%;
+  height: 600px;
+  background-color: #F5F7FA;
+  margin: 22px;
+  border-radius: 5px;
+}
+
+.orders-list {
+  margin-left: 5px;
+}
+
+.orders-list h3 {
+  margin-bottom: 20px;
+}
+
+.orders-list ul li {
+  display: inline;
+}
+
+.orders-list .card {
+  padding-top: 4px;
+  height: 80px;
+  width: 100%;
+}
+
+.orders-list :not(:last-child) {
+  margin-bottom: 50px;
+}
+
+.orders-list .card-body ul li:not(:last-child)::after {
+  content: " | ";
+}
+
+.order-details {
+  margin-left: 50px;
+}
+
 .container {
   margin-top: 1rem;
 }
