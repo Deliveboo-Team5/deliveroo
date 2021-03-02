@@ -14,14 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('layouts.deliveboo');
-});
-
-Route::get('home', function () {
     return view('home');
 });
 
-Route::get('restaurant', function () {
+Route::get('resturant', function () {
     return view('restaurant');
 });
 

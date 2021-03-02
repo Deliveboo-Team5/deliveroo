@@ -1,6 +1,5 @@
-<!-- @extends('layouts.main')
-@include('header')
-@section('content') -->
+@extends('layouts.deliveboo')
+@section('content')
 <div class="container-fluid">
   <div class="row">
   <!-- left menu -->
@@ -62,5 +61,4 @@
   </div>
 </div>
 
-<!-- @endsection
-@incluse('footer') -->
+@endsection

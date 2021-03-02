@@ -1,10 +1,9 @@
-{{-- @extends('layouts.main')
-@include('header')
-@section('content') --}}
+@extends('layouts.main')
+@section('content')
 <div class="container-fluid">
   <div class="row">
   <!-- left menu -->
-    @include('dashboard/sidebar')
+    @include('dashboard.sidebar')
 
     <div class="col-11 col-lg-9">
 
@@ -116,5 +115,4 @@
   </div>
 </div>
 
-{{-- @endsection
-@incluse('footer') --}}
+@endsection

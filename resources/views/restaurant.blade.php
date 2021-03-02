@@ -1,4 +1,5 @@
 @extends('layouts.deliveboo')
+
 @section('content')
     <div class="container">
         <div class="row">
@@ -14,8 +15,8 @@
     </div>
     <div class="container">
         <div class="row">
-            
             <div class="col-8 d-flex flex-wrap">
+
                 @for ($i = 0; $i < 8; $i++)
                     <div class="col-6">
                         <div class="card food">
@@ -25,12 +26,11 @@
                         </div>
                     </div>
                 @endfor
+
             </div>
             <div class="col-4">
                 <h1 class="text-center">Carrello</h1>
             </div>
-    
-    
         </div>
     </div>
 @endsection
