@@ -1,0 +1,84 @@
+@import "_variables.scss";
+nav{
+    height: 70px;
+    background-color: $secondary-color;
+    border-bottom: 1px groove $box-color;
+    a{
+        img{
+            height: 30px;
+        }
+    }
+    input{
+        height: $btn-input-height;
+        background-color: $box-color !important;
+        width: 45% !important;
+        
+    }
+    a{
+        padding: 6px 12px;
+        height: $btn-input-height;
+        i{
+            color: $primary-color;
+        }
+    }
+    .btn-light{
+        background-color: $box-color;
+        &:focus {
+            border-color: $primary-color;
+            box-shadow: 0 0 0 0.25rem $primary-color;
+        }
+    }
+    .btn-price{
+        margin-right: 20px;
+    }
+    .hamburger{
+        display: none;
+    }
+}
+
+.form-control{
+    width: unset;
+    &:focus {
+        border-color: $primary-color;
+        box-shadow: 0 0 0 0.25rem $primary-color;
+    }
+    
+}
+
+.menu{
+    background-color: $primary-color;
+    color: $secondary-color;
+    ul{
+        margin: 15px;
+        input{
+            display: inline-block;
+            .menu-form {
+                width: 200px !important;
+                background-color: $box-color;
+                margin: 15px;
+            }
+        }
+        a{
+            color: $secondary-color;
+            font-size: 1.2rem;
+            text-decoration: none;
+        }
+    }
+}
+
+@media (max-width: $tablet-breakpoint){
+    nav{
+        .nav_btn{
+            display: none;
+        }
+        .nav-form{
+            display: none;
+        }
+        .hamburger{
+            display: flex !important;
+            font-size: 1.3rem;
+            color: $primary-color;
+        }
+
+    }
+}

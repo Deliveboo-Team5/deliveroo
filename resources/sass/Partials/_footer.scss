@@ -1,0 +1,60 @@
+@import "Partials/_variables.scss";
+footer{
+    background-color: $footer-color;
+    color: $secondary-color;
+    .footer-card{
+        width: 310px;
+        height: 250px;
+        padding: 25px;
+        margin: 20px 10px;
+        background-color: $card-footer-color;
+        ul{
+            li{
+                a{
+                    text-decoration: none;
+                    color: $secondary-color;
+                    &:hover{
+                        color: $primary-color;
+                    }
+                    img{
+                        height: 60px;
+                    }
+                    .app-store{
+                        margin-left: -18px;
+                    }
+                    .play-store {
+                        margin-left: -11px;
+                    }
+                }
+            }
+        }
+    }
+    .footer-data{
+        padding-bottom: 30px;
+        .social{
+            i{
+                font-size: 2rem;
+                margin-right: 8px;
+                margin-top: 5px;
+                cursor: pointer;
+                &:first-of-type:hover{
+                    color: #4867AA;
+                }
+                &:nth-child(2):hover{
+                    color: #00B0E9;
+                }
+                &:last-of-type:hover{
+                    color: #AD3EB1;
+                }
+
+            }
+        }
+        .credits{
+            span{
+                color: $card-footer-color;
+            }
+        }
+
+    }
+    
+}

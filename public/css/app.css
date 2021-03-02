@@ -1,3 +1,4 @@
+
 @import url(https://fonts.googleapis.com/css?family=Nunito);.desk_dash {
   height: vh;
   max-width: 300px;
@@ -62,6 +63,172 @@
 
 .order-details {
   margin-left: 50px;
+}
+
+body {
+  font-family: "PT Sans", "FontAwesome 5 free", sans-serif;
+}
+
+.p-relative {
+  position: relative;
+}
+
+.p-absolute {
+  position: absolute;
+}
+
+nav {
+  height: 70px;
+  background-color: #fff;
+  border-bottom: 1px groove #EBEBEB;
+}
+
+nav a img {
+  height: 30px;
+}
+
+nav input {
+  height: 40px;
+  background-color: #EBEBEB !important;
+  width: 45% !important;
+}
+
+nav a {
+  padding: 6px 12px;
+  height: 40px;
+}
+
+nav a i {
+  color: #00ccbc;
+}
+
+nav .btn-light {
+  background-color: #EBEBEB;
+}
+
+nav .btn-light:focus {
+  border-color: #00ccbc;
+  box-shadow: 0 0 0 0.25rem #00ccbc;
+}
+
+nav .btn-price {
+  margin-right: 20px;
+}
+
+nav .hamburger {
+  display: none;
+}
+
+.form-control {
+  width: unset;
+}
+
+.form-control:focus {
+  border-color: #00ccbc;
+  box-shadow: 0 0 0 0.25rem #00ccbc;
+}
+
+.menu {
+  background-color: #00ccbc;
+  color: #fff;
+}
+
+.menu ul {
+  margin: 15px;
+}
+
+.menu ul input {
+  display: inline-block;
+}
+
+.menu ul input .menu-form {
+  width: 200px !important;
+  background-color: #EBEBEB;
+  margin: 15px;
+}
+
+.menu ul a {
+  color: #fff;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  nav .nav_btn {
+    display: none;
+  }
+
+  nav .nav-form {
+    display: none;
+  }
+
+  nav .hamburger {
+    display: flex !important;
+    font-size: 1.3rem;
+    color: #00ccbc;
+  }
+}
+
+footer {
+  background-color: #2E3333;
+  color: #fff;
+}
+
+footer .footer-card {
+  width: 310px;
+  height: 250px;
+  padding: 25px;
+  margin: 20px 10px;
+  background-color: #434848;
+}
+
+footer .footer-card ul li a {
+  text-decoration: none;
+  color: #fff;
+}
+
+footer .footer-card ul li a:hover {
+  color: #00ccbc;
+}
+
+footer .footer-card ul li a img {
+  height: 60px;
+}
+
+footer .footer-card ul li a .app-store {
+  margin-left: -18px;
+}
+
+footer .footer-card ul li a .play-store {
+  margin-left: -11px;
+}
+
+footer .footer-data {
+  padding-bottom: 30px;
+}
+
+footer .footer-data .social i {
+  font-size: 2rem;
+  margin-right: 8px;
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+footer .footer-data .social i:first-of-type:hover {
+  color: #4867AA;
+}
+
+footer .footer-data .social i:nth-child(2):hover {
+  color: #00B0E9;
+}
+
+footer .footer-data .social i:last-of-type:hover {
+  color: #AD3EB1;
+}
+
+footer .footer-data .credits span {
+  color: #434848;
+
 }
 
 .container {
