@@ -47,16 +47,12 @@
 
   ul li{
     display: inline;
+    padding: 0;
   }
 
   .card{
     padding-top: 4px;
-    height: 80px;
     width: 100%;
-  }
-
-  :not(:last-child){
-    margin-bottom: 50px;
   }
 
   .card-body ul li:not(:last-child)::after{
