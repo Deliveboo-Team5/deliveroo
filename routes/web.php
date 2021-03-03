@@ -21,6 +21,10 @@ Route::get('overview', 'OverviewController@index');
 
 Route::get('my_orders', 'OrdersController@index');
 
+Route::get('statistics', function () {
+    return view('dashboard.statistics');
+});
+
 Route::resource('foods', 'FoodsController');
 
 

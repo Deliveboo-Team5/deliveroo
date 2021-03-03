@@ -2,16 +2,16 @@
 <div class="col-3 desk_dash d-none d-lg-block">
   <ul class="nav flex-column">
     <li class="nav-item">
-      <a class="nav-link active" aria-current="page" href="#">Overview</a>
+      <a class="nav-link active" aria-current="page" href="{{asset('overview')}}">Overview</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Ordini</a>
+      <a class="nav-link" href="{{asset('my_orders')}}">Ordini</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Prodotti</a>
+      <a class="nav-link" href="{{asset('foods')}}">Prodotti</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Statistiche</a>
+      <a class="nav-link" href="{{asset('statistics')}}">Statistiche</a>
     </li>
   </ul>
 </div>
