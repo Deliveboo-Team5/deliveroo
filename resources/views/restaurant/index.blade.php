@@ -3,13 +3,13 @@
 <div class="container">
     <h3>Categorie</h3>
     <div class="row">
-       @foreach ($categories as $category)
-            <div class="col">
+        <div class="col category-container">
+            @foreach ($categories as $category)
                 <div class="card category">
                     <span class="category-name">{{$category->name_category}}</span>
                 </div>
-            </div>
-        @endforeach
+            @endforeach
+        </div>
     </div>
 </div>
     
