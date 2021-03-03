@@ -72,10 +72,10 @@
                                 <h4>Porta Deliveroo con te</h4>
                             </li>
                             <li>
-                                <a href="#"><img src="img/app-store.png" class="app-store" alt="Scarica da applestore"></a>
+                                <a href="#"><img src="{{asset('img/app-store.png')}}" class="app-store" alt="Scarica da applestore"></a>
                             </li>
                             <li>
-                                <a href="#"><img src="img/google-play.png" class="play-store" alt="Scarica da google play"></a>
+                                <a href="#"><img src="{{asset('img/google-play.png')}}" class="play-store" alt="Scarica da google play"></a>
                             </li>
                         </ul>
                     </div>

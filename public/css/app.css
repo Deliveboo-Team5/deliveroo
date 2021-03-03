@@ -10956,6 +10956,19 @@ body {
   position: absolute;
 }
 
+a {
+  color: inherit;
+}
+
+main {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+button {
+  margin-bottom: 1rem;
+}
+
 .desk_dash {
   height: vh;
   max-width: 300px;
@@ -10992,25 +11005,30 @@ body {
   border-radius: 5px;
 }
 
-.orders-list {
+.orders-list,
+.menu-list {
   margin-left: 5px;
 }
 
-.orders-list h3 {
+.orders-list h3,
+.menu-list h3 {
   margin-bottom: 20px;
 }
 
-.orders-list ul li {
+.orders-list ul li,
+.menu-list ul li {
   display: inline;
   padding: 0;
 }
 
-.orders-list .card {
+.orders-list .card,
+.menu-list .card {
   padding-top: 4px;
   width: 100%;
 }
 
-.orders-list .card-body ul li:not(:last-child)::after {
+.orders-list .card-body ul li:not(:last-child)::after,
+.menu-list .card-body ul li:not(:last-child)::after {
   content: " | ";
 }
 
@@ -11024,7 +11042,7 @@ footer {
 }
 
 footer .footer-card {
-  width: 310px;
+  width: calc((100% - 80px)/4);
   height: 250px;
   padding: 25px;
   margin: 20px 10px;
@@ -11097,8 +11115,9 @@ footer .footer-data .credits span {
 }
 
 .restaurant {
+  width: 150px;
   height: 250px;
-  margin: 1rem;
+  margin: 0.5rem 0;
 }
 
 .food {

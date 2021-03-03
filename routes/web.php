@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', function () {
+    return redirect('restaurant');
+});
 
 Route::get('overview', 'OverviewController@index');
 
