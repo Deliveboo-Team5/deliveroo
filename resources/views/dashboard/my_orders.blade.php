@@ -11,7 +11,7 @@
       <div class="row orders-list d-flex flex-column">
         <h3>Ordini</h3>
 
-        @foreach($orders as $order)
+        @foreach($data['orders'] as $order)
         {{-- template orders --}}
 
         {{--closed row--}}
@@ -44,13 +44,18 @@
                 <li>Orario di consegna:<strong> {{$order->delivery_address}}</strong></li>
                 <li>Prodotti:
                     <ul class="d-flex flex-column">
-                      <li><strong>1x | Product Name (id) | $8.00 </strong></li>
-                      <li><strong>3x | Product Name (id) | $24.00 </strong></li>
-                      <li><strong>2x | Product Name (id) | $16.00 </strong></li>
-                      <li><strong>1x | Product Name (id) | $8.00 </strong></li>
+
+                      @foreach($order->getFood as $food)
+                      @foreach($data['food'] as $menu)
+                      @if($food->id == $menu->id)
+                      <li>Quantity | {{$menu->name_food}} ({{$menu->id}}) | €{{$menu->price}}</li>
+                      @endif
+                      @endforeach
+
+                      @endforeach
                     </ul>
                 </li>
-                <li>Totale ordini:<strong> {{$order->total_price}}</strong></li>
+                <li>Totale ordini:<strong> €{{$order->total_price}}</strong></li>
               </ul>
             </div>
             <div class="card-body d-flex align-items-baseline justify-content-end">
