@@ -15,4 +15,6 @@ class Food extends Model
     public function getOrderFood(){
         return $this->belongsToMany('App\Food', 'order_food', 'food_id','order_id');
     }
+
+    protected $fillable = ['name_food', 'price', 'ingredients', 'is_visible', 'restaurant_id'];
 }

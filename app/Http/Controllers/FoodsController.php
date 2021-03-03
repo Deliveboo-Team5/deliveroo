@@ -8,6 +8,7 @@ use App\Restaurant;
 use App\Food;
 use App\Category;
 use App\Order;
+use App\Http\Controllers\Auth;
 
 class FoodsController extends Controller
 {
@@ -18,7 +19,7 @@ class FoodsController extends Controller
      */
     public function index()
     {
-      $foods = Food::where('restaurant_id', '50')->get();
+      $foods = Food::where('restaurant_id', '34')->get();
       return view('dashboard.foods.index', compact('foods'));
     }
 
@@ -29,7 +30,7 @@ class FoodsController extends Controller
      */
     public function create()
     {
-        //
+      return view('dashboard.foods.create');
     }
 
     /**
@@ -38,9 +39,16 @@ class FoodsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Food $food)
     {
-        //
+      $newFood = Food::firstOrCreate([
+        'name_food' => $request['name_food'],
+        'price' => $request['price'],
+        'ingredients' => $request['ingredients'],
+        'is_visible' => $request['is_visible'],
+        'restaurant_id' => 34
+      ]);
+      return redirect(route('foods.index'));
     }
 
     /**
@@ -74,8 +82,14 @@ class FoodsController extends Controller
      */
     public function update(Request $request, Food $food)
     {
-        $food->update($request);
-        return view('dashboard.foods.index');
+        $data = [
+          'name_food' => $request['name_food'],
+          'price' => $request['price'],
+          'ingredients' => $request['ingredients'],
+          'is_visible' => $request['is_visible']
+        ];
+        $food->update($data);
+        return redirect(route('foods.index'));
     }
 
     /**
@@ -84,8 +98,9 @@ class FoodsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Food $food)
     {
-        //
+      $food->delete();
+      return redirec(route('foods.index'));
     }
 }

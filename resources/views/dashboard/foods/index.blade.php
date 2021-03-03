@@ -11,7 +11,7 @@
       <div class="row orders-list d-flex flex-column">
         <h3>Menu</h3>
         <div class="d-flex">
-          <button type="button" class="btn btn-primary">Aggiungi un piatto</button>
+          <button type="button" class="btn btn-primary"><a href="{{route('foods.create')}}">Aggiungi un piatto</a></button>
         </div>
 
         @foreach($foods as $food)
@@ -30,7 +30,6 @@
             <div>
               <button type="button" class="btn btn-primary">Details</button>
               <button type="button" class="btn btn-primary">Edit</button>
-              <button type="button" class="btn btn-danger">Delete</button>
             </div>
           </div>
         </div>
@@ -48,7 +47,7 @@
                 @method('PUT')
                 <div class="mb-3">
                   <label for="food_name" class="form-label">Nome:</label>
-                  <input name="food_name" type="text" class="form-control" id="food_name" value="{{$food->name_food}}">
+                  <input name="name_food" type="text" class="form-control" id="food_name" value="{{$food->name_food}}">
                 </div>
                 <div class="mb-3">
                   <label for="food_description" class="form-label">Descrizione:</label>
@@ -56,13 +55,13 @@
                 </div>
                 <div class="mb-3">
                   <label for="price" class="form-label">Price €:</label>
-                  <input name="price" type="number" class="form-control" id="price" value="{{$food->price}}">
+                  <input name="price" type="text" class="form-control" id="price" value="{{$food->price}}">
                 </div>
                 <div class="mb-3">
                   <label for="is_visible" class="form-label">Is Visibile:</label>
-                  <input type="radio" id="si" name="is_visible" value="1">
+                  <input type="radio" id="si" name="is_visible" value="1" {{$food->is_visible ? 'checked' : ''}}>
                   <label for="si">SI</label><br>
-                  <input type="radio" id="no" name="is_visible" value="0">
+                  <input type="radio" id="no" name="is_visible" value="0" {{!$food->is_visible ? 'checked' : ''}}>
                   <label for="no">NO</label><br>
                 </div>
 
