@@ -1,6 +1,16 @@
-@import 'partials/_variables.scss';
-@import "partials/_common.scss";
-@import "partials/_header.scss";
-@import "partials/_footer.scss";
-@import "partials/_dashboard.scss";
-@import "partials/_restaurant.scss";
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+// myPartial
+@import 'partials/_common';
+@import 'partials/_dashboard';
+@import 'partials/_footer';
+@import 'partials/_restaurant';
+@import 'partials/_variables';
+@import 'partials/_header';

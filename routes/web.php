@@ -13,9 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
 
 Route::get('resturant', function () {
     return view('restaurant');
@@ -26,3 +23,9 @@ Route::get('overview', function(){
 });
 
 Route::get('my_orders', 'OrdersController@index');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('restaurant', 'RestaurantController');
