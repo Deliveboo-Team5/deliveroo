@@ -18,13 +18,13 @@
         <div class="col card">
           <div class="card-body d-flex align-items-baseline justify-content-between flex-wrap">
             <ul class="d-flex flex-wrap">
-              <li>Ordini n.: <strong>{{$order->id}}</strong></li>
+              <li>Ordine n.: <strong>{{$order->id}}</strong></li>
               <li>Cliente: <strong>{{$order->name_customer}}</strong></li>
               <li>Totale: <strong>€{{$order->total_price}}</strong></li>
-              <li>Fato il: <strong>{{$order->created_at}}</strong></li>
+              <li>Fatto il: <strong>{{$order->created_at}}</strong></li>
             </ul>
             <div>
-              <button type="button" class="btn btn-secondary">Detagli ordini</button>
+              <button type="button" class="btn btn-secondary">Dettagli ordini</button>
             </div>
           </div>
         </div>
@@ -34,7 +34,7 @@
         <div class="col card ">
           <div class="d-flex flex-column">
             <div class="card-body d-flex align-items-baseline justify-content-end">
-                <button type="button" class="btn btn-secondary">Nascondi detagli</button>
+                <button type="button" class="btn btn-secondary">Nascondi dettagli</button>
             </div>
             <div class="order-details">
               <ul class="d-flex flex-column">
@@ -46,13 +46,13 @@
                     <ul class="d-flex flex-column">
 
                       @foreach($order->getFood as $food)
-                      @foreach($data['food'] as $menu)
-                      @if($food->id == $menu->id)
-                      <li>Quantity | {{$menu->name_food}} ({{$menu->id}}) | €{{$menu->price}}</li>
-                      @endif
+                        @foreach($data['food'] as $menu)
+                          @if($food->id == $menu->id)
+                          <li>{{$food->pivot->quantity}} | {{$menu->name_food}} ({{$menu->id}}) | €{{$menu->price}}</li>
+                          @endif
+                        @endforeach
                       @endforeach
 
-                      @endforeach
                     </ul>
                 </li>
                 <li>Totale ordini:<strong> €{{$order->total_price}}</strong></li>
