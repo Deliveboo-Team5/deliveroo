@@ -44,7 +44,6 @@
                 <li>Orario di consegna:<strong> {{$order->delivery_address}}</strong></li>
                 <li>Prodotti:
                     <ul class="d-flex flex-column">
-                      @foreach($order->)
                       <li><strong>1x | Product Name (id) | $8.00 </strong></li>
                       <li><strong>3x | Product Name (id) | $24.00 </strong></li>
                       <li><strong>2x | Product Name (id) | $16.00 </strong></li>
