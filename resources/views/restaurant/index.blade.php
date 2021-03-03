@@ -1,6 +1,7 @@
 @extends('my_layouts.deliveboo')
 @section('content')
 <div class="container">
+    <h3>Categorie</h3>
     <div class="row">
        @foreach ($categories as $category)
             <div class="col">
@@ -13,11 +14,12 @@
 </div>
     
 <div class="container">
+    <h3>Ristoranti</h3>
     <div class="row">
         @foreach ($restaurants as $restaurant)
             <div class="col">
                 <a href="{{route('restaurant.show',$restaurant->id)}}"  class="card restaurant">
-                    <img class="card-img-top" src="{{ $restaurant->img }}" alt="Card image cap">
+                    <img class="card-img-top" src="{{ $restaurant->img }}" alt="Restaurant picture">
                     <div class="card-body">
                         <h5 class="card-title">{{$restaurant->name_restaurant}}</h5>
                         <p class="card-text">

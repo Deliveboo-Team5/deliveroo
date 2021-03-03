@@ -5,11 +5,13 @@
         <div class="row">
             <div class="col-8">
                 <h1>{{$restaurant->name_restaurant}}</h1>
-                @foreach ($restaurant->getCategory as $restCategory)
-                <p>{{$restCategory->name_category}}</p>
-                @endforeach
-                <p>{{$restaurant->address}}</p>
-                <p>{{$restaurant->phone}}</p>
+                <p><strong>Categorie: </strong>
+                    @foreach ($restaurant->getCategory as $restCategory)
+                        <span>{{$restCategory->name_category}}</span>
+                    @endforeach
+                </p>
+                <p><strong>Indirizzo: </strong>{{$restaurant->address}}</p>
+                <p><strong>Telefono: </strong>{{$restaurant->phone}}</p>
 
             </div>
             <div class="col-4">
