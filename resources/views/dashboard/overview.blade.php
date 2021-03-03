@@ -3,7 +3,7 @@
 <div class="container-fluid">
   <div class="row">
   <!-- left menu -->
-    @include('sidebar')
+    @include('dashboard.sidebar')
 
     <div class="col-11 col-lg-9">
 

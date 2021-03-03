@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);body {
+body {
   font-family: "PT Sans", "FontAwesome 5 free", sans-serif;
 }
 
@@ -209,16 +209,12 @@ footer .footer-data .credits span {
 
 .orders-list ul li {
   display: inline;
+  padding: 0;
 }
 
 .orders-list .card {
   padding-top: 4px;
-  height: 80px;
   width: 100%;
-}
-
-.orders-list :not(:last-child) {
-  margin-bottom: 50px;
 }
 
 .orders-list .card-body ul li:not(:last-child)::after {

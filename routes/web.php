@@ -21,10 +21,8 @@ Route::get('resturant', function () {
     return view('restaurant');
 });
 
-Route::get('my_orders', function(){
+Route::get('overview', function(){
   return view('dashboard.overview');
 });
 
-Route::get('overview', function(){
-  return view('dashboard.my_orders');
-});
+Route::get('my_orders', 'OrdersController@index');
