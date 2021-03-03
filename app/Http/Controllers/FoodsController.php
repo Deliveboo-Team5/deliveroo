@@ -9,7 +9,7 @@ use App\Food;
 use App\Category;
 use App\Order;
 
-class FoodController extends Controller
+class FoodsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +18,8 @@ class FoodController extends Controller
      */
     public function index()
     {
-       
+      $foods = Food::where('restaurant_id', '50')->get();
+      return view('dashboard.foods.index', compact('foods'));
     }
 
     /**
@@ -71,9 +72,10 @@ class FoodController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Food $food)
     {
-        //
+        $food->update($request);
+        return view('dashboard.foods.index');
     }
 
     /**

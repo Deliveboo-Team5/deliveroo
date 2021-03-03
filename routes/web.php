@@ -14,15 +14,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('resturant', function () {
-    return view('restaurant');
-});
-
 Route::get('overview', function(){
   return view('dashboard.overview');
 });
 
 Route::get('my_orders', 'OrdersController@index');
+
+Route::resource('foods', 'FoodsController');
+
 
 Auth::routes();
 
