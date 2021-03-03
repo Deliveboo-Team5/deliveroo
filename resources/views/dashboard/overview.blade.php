@@ -1,4 +1,4 @@
-@extends('layouts.deliveboo')
+@extends('my_layouts.deliveboo')
 @section('content')
 <div class="container-fluid">
   <div class="row">
