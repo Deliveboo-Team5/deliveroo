@@ -14,9 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('overview', function(){
-  return view('dashboard.overview');
-});
+Route::get('overview', 'OverviewController@index');
 
 Route::get('my_orders', 'OrdersController@index');
 

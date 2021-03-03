@@ -17,7 +17,7 @@
             <div class="card text-dark bg-light mb-3 text-center flex-grow-1">
               <div class="card-header">Nuovi Ordini</div>
               <div class="card-body">
-                <h1 class="card-title">02</h5>
+                <h1 class="card-title">Sei bellissimo</h5>
                 <p class="card-text"><a href="#">Controla gli Ordini</a></p>
               </div>
             </div>
@@ -25,23 +25,23 @@
             <div class="card text-dark bg-light mb-3 text-center flex-grow-1">
               <div class="card-header">Ordini di Oggi</div>
               <div class="card-body">
-                <h1 class="card-title">15</h5>
-                <p class="card-text">$376 totali</p>
+                <h1 class="card-title">{{$data['day_order']}}</h5>
+                <p class="card-text">{{$data['daily_earnings']}}€ totali</p>
               </div>
             </div>
 
             <div class="card text-dark bg-light mb-3 text-center flex-grow-1">
               <div class="card-header">Totali Ordini</div>
               <div class="card-body">
-                <h1 class="card-title">345</h5>
-                <p class="card-text">$2376 totali</p>
+                <h1 class="card-title">{{$data['total_order']}}</h5>
+                <p class="card-text">{{$data['total_earnings']}}€ totali</p>
               </div>
             </div>
 
             <div class="card text-dark bg-light mb-3 text-center flex-grow-1">
               <div class="card-header">Totali Clienti</div>
               <div class="card-body">
-                <h1 class="card-title">245</h5>
+                <h1 class="card-title">{{$data['total_customer']}}</h5>
                   <p class="card-text"><a href="#">Statistiche Clienti</a></p>
               </div>
             </div>
