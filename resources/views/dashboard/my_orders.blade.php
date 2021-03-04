@@ -21,27 +21,24 @@
               <li>Ordine n.: <strong>{{$order->id}}</strong></li>
               <li>Cliente: <strong>{{$order->name_customer}}</strong></li>
               <li>Totale: <strong>€{{$order->total_price}}</strong></li>
-              <li>Fatto il: <strong>{{$order->created_at}}</strong></li>
+              <li>Creato il: <strong>{{$order->created_at->format('d M Y')}}</strong></li>
             </ul>
             <div>
-              <button type="button" class="btn btn-secondary">Dettagli ordini</button>
+              <button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapse{{$order->id}}" aria-expanded="false" aria-controls="collapse{{$order->id}}">Dettagli ordini</button>
             </div>
           </div>
         </div>
         {{--end closed row--}}
 
         {{-- open row --}}
-        <div class="col card ">
+        <div class="col card collapse" id="collapse{{$order->id}}">
           <div class="d-flex flex-column">
-            <div class="card-body d-flex align-items-baseline justify-content-end">
-                <button type="button" class="btn btn-secondary">Nascondi dettagli</button>
-            </div>
             <div class="order-details">
               <ul class="d-flex flex-column">
                 <li>Ordine numero: <strong>{{$order->id}}</strong></li>
                 <li>Cliente:<strong> {{$order->name_customer}} </strong>| email:<strong> name@email.com </strong>| Telefono:<strong> {{$order->phone}}</strong></li>
                 <li>Indirizzo di consegna:<strong> {{$order->delivery_address}}</strong></li>
-                <li>Orario di consegna:<strong> {{$order->delivery_address}}</strong></li>
+                <li>Orario di consegna:<strong> {{$order->delivery_time}}h</strong></li>
                 <li>Prodotti:
                     <ul class="d-flex flex-column">
 
@@ -59,9 +56,8 @@
               </ul>
             </div>
             <div class="card-body d-flex align-items-baseline justify-content-end">
-                <button type="button" class="btn btn-primary">In preparazione</button>
+                <button type="button" class="btn btn-secondary" data-bs-toggle="collapse" data-bs-target="#collapse{{$order->id}}" aria-expanded="false" aria-controls="collapse{{$order->id}}">Nascondi dettagli</button>
             </div>
-
           </div>
         </div>
         {{--end open row--}}

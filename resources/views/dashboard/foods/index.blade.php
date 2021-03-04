@@ -24,23 +24,39 @@
               <li>ID: <strong>{{$food->id}}</strong></li>
               <li>Nome: <strong>{{$food->name_food}}</strong></li>
               <li>Prezzo: <strong>€{{$food->price}}</strong></li>
-              <li>Descrizione: <strong>{{substr($food->ingredients, 0, 50)}}{{ strlen($food->ingredients) > 20 ? '...': ''}}</strong></li>
               <li>Visibile: {{$food->is_visible ? 'SI' : 'NO'}}</li>
             </ul>
             <div>
-              <button type="button" class="btn btn-primary">Details</button>
-              <button type="button" class="btn btn-primary">Edit</button>
+              <button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseDetails{{$food->id}}" aria-expanded="false" aria-controls="collapseDetails{{$food->id}}">Details</button>
+              <button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseEdit{{$food->id}}" aria-expanded="false" aria-controls="collapseEdit{{$food->id}}">Edit</button>
             </div>
           </div>
         </div>
 
+        {{-- details --}}
+        <div class="col card collapse" id="collapseDetails{{$food->id}}">
+          <div class="d-flex flex-column">
+            <div class="order-details">
+              <ul class="d-flex flex-column">
+                <li>Visibile: {{$food->is_visible ? 'SI' : 'NO'}}</li>
+                <li>ID:<strong> {{$food->id}}</strong></li>
+                <li>Nome:<strong> {{$food->name_food}}</strong></li>
+                <li>Descrizione:<strong> {{$food->ingredients}}</strong></li>
+                <li>Prezzo:<strong> {{$food->ingredients}}</strong></li>
+              </ul>
+            </div>
+            <div class="card-body d-flex align-items-baseline justify-content-end">
+                <button type="button" class="btn btn-secondary" data-bs-toggle="collapse" data-bs-target="#collapseDetails{{$food->id}}" aria-expanded="false" aria-controls="collapseDetails{{$food->id}}">Nascondi dettagli</button>
+            </div>
+          </div>
+        </div>
+        {{--end details--}}
+
+
 
         {{-- edit form --}}
-        <div class="col card ">
+        <div class="col card collapse" id="collapseEdit{{$food->id}}">
           <div class="d-flex flex-column">
-            <div class="card-body d-flex align-items-baseline justify-content-end">
-                <button type="button" class="btn btn-secondary">Cancela edizione</button>
-            </div>
             <div class="order-details">
               <form class="d-flex flex-column" action="{{route('foods.update', $food->id)}}" method="post">
                 @csrf
@@ -64,8 +80,13 @@
                   <input type="radio" id="no" name="is_visible" value="0" {{!$food->is_visible ? 'checked' : ''}}>
                   <label for="no">NO</label><br>
                 </div>
+                <div class="card-body d-flex align-items-baseline justify-content-end">
+                    <button type="submit" class="btn btn-primary">Conferma Edizione</button>
+                    <button type="button" class="btn btn-danger" data-bs-toggle="collapse" data-bs-target="#collapseEdit{{$food->id}}" aria-expanded="false" aria-controls="collapseEdit{{$food->id}}">Cancela edizione</button>
+                </div>
 
-                <button type="submit" class="btn btn-primary">Conferma Edizione</button>
+
+
               </form>
             </div>
           </div>
