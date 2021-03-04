@@ -10963,7 +10963,7 @@ a {
 main {
   padding-top: 2rem;
   padding-bottom: 2rem;
-  min-height: calc(100vh - 430px);
+  min-height: calc(100vh - 70px);
 }
 
 button {
@@ -10978,7 +10978,7 @@ button {
 
 .desk_dash ul {
   position: fixed;
-  top: 60px;
+  top: 70px;
   left: 20px;
 }
 
@@ -11124,6 +11124,12 @@ footer .footer-data .credits span {
   width: 150px;
   height: 250px;
   margin: 0.5rem 0;
+}
+
+.restaurant:hover {
+  color: inherit;
+  text-decoration: none;
+  border: 4px solid #00ccbc;
 }
 
 img.img-restaurant {

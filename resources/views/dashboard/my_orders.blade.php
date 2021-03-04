@@ -29,7 +29,7 @@
           </div>
         </div>
         {{--end closed row--}}
-
+        
         {{-- open row --}}
         <div class="col card collapse" id="collapse{{$order->id}}">
           <div class="d-flex flex-column">
@@ -38,7 +38,8 @@
                 <li>Ordine numero: <strong>{{$order->id}}</strong></li>
                 <li>Cliente:<strong> {{$order->name_customer}} </strong>| email:<strong> name@email.com </strong>| Telefono:<strong> {{$order->phone}}</strong></li>
                 <li>Indirizzo di consegna:<strong> {{$order->delivery_address}}</strong></li>
-                <li>Orario di consegna:<strong> {{$order->delivery_time}}h</strong></li>
+                <li>Orario di consegna:<strong> 
+                  {{$order->delivery_time}}h</strong></li>
                 <li>Prodotti:
                     <ul class="d-flex flex-column">
 

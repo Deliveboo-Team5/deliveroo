@@ -25,6 +25,12 @@
     width: 150px;
     height: 250px;
     margin: 0.5rem 0;
+
+    &:hover {
+        color: inherit;
+        text-decoration: none;
+        border: 4px solid $primary-color;
+    }
 }
 
 img.img-restaurant {
