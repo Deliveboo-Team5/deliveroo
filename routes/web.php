@@ -13,9 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', function () {
     return redirect('restaurant');
 });
+
+
+
 
 Route::get('overview', 'OverviewController@index');
 
@@ -32,4 +36,16 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('restaurant', 'RestaurantController');
+Route::resource('restaurant', 'RestaurantController')->names([
+  'index' => 'restaurant.index',
+  'show' => 'restaurant.show'
+]);
+ 
+
+// Route::get('register', 'RegisterController@index')->name('register');
+// Route::post('register', 'RegisterController@store');
+
+// Route::get('login', 'LoginController@index')->name('login');
+// Route::post('login', 'LoginController@store');
+
+

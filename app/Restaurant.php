@@ -19,4 +19,5 @@ class Restaurant extends Model
     public function getFood(){
         return $this->hasMany('App\Food');
     }
+    protected $fillable = ['name_restaurant','img','phone','address','VAT','user_id'];
 }

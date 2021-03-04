@@ -29,6 +29,7 @@
     @include('my_layouts.header')
     {{-- main --}}
     <main>
+
         @yield('content')
     </main>
 

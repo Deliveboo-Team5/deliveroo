@@ -6,14 +6,23 @@
                     <a class="navbar-brand d-flex" href="{{asset('/')}}"><img class=""src="{{asset('img/deliveroo-logo.png')}}" alt="deliveroo_logo"></a>
                     <input class="form-control me-2 nav-form" type="search" placeholder="Cerca il ristorante..." aria-label="Search">
                     <div class="nav_btn">
-                        <a class="btn btn-light" href="#" role="button">
-                            <i class="fas fa-user"></i>
-                            Login
-                        </a>
-                        <a class="btn btn-light btn-price" href="#" role="button">
-                            <i class="fas fa-sign-in-alt"></i>
-                            Sign in
-                        </a>
+                        <!-- Authentication Links -->
+                        @guest
+                            <a class="btn-light btn" href="{{ route('login') }}">
+                                <i class="fas fa-user"></i>{{ __('Login') }}
+                            </a>
+                         @if (Route::has('register'))
+                            <a class="btn-light btn btn-price" href="{{ route('register') }}">
+                                <i class="fas fa-sign-in-alt"></i>{{ __('Register') }}
+                            </a>
+                        @endif
+                        @else
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                <span>Benvenuto {{ Auth::user()->name }}</span>
+                                @csrf
+                                <button type="submit" class="btn-light btn">logout</button>
+                            </form> 
+                        @endguest
                     </div>
                     <div class="hamburger">
                         <i class="fas fa-bars"></i>

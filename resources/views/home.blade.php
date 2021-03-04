@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('my_layouts.deliveboo')
 
 @section('content')
 <div class="container">
