@@ -18,10 +18,11 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-       $restaurants = Restaurant::paginate(30);
-       $categories = Category::all();
+
+        $restaurants = Restaurant::paginate(30);
+        $categories = Category::all();
        
-       return view( 'restaurant.index', compact('restaurants' , 'categories'));
+        return view( 'restaurant.index', compact('restaurants' , 'categories'));
 
     }
 
@@ -90,5 +91,19 @@ class RestaurantController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function ajaxcall(Request $request){
+
+        $restaurants = Restaurant::all();
+        
+
+        foreach($restaurants as $restaurant){
+            $restaurant->getCategory;
+        }
+
+        return response()->json([
+            'data' => $restaurants,
+        ]);
     }
 }

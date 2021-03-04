@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Resources\Restaurant as RestaurantResource;
+use App\Restaurant;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,3 +51,4 @@ Route::resource('restaurant', 'RestaurantController')->names([
 // Route::post('login', 'LoginController@store');
 
 
+Route::get('/api/restaurant', 'RestaurantController@ajaxcall');

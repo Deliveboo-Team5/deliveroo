@@ -23,7 +23,9 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
+        "@popperjs/core": "^2.9.0",
         "laravel": "0.0.1",
-        "mix": "0.0.1"
+        "mix": "0.0.1",
+        "vue": "^2.6.12"
     }
 }
