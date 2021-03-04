@@ -1,6 +1,6 @@
 @extends('my_layouts.deliveboo')
 @section('content')
-<div class="container-fluid">
+<div class="container">
   <div class="row">
   <!-- left menu -->
     @include('dashboard.sidebar')
