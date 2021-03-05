@@ -16,6 +16,7 @@ class CreateFoodsTable extends Migration
         Schema::create('foods', function (Blueprint $table) {
             $table->id();
             $table->string('name_food');
+            $table->string('img');
             $table->double('price',7 ,2);     //7=total_digits 2=digits_after_comma
             $table->longText('ingredients');
             $table->unsignedBigInteger('restaurant_id');

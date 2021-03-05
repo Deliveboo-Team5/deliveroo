@@ -20,7 +20,7 @@ class CreateRestaurantsTable extends Migration
             $table->string('phone');
             $table->string('address');
             $table->string('VAT');
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('user_id')->unique();
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });

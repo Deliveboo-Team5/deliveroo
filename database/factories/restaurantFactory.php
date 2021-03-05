@@ -12,6 +12,6 @@ $factory->define(Restaurant::class, function (Faker $faker) {
         'phone' => $faker->phoneNumber(),
         'address' => $faker->streetAddress(),
         'VAT' => $faker->swiftBicNumber(),
-        'user_id' => $faker->numberBetween($min = 1, $max = 50)
+        'user_id' => $faker->unique()->numberBetween($min = 1, $max = 50)
     ];
 });

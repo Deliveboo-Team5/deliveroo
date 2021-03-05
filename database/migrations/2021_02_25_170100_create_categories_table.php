@@ -17,6 +17,8 @@ class CreateCategoriesTable extends Migration
             $table->id();
             $table->string('name_category', 50);
             $table->timestamps();
+            $table->string('img');
+
         });
 
         Schema::create('restaurant_category', function (Blueprint $table) {

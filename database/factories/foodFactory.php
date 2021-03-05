@@ -11,7 +11,7 @@ $factory->define(Food::class, function (Faker $faker) {
         'price' => $faker->randomFloat($nbMaxDecimals = 2, $min = 4, $max = 40),
         'ingredients' => $faker->sentence($nbWords = 10, $variableNbWords = true),
         'restaurant_id' => $faker->numberBetween($min = 1, $max = 50),
-        'is_visible' => $faker->boolean($chanceOfGettingTrue = 100)
-
+        'is_visible' => $faker->boolean($chanceOfGettingTrue = 100),
+        'img' => 'https://www.novarellovillaggioazzurro.com/wp-content/uploads/2018/05/ristorante-servizio-1140x665.jpg'
     ];
 });

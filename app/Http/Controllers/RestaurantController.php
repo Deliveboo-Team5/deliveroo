@@ -11,6 +11,8 @@ use App\Order;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\RestaurantFormRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+
 
 class RestaurantController extends Controller
 {
@@ -22,10 +24,10 @@ class RestaurantController extends Controller
     public function index()
     {
 
-        $restaurants = Restaurant::paginate(30);
-        $categories = Category::all();
+        
+      
        
-        return view( 'restaurant.index', compact('restaurants' , 'categories'));
+        return view( 'restaurant.index');
 
     }
 
@@ -36,7 +38,8 @@ class RestaurantController extends Controller
      */
     public function create()
     {
-      return view('restaurant.create');
+        $categories = Category::all();
+      return view('restaurant.create', compact('categories'));
     }
 
     /**
@@ -49,17 +52,29 @@ class RestaurantController extends Controller
     {
 
         $validated = $request->validated();
-    
+        $image ='';
+    if($request->img){
+      $image =  $validated['img'] ;
+    }else{
+        $image = 'https://www.novarellovillaggioazzurro.com/wp-content/uploads/2018/05/ristorante-servizio-1140x665.jpg';
+    }
         
-        Restaurant::firstOrCreate([
+        $newRestaurant = Restaurant::firstOrCreate([
             'name_restaurant' => $validated['name_restaurant'],
-            'img' => $validated['img'],
+            'img' => $image,
             'address' => $validated['address'],
             'phone' => $validated['phone'],
             'VAT' => $validated['VAT'],
             'user_id' => Auth::user()->id
         ]);
-       
+
+        $validatedCategory = $request->category;
+        foreach($validatedCategory as $idCategory){
+            DB::table("restaurant_category")->insert([
+                "restaurant_id" => $newRestaurant->id,
+                "category_id" => $idCategory
+            ]);
+        }
         
         return redirect(route('overview'));
     
@@ -95,7 +110,7 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(RestaurantFormRequest $request, $id)
     {
         //
     }

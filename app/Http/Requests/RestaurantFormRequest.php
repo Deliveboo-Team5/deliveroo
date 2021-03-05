@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
+
 
 class RestaurantFormRequest extends FormRequest
 {
@@ -13,7 +15,8 @@ class RestaurantFormRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return Auth::check();
+        // return true;
     }
 
     /**
@@ -25,10 +28,10 @@ class RestaurantFormRequest extends FormRequest
     {
         return [
             'name_restaurant' => ['required','max:50'],
-            'img' => ['required','max:255'],
+            'img' => ['mimetypes:image/jpeg,image/png','max:1024'],
             'phone' => ['required','max:255'],
-            'address' => ['required','max:255'],
-            'VAT' => ['required','max:255'],
+            'address' => ['required','max:255'] ,
+            'VAT' => ['required','max:255','min:13'],
        ];
 
     }

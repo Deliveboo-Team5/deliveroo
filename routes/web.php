@@ -23,33 +23,25 @@ Route::get('/', function () {
 
 
 
-Route::get('overview', 'OverviewController@index')->name('overview');
+Route::get('overview', 'OverviewController@index')->name('overview')->middleware('auth');
 
-Route::get('my_orders', 'OrdersController@index');
+Route::get('my_orders', 'OrdersController@index')->middleware('auth');
 
 Route::get('statistics', function () {
     return view('dashboard.statistics');
-});
+})->middleware('auth');
 
-Route::resource('foods', 'FoodsController');
+Route::resource('foods', 'FoodsController')->middleware('auth');
 
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('restaurant', 'RestaurantController')->names([
-  'index' => 'restaurant.index',
-  'show' => 'restaurant.show'
-]);
+Route::resource('restaurant', 'RestaurantController')->except('index','show')->middleware('auth');
+
+Route::resource('restaurant', 'RestaurantController')->only('index','show');
+
  
-
-// Route::get('register', 'RegisterController@index')->name('register');
-// Route::post('register', 'RegisterController@store');
-
-// Route::get('login', 'LoginController@index')->name('login');
-// Route::post('login', 'LoginController@store');
-
-
 Route::get('/api/restaurant', 'RestaurantController@ajaxcall');
 Route::get('/api/food', 'FoodsController@ajaxcall');
