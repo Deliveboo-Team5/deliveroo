@@ -98,7 +98,8 @@ var app = new Vue({
   data: {
     restaurants: [],
     categories: [],
-    activeCategory: ''
+    activeCategory: '',
+    searchByName: ''
   },
   mounted: function mounted() {
     var _this = this;
@@ -127,6 +128,17 @@ var app = new Vue({
           return restaurant.category_id.includes(_this2.activeCategory);
         });
       }
+    },
+    filterByName: function filterByName() {
+      var _this3 = this;
+
+      if (this.searchByName == '') {
+        return this.filterRestaurant();
+      } else {
+        return this.restaurants.filter(function (restaurant) {
+          return restaurant.name_restaurant.toLowerCase().includes(_this3.searchByName.toLowerCase());
+        });
+      }
     }
   }
 });
@@ -140,7 +152,7 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\deliveroo\resources\js\script.js */"./resources/js/script.js");
+module.exports = __webpack_require__(/*! C:\Users\Rinal\Desktop\Boolean\Proj\deliveroo\resources\js\script.js */"./resources/js/script.js");
 
 
 /***/ })

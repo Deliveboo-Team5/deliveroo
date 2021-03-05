@@ -1,6 +1,5 @@
 @extends('my_layouts.deliveboo')
 @section('content')
-<div id="root">
     <div class="container">
         <h3>Categorie</h3>
         <div class="row">
@@ -16,7 +15,7 @@
         <h3>Ristoranti</h3>
         <div class="row">
             {{-- @foreach ($restaurants as $restaurant) --}}
-                <div class="col" v-for="restaurant in filterRestaurant()">
+                <div class="col" v-for="restaurant in filterByName()">
                     <a :href="'restaurant/' + restaurant.id"  class="card restaurant">
                         <img class="card-img-top" :src="restaurant.img" alt="Restaurant picture">
                         <div class="card-body">
@@ -36,5 +35,4 @@
                 
         </div>
     </div>
-</div>
 @endsection

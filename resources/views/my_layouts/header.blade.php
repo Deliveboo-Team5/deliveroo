@@ -4,7 +4,7 @@
             <div class="container-fluid">
                 <div class="container d-flex justify-content-between align-items-center">
                     <a class="navbar-brand d-flex" href="{{asset('/')}}"><img class=""src="{{asset('img/deliveroo-logo.png')}}" alt="deliveroo_logo"></a>
-                    <input class="form-control me-2 nav-form" type="search" placeholder="Cerca il ristorante..." aria-label="Search">
+                    <input class="form-control me-2 nav-form" type="search" placeholder="Cerca il ristorante..." aria-label="Search" v-model="searchByName">
                     <div class="nav_btn">
                         <!-- Authentication Links -->
                         @guest

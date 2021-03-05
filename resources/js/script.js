@@ -4,6 +4,7 @@ const app = new Vue({
         restaurants: [],
         categories: [],
         activeCategory: '',
+        searchByName: '',
     },
     mounted() {
         axios
@@ -28,6 +29,13 @@ const app = new Vue({
                 return this.restaurants;
             } else {
                 return this.restaurants.filter(restaurant => restaurant.category_id.includes(this.activeCategory));
+            }
+        },
+        filterByName(){
+            if(this.searchByName == ''){
+                return this.filterRestaurant();
+            }else{
+                return this.restaurants.filter(restaurant => restaurant.name_restaurant.toLowerCase().includes(this.searchByName.toLowerCase()));
             }
         }
     },

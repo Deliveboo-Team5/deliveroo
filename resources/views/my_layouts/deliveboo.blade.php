@@ -26,14 +26,16 @@
 
 </head>
 <body>
-    @include('my_layouts.header')
-    {{-- main --}}
-    <main>
-        
-            @yield('content')
-    </main>
-
-    @include('my_layouts.footer')
+    <div id="root">
+        @include('my_layouts.header')
+        {{-- main --}}
+        <main>
+            
+                @yield('content')
+        </main>
+    
+        @include('my_layouts.footer')
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/script.js') }}"></script>
