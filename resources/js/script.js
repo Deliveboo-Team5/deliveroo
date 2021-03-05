@@ -3,6 +3,8 @@ const app = new Vue({
     data: {
         restaurants: [],
         categories: [],
+        foods: [],
+        cart: [],
         activeCategory: '',
         searchByName: '',
     },
@@ -12,7 +14,12 @@ const app = new Vue({
             .then(r => {
                 this.restaurants = r.data.data.restaurants;
                 this.categories = r.data.data.categories;
-            });
+            })   
+        axios
+            .get('http://localhost:8000/api/food')
+            .then(result => {
+                this.foods = result.data.data.food;
+            })
     },
     // watch: {
     //     activeCategory(){ 
@@ -37,6 +44,14 @@ const app = new Vue({
             }else{
                 return this.restaurants.filter(restaurant => restaurant.name_restaurant.toLowerCase().includes(this.searchByName.toLowerCase()));
             }
+        },
+        addToCart(element){
+            console.log(element);
+            this.foods.forEach(food => {
+                if(food.id == element){
+                    this.cart.push(food)
+                }            
+            });
         }
     },
-})
+});

@@ -103,4 +103,19 @@ class FoodsController extends Controller
       $food->delete();
       return redirec(route('foods.index'));
     }
+
+
+    public function ajaxcall(Request $request){
+
+      $foods = Food::all();
+
+      return response()->json([
+          'data' => [
+            'food' => $foods
+          ]
+      ]);
+    }
 }
+
+
+

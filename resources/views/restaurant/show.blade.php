@@ -25,7 +25,7 @@
 
                 @foreach ($restaurant->getFood as $restFood)
                 <div class="col-6">
-                    <div class="card food">
+                    <div class="card food" value="{{$restFood->id}}" v-on:click="addToCart({{$restFood->id}})">
                         <h5>{{$restFood->name_food}}</h5>
                         <p>{{$restFood->ingredients}}</p>
                         <div class="price">{{$restFood->price}}€</div>
@@ -36,6 +36,12 @@
                     
             <div class="col-4">
                 <h1 class="text-center">Carrello</h1>
+                <ul class="list-unstyled">
+                    <div v-for="element in cart">
+                        <li id="name">@{{element.name_food}}</li>
+                        <label for="name">@{{element.price}}</label>
+                    </div>
+                </ul>
             </div>
         </div>
     </div>

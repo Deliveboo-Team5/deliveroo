@@ -98,6 +98,8 @@ var app = new Vue({
   data: {
     restaurants: [],
     categories: [],
+    foods: [],
+    cart: [],
     activeCategory: '',
     searchByName: ''
   },
@@ -107,6 +109,9 @@ var app = new Vue({
     axios.get('http://localhost:8000/api/restaurant').then(function (r) {
       _this.restaurants = r.data.data.restaurants;
       _this.categories = r.data.data.categories;
+    });
+    axios.get('http://localhost:8000/api/food').then(function (result) {
+      _this.foods = result.data.data.food;
     });
   },
   // watch: {
@@ -139,6 +144,16 @@ var app = new Vue({
           return restaurant.name_restaurant.toLowerCase().includes(_this3.searchByName.toLowerCase());
         });
       }
+    },
+    addToCart: function addToCart(element) {
+      var _this4 = this;
+
+      console.log(element);
+      this.foods.forEach(function (food) {
+        if (food.id == element) {
+          _this4.cart.push(food);
+        }
+      });
     }
   }
 });

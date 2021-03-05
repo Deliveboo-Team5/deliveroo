@@ -52,3 +52,4 @@ Route::resource('restaurant', 'RestaurantController')->names([
 
 
 Route::get('/api/restaurant', 'RestaurantController@ajaxcall');
+Route::get('/api/food', 'FoodsController@ajaxcall');
