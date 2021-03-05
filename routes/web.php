@@ -23,7 +23,7 @@ Route::get('/', function () {
 
 
 
-Route::get('overview', 'OverviewController@index');
+Route::get('overview', 'OverviewController@index')->name('overview');
 
 Route::get('my_orders', 'OrdersController@index');
 

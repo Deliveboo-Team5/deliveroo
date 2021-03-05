@@ -8,6 +8,9 @@ use App\Restaurant;
 use App\Food;
 use App\Category;
 use App\Order;
+use Illuminate\Support\Facades\Validator;
+use App\Http\Requests\RestaurantFormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class RestaurantController extends Controller
 {
@@ -33,7 +36,7 @@ class RestaurantController extends Controller
      */
     public function create()
     {
-        //
+      return view('restaurant.create');
     }
 
     /**
@@ -42,9 +45,24 @@ class RestaurantController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RestaurantFormRequest $request)
     {
-        //
+
+        $validated = $request->validated();
+    
+        
+        Restaurant::firstOrCreate([
+            'name_restaurant' => $validated['name_restaurant'],
+            'img' => $validated['img'],
+            'address' => $validated['address'],
+            'phone' => $validated['phone'],
+            'VAT' => $validated['VAT'],
+            'user_id' => Auth::user()->id
+        ]);
+       
+        
+        return redirect(route('overview'));
+    
     }
 
     /**
