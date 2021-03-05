@@ -114,14 +114,22 @@ class RestaurantController extends Controller
     public function ajaxcall(Request $request){
 
         $restaurants = Restaurant::all();
-        
+        $categories = Category::all();
 
         foreach($restaurants as $restaurant){
-            $restaurant->getCategory;
+            $restaurant->category_id = [];
+            $restaurant_categories = [];
+            foreach($restaurant->getCategory as $category){
+            array_push($restaurant_categories, $category->id);
+            }
+            $restaurant->category_id = $restaurant_categories;
         }
 
         return response()->json([
-            'data' => $restaurants,
+            'data' => [
+                'restaurants' => $restaurants,
+                'categories' => $categories,
+            ],
         ]);
     }
 }

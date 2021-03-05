@@ -11629,6 +11629,7 @@ body {
 
 a {
   color: inherit;
+  text-decoration: none;
 }
 
 main {
@@ -11786,6 +11787,11 @@ footer .footer-data .credits span {
   position: relative;
 }
 
+.category-container .category:hover {
+  cursor: pointer;
+  box-shadow: 5px 5px 5px grey;
+}
+
 .category-container .category .category-name {
   position: absolute;
   bottom: 0;
@@ -11802,7 +11808,8 @@ footer .footer-data .credits span {
 .restaurant:hover {
   color: inherit;
   text-decoration: none;
-  border: 4px solid #00ccbc;
+  border: 2px solid #00ccbc;
+  box-shadow: 5px 5px 5px grey;
 }
 
 img.img-restaurant {

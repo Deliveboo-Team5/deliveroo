@@ -97,19 +97,36 @@ var app = new Vue({
   el: '#root',
   data: {
     restaurants: [],
-    filteredRestaurants: [],
+    categories: [],
     activeCategory: ''
   },
   mounted: function mounted() {
     var _this = this;
 
     axios.get('http://localhost:8000/api/restaurant').then(function (r) {
-      _this.restaurants = r.data;
+      _this.restaurants = r.data.data.restaurants;
+      _this.categories = r.data.data.categories;
     });
   },
+  // watch: {
+  //     activeCategory(){ 
+  //         this.filterRestaurant();
+  //     },
+  // },
   methods: {
-    filterRestaurant: function filterRestaurant(category) {
-      this.activeCategory = category; // this.restaurants
+    selectCategory: function selectCategory(element) {
+      this.activeCategory = element;
+    },
+    filterRestaurant: function filterRestaurant(element) {
+      var _this2 = this;
+
+      if (this.activeCategory == '') {
+        return this.restaurants;
+      } else {
+        return this.restaurants.filter(function (restaurant) {
+          return restaurant.category_id.includes(_this2.activeCategory);
+        });
+      }
     }
   }
 });
