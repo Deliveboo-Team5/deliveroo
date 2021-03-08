@@ -7,6 +7,7 @@ const app = new Vue({
         cart: [],
         activeCategory: '',
         searchByName: '',
+        totalPrice: 0
     },
     mounted() {
         axios
@@ -50,8 +51,12 @@ const app = new Vue({
             this.foods.forEach(food => {
                 if(food.id == element){
                     this.cart.push(food)
+                    this.totalPrice += food.price
                 }            
             });
-        }
+        },
+
+
+
     },
 });

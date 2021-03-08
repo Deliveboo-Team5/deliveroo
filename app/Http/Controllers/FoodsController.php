@@ -8,7 +8,7 @@ use App\Restaurant;
 use App\Food;
 use App\Category;
 use App\Order;
-use App\Http\Controllers\Auth;
+use Illuminate\Support\Facades\Auth;
 
 class FoodsController extends Controller
 {
@@ -19,7 +19,8 @@ class FoodsController extends Controller
      */
     public function index()
     {
-      $foods = Food::where('restaurant_id', '34')->get();
+      $restaurant = Auth::User()->getRestaurant->id;
+      $foods = Food::where('restaurant_id', $restaurant)->get();
       return view('dashboard.foods.index', compact('foods'));
     }
 
@@ -41,12 +42,13 @@ class FoodsController extends Controller
      */
     public function store(Request $request, Food $food)
     {
+      $restaurant = Auth::User()->getRestaurant->id;
       $newFood = Food::firstOrCreate([
         'name_food' => $request['name_food'],
         'price' => $request['price'],
         'ingredients' => $request['ingredients'],
         'is_visible' => $request['is_visible'],
-        'restaurant_id' => 34
+        'restaurant_id' => $restaurant
       ]);
       return redirect(route('foods.index'));
     }

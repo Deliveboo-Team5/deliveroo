@@ -41,8 +41,12 @@
                         <li id="name">@{{element.name_food}}</li>
                         <label for="name">@{{element.price}}</label>
                     </div>
+
+                     <li>totale: @{{totalPrice}}</li>
                 </ul>
+                <button>paga subito</button>
             </div>
+            
         </div>
     </div>
 @endsection

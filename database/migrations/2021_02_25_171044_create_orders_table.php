@@ -21,15 +21,18 @@ class CreateOrdersTable extends Migration
             $table->double('total_price', 10, 2);
             $table->dateTime('delivery_time');
             $table->timestamps();
+            $table->unsignedBigInteger('restaurant_id');
+            $table->foreign('restaurant_id')->references('id')->on('restaurants');
         });
         Schema::create('order_food', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id'); 
             $table->tinyInteger('quantity');
             $table->unsignedBigInteger('order_id');
             $table->unsignedBigInteger('food_id');
             $table->foreign('order_id')->references('id')->on('orders');
             $table->foreign('food_id')->references('id')->on('foods');
         });
+        
     }
 
     /**

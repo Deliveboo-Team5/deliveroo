@@ -101,7 +101,8 @@ var app = new Vue({
     foods: [],
     cart: [],
     activeCategory: '',
-    searchByName: ''
+    searchByName: '',
+    totalPrice: 0
   },
   mounted: function mounted() {
     var _this = this;
@@ -152,6 +153,8 @@ var app = new Vue({
       this.foods.forEach(function (food) {
         if (food.id == element) {
           _this4.cart.push(food);
+
+          _this4.totalPrice += food.price;
         }
       });
     }
@@ -167,7 +170,7 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Rinal\Desktop\Boolean\Proj\deliveroo\resources\js\script.js */"./resources/js/script.js");
+module.exports = __webpack_require__(/*! /Users/marcosimonefontaine/Desktop/boolean/esercizi-boolean/deliveboo/resources/js/script.js */"./resources/js/script.js");
 
 
 /***/ })

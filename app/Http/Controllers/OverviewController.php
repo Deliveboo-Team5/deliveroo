@@ -10,24 +10,23 @@ use App\Category;
 use App\Order;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+
 
 class OverviewController extends Controller
 {
     public function index()
     {
-        // $food = Food::where('restaurant_id', 34);
-        // dd($food);
-        // $filter_food = array_filter($food, function(){
-        //     return $food->getOrder->created_at = Carbon::today();  
-        // });
+        $restaurant = Auth::User()->getRestaurant->id;
+       
         $data = [
-            'day_order' => Order::where('created_at', '=', Carbon::today())->count(),
-            'total_order' => Order::all()->count(),
-            'total_customer' => Order::all()->groupBy('name_customer')->count(),
-            'total_earnings' => DB::table('orders')->sum('total_price'),
-            'daily_earnings' => Order::where('created_at', '=', Carbon::today())->sum('total_price')
+            'day_order' => Order::where('restaurant_id',$restaurant)->where('created_at', '=', Carbon::today())->count(),
+            'total_order' => Order::where('restaurant_id',$restaurant)->count(),
+            'total_customer' => Order::where('restaurant_id',$restaurant)->groupBy('name_customer')->count(),
+            'total_earnings' => DB::table('orders')->where('restaurant_id',$restaurant)->sum('total_price'),
+            'daily_earnings' => Order::where('restaurant_id',$restaurant)->where('created_at', '=', Carbon::today())->sum('total_price')
             ];
-        // dd($data);
+       
         return view('dashboard.overview', compact('data'));
     }
 }
