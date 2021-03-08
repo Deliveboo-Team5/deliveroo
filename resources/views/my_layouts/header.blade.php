@@ -9,18 +9,21 @@
                         <!-- Authentication Links -->
                         @guest
                             <a class="btn-light btn" href="{{ route('login') }}">
-                                <i class="fas fa-user"></i>{{ __('Login') }}
+                                <i class="fas fa-user"></i> &#32; Login
                             </a>
-                         @if (Route::has('register'))
-                            <a class="btn-light btn btn-price" href="{{ route('register') }}">
-                                <i class="fas fa-sign-in-alt"></i>{{ __('Register') }}
+                        @if (Route::has('register'))
+                            <a class="btn-light btn" href="{{ route('register') }}">
+                                <i class="fas fa-sign-in-alt"></i> &#32; Sign in
                             </a>
                         @endif
                         @else
                             <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                 <span>Benvenuto {{ Auth::user()->name }}</span>
+                                <a class="btn-light btn" href="{{ route('overview') }}">
+                                    Dashboard
+                                </a>
                                 @csrf
-                                <button type="submit" class="btn-light btn">logout</button>
+                                <button type="submit" class="btn-light btn">Logout</button>
                             </form> 
                         @endguest
                     </div>

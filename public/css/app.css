@@ -11642,10 +11642,6 @@ main {
   min-height: calc(100vh - 70px);
 }
 
-button {
-  margin-bottom: 1rem;
-}
-
 .btn-primary {
   background-color: #00ccbc;
   color: #fff;
@@ -11928,12 +11924,14 @@ nav input {
   width: 45% !important;
 }
 
-nav a {
+nav a,
+nav button {
   padding: 6px 12px;
   height: 40px;
 }
 
-nav a i {
+nav a i,
+nav button i {
   color: #00ccbc;
 }
 

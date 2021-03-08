@@ -27,7 +27,6 @@ class OverviewController extends Controller
             'total_earnings' => DB::table('orders')->where('restaurant_id',$restaurant)->sum('total_price'),
             'daily_earnings' => Order::where('restaurant_id',$restaurant)->where('created_at', '=', Carbon::today())->sum('total_price')
             ];
-            dd($data);
 
 
         return view('dashboard.overview', compact('data'));
