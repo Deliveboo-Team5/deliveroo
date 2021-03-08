@@ -74,3 +74,29 @@ img.img-restaurant {
         margin-right: 0.5rem;
     }
 }
+
+//CREATE
+.title-create{
+    color: $primary-color;
+}
+
+.create-rest{
+    label{
+        margin: 5px 0;
+    }
+}
+
+.category-check{
+    legend{
+        color: $primary-color;
+    }
+    label{
+        margin: 0 5px;
+    }
+    button{
+        color: $secondary-color;
+        margin: 10px;
+    }
+}
+
+
