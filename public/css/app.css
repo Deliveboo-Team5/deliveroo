@@ -11858,6 +11858,27 @@ img.img-restaurant {
   margin-right: 0.5rem;
 }
 
+.title-create {
+  color: #00ccbc;
+}
+
+.create-rest label {
+  margin: 5px 0;
+}
+
+.category-check legend {
+  color: #00ccbc;
+}
+
+.category-check label {
+  margin: 0 5px;
+}
+
+.category-check button {
+  color: #fff;
+  margin: 10px;
+}
+
 nav {
   height: 70px;
   background-color: #fff;

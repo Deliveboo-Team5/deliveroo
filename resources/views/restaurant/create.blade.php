@@ -1,57 +1,37 @@
 @extends('my_layouts.deliveboo')
 @section('content')
+<div class="d-flex flex-column align-items-center title-create">
+    <h1>Utente Registrato!</h1>
+    <h1>Ora registra il tuo ristorante.</h1>
+</div>
 <form method="POST" action="{{route('restaurant.store')}}" enctype="multipart/form-data">
     @csrf
-    <div class="form-group row">
-        <label for="name_restaurant" class="col-md-4 col-form-label text-md-right">name_restaurant</label>
-
-        <div class="col-md-6">
-            <input id="name_restaurant" type="text" class="form-control" name="name_restaurant">
-
+    <div class="d-flex justify-content-center create-rest">
+        <div>    
+                <label for="name_restaurant">Nome</label>
+                <input id="name_restaurant" type="text" class="form-control" name="name_restaurant">
+                <label for="img" class="">Carica un immagine di presentazione:</label>
+                <input id="img" type="file" class="form-control" name="img">
+                <label for="phone" class="">Numero di telefono</label>
+                <input id="phone" type="text" class="form-control" name="phone">
+                <label for="address" class="">Indirizzo</label>
+                <input id="address" type="text" class="form-control" name="address">
+                <label for="VAT" class="">La tua Partita IVA</label>
+                <input id="VAT" type="text" class="form-control" name="VAT">
         </div>
     </div>
-    <div class="form-group row">
-        <label for="img" class="col-md-4 col-form-label text-md-right">img</label>
-
-        <div class="col-md-6">
-            <input id="img" type="file" class="form-control" name="img">
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="phone" class="col-md-4 col-form-label text-md-right">phone</label>
-
-        <div class="col-md-6">
-            <input id="phone" type="text" class="form-control" name="phone">
-
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="address" class="col-md-4 col-form-label text-md-right">address</label>
-
-        <div class="col-md-6">
-            <input id="address" type="text" class="form-control" name="address">
-
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="VAT" class="col-md-4 col-form-label text-md-right">VAT</label>
-
-        <div class="col-md-6">
-            <input id="VAT" type="text" class="form-control" name="VAT">
-
-        </div>
-    </div>
-    <fieldset>
-        <legend>scegli le categorie del tuo ristorante</legend>
+    <div class="text-center category-check">
+        <legend>In quale categoria ricade il tuo ristorante?</legend>
+        <div class="d-flex justify-content-center">
         @foreach ($categories as $category)
         <div>
             <input type="checkbox" id="coding" name="category[]" value="{{$category->id}}">
             <label for="coding"> {{$category->name_category}}</label>
         </div>
-            
         @endforeach
-    </fieldset>
-    <button type="submit">clik me</button>
+        </div>
+        <button class="btn btn-primary" type="submit">Registra Ristorante</button>
+    </div>
 </form>
     
 @endsection
