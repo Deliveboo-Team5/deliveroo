@@ -46,21 +46,20 @@ class FoodsController extends Controller
       $restaurant = Auth::User()->getRestaurant->id;
 
       $validated = $request->validated();
-
       $image ='';
         if($request->img){
         $image =  $validated['img'];
         }else{
-          $image = 'https://upload.wikimedia.org/wikipedia/commons/a/a3/Eq_it-na_pizza-margherita_sep2005_sml.jpg';
+          $image = "https://upload.wikimedia.org/wikipedia/commons/a/a3/Eq_it-na_pizza-margherita_sep2005_sml.jpg";
         }
-
+      
       $newFood = Food::firstOrCreate([
         'name_food' => $validated['name_food'],
+        'img' => $image,
         'price' => $validated['price'],
         'ingredients' => $validated['ingredients'],
         'is_visible' => $validated['is_visible'],
-        'restaurant_id' => $restaurant,
-        'img' => $image,
+        'restaurant_id' => $restaurant
       ]);
       return redirect(route('foods.index'));
     }
