@@ -8,7 +8,7 @@ use Faker\Generator as Faker;
 $factory->define(Category::class, function (Faker $faker) {
     return [
         'name_category' => $faker->word(),
-        'img' => 'https://www.novarellovillaggioazzurro.com/wp-content/uploads/2018/05/ristorante-servizio-1140x665.jpg',
+        'img' => 'https://www.sushi-sushi.it/pub/media/magefan_blog/71306801_2447430058627610_6104279736102420480_n.jpg',
 
     ];
 });

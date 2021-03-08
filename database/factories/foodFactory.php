@@ -12,6 +12,6 @@ $factory->define(Food::class, function (Faker $faker) {
         'ingredients' => $faker->sentence($nbWords = 10, $variableNbWords = true),
         'restaurant_id' => $faker->numberBetween($min = 1, $max = 50),
         'is_visible' => $faker->boolean($chanceOfGettingTrue = 100),
-        'img' => 'https://www.novarellovillaggioazzurro.com/wp-content/uploads/2018/05/ristorante-servizio-1140x665.jpg'
+        'img' => "https://upload.wikimedia.org/wikipedia/commons/a/a3/Eq_it-na_pizza-margherita_sep2005_sml.jpg"
     ];
 });
