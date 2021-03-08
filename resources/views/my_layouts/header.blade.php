@@ -1,6 +1,6 @@
  {{-- header --}}
     <header>
-        <nav class="navbar navbar-light">
+        <nav class="navbar navbar-light fixed-top">
             <div class="container-fluid">
                 <div class="container d-flex justify-content-between align-items-center">
                     <a class="navbar-brand d-flex" href="{{asset('/')}}"><img class=""src="{{asset('img/deliveroo-logo.png')}}" alt="deliveroo_logo"></a>

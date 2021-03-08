@@ -40,6 +40,7 @@ const app = new Vue({
             }else{
                 return this.restaurants.filter(restaurant => restaurant.name_restaurant.toLowerCase().includes(this.searchByName.toLowerCase()));
             }
+            
         },
         addToCart(element){
             this.foods.forEach(food => {

@@ -23,11 +23,8 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-
-        
-      
-       
-        return view( 'restaurant.index');
+        $category = Category::all();
+        return view( 'restaurant.index', compact('category'));
 
     }
 
@@ -39,7 +36,7 @@ class RestaurantController extends Controller
     public function create()
     {
         $categories = Category::all();
-      return view('restaurant.create', compact('categories'));
+        return view('restaurant.create', compact('categories'));
     }
 
     /**

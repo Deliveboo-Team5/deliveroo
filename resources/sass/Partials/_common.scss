@@ -1,6 +1,11 @@
+@import '_variables';
+
 body{
     font-family: 'PT Sans', 'FontAwesome 5 free', sans-serif;
     ;
+}
+main{
+    padding-top: 70px !important;
 }
 
 .p-relative{
@@ -17,11 +22,21 @@ a {
 }
 
 main {
-    padding-top: 2rem; 
+    padding-top: 2rem;
     padding-bottom: 2rem;
     min-height: calc(100vh - 70px);
 }
 
 button {
     margin-bottom: 1rem;
+}
+
+.btn-primary{
+  background-color: $primary-color;
+  color: $secondary-color;
+
+  &:hover{
+    background-color: $primary-color-lighter;
+    color: $secondary-color-oposite;
+  }
 }
