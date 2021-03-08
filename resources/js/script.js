@@ -22,11 +22,6 @@ const app = new Vue({
                 this.foods = result.data.data.food;
             })
     },
-    // watch: {
-    //     activeCategory(){ 
-    //         this.filterRestaurant();
-    //     },
-    // },
     methods: {
         selectCategory(element){
             this.activeCategory = element;
@@ -47,16 +42,23 @@ const app = new Vue({
             }
         },
         addToCart(element){
-            console.log(element);
             this.foods.forEach(food => {
+                food.quantity = 1;
                 if(food.id == element){
                     this.cart.push(food)
-                    this.totalPrice += food.price
                 }            
-            });
+            })          
         },
-
-
-
-    },
+        removeFromCart(index, price, itemQuantity){
+            this.cart.splice(index, 1);
+        },
+        refreshTotal(){
+            this.totalPrice = 0;
+            this.cart.forEach(food => {
+                food.totalPrice = food.quantity*food.price;
+                this.totalPrice += food.totalPrice;
+            })
+            this.totalPrice = (Math.round(this.totalPrice * 100) / 100).toFixed(2);
+        }
+    }
 });

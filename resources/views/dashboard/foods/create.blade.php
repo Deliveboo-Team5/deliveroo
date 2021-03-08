@@ -18,7 +18,7 @@
         <div class="col card ">
           <div class="d-flex flex-column">
             <div class="order-details">
-              <form class="d-flex flex-column" action="{{route('foods.store')}}" method="post">
+              <form class="d-flex flex-column" action="{{route('foods.store')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('POST')
                 <div class="mb-3">
@@ -28,6 +28,10 @@
                 <div class="mb-3">
                   <label for="food_description" class="form-label">Descrizione:</label>
                   <textarea name="ingredients" class="form-control" id="food_description"></textarea>
+                </div>
+                <div class="mb-3">
+                  <label for="img" class="form-label">img</label>
+                  <input id="img" type="file" class="form-control" name="img">
                 </div>
                 <div class="mb-3">
                   <label for="price" class="form-label">Price €:</label>

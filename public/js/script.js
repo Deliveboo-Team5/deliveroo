@@ -115,11 +115,6 @@ var app = new Vue({
       _this.foods = result.data.data.food;
     });
   },
-  // watch: {
-  //     activeCategory(){ 
-  //         this.filterRestaurant();
-  //     },
-  // },
   methods: {
     selectCategory: function selectCategory(element) {
       this.activeCategory = element;
@@ -149,14 +144,26 @@ var app = new Vue({
     addToCart: function addToCart(element) {
       var _this4 = this;
 
-      console.log(element);
       this.foods.forEach(function (food) {
+        food.quantity = 1;
+
         if (food.id == element) {
           _this4.cart.push(food);
-
-          _this4.totalPrice += food.price;
         }
       });
+    },
+    removeFromCart: function removeFromCart(index, price, itemQuantity) {
+      this.cart.splice(index, 1);
+    },
+    refreshTotal: function refreshTotal() {
+      var _this5 = this;
+
+      this.totalPrice = 0;
+      this.cart.forEach(function (food) {
+        food.totalPrice = food.quantity * food.price;
+        _this5.totalPrice += food.totalPrice;
+      });
+      this.totalPrice = (Math.round(this.totalPrice * 100) / 100).toFixed(2);
     }
   }
 });
@@ -170,7 +177,7 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/marcosimonefontaine/Desktop/boolean/esercizi-boolean/deliveboo/resources/js/script.js */"./resources/js/script.js");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\deliveroo\resources\js\script.js */"./resources/js/script.js");
 
 
 /***/ })

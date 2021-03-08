@@ -9,6 +9,7 @@ use App\Food;
 use App\Category;
 use App\Order;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\FoodRequest;
 
 class FoodsController extends Controller
 {
@@ -40,15 +41,26 @@ class FoodsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Food $food)
+    public function store(FoodRequest $request)
     {
       $restaurant = Auth::User()->getRestaurant->id;
+
+      $validated = $request->validated();
+
+      $image ='';
+        if($request->img){
+        $image =  $validated['img'];
+        }else{
+          $image = 'https://upload.wikimedia.org/wikipedia/commons/a/a3/Eq_it-na_pizza-margherita_sep2005_sml.jpg';
+        }
+
       $newFood = Food::firstOrCreate([
-        'name_food' => $request['name_food'],
-        'price' => $request['price'],
-        'ingredients' => $request['ingredients'],
-        'is_visible' => $request['is_visible'],
-        'restaurant_id' => $restaurant
+        'name_food' => $validated['name_food'],
+        'price' => $validated['price'],
+        'ingredients' => $validated['ingredients'],
+        'is_visible' => $validated['is_visible'],
+        'restaurant_id' => $restaurant,
+        'img' => $image,
       ]);
       return redirect(route('foods.index'));
     }

@@ -53,11 +53,11 @@ class RestaurantController extends Controller
 
         $validated = $request->validated();
         $image ='';
-    if($request->img){
-      $image =  $validated['img'] ;
-    }else{
-        $image = 'https://www.novarellovillaggioazzurro.com/wp-content/uploads/2018/05/ristorante-servizio-1140x665.jpg';
-    }
+        if($request->img){
+        $image =  $validated['img'] ;
+        }else{
+            $image = 'https://www.novarellovillaggioazzurro.com/wp-content/uploads/2018/05/ristorante-servizio-1140x665.jpg';
+        }
         
         $newRestaurant = Restaurant::firstOrCreate([
             'name_restaurant' => $validated['name_restaurant'],

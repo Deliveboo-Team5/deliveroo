@@ -55,3 +55,21 @@ img.img-restaurant {
         margin-right: 0.5rem;
     }
 }
+
+
+.card.cart-element {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+
+    & .quantity-input {
+        height:25px;
+        line-height: 18px;
+        width: 50px;
+    }
+
+    & .remove {
+        cursor: pointer;
+    }
+}

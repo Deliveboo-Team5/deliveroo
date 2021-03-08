@@ -11829,6 +11829,23 @@ img.img-restaurant {
   margin-right: 0.5rem;
 }
 
+.card.cart-element {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+}
+
+.card.cart-element .quantity-input {
+  height: 25px;
+  line-height: 18px;
+  width: 50px;
+}
+
+.card.cart-element .remove {
+  cursor: pointer;
+}
+
 nav {
   height: 70px;
   background-color: #fff;
