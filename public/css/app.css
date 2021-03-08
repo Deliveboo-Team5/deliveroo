@@ -11646,6 +11646,16 @@ button {
   margin-bottom: 1rem;
 }
 
+.btn-primary {
+  background-color: #00ccbc;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #26cbce;
+  color: black;
+}
+
 .desk_dash {
   height: vh;
   max-width: 300px;
@@ -11949,5 +11959,9 @@ nav .hamburger {
     font-size: 1.3rem;
     color: #00ccbc;
   }
+}
+
+.register {
+  min-height: 600px;
 }
 
