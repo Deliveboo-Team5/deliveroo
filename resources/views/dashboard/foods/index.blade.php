@@ -6,11 +6,11 @@
     @include('dashboard.sidebar')
 
   {{-- right block --}}
-    <div class="col-11 col-lg-9">
+    <div class="col-10">
 
-      <div class="row orders-list d-flex flex-column">
+      <div class="row menu-list d-flex flex-column">
         <h3>Menu</h3>
-        <div class="d-flex">
+        <div class="d-flex menu-create">
           <button type="button" class="btn btn-primary"><a href="{{route('foods.create')}}">Aggiungi un piatto</a></button>
         </div>
 

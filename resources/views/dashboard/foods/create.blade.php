@@ -6,7 +6,7 @@
     @include('dashboard.sidebar')
 
   {{-- right block --}}
-    <div class="col-11 col-lg-9">
+    <div class="col-10">
 
       <div class="row orders-list d-flex flex-column">
         <h3>Menu</h3>
@@ -15,7 +15,7 @@
         </div>
 
         {{-- create form --}}
-        <div class="col card ">
+        <div class="col card d-flex justify-content-center">
           <div class="d-flex flex-column">
             <div class="order-details">
               <form class="d-flex flex-column" action="{{route('foods.store')}}" method="POST" enctype="multipart/form-data">
@@ -37,15 +37,17 @@
                   <label for="price" class="form-label">Price €:</label>
                   <input name="price" type="text" class="form-control" id="price">
                 </div>
-                <div class="mb-3">
+                <div class="mb-3 d-flex is_visible">
                   <label for="is_visible" class="form-label">Is Visibile:</label>
                   <input type="radio" id="si" name="is_visible" value="1">
                   <label for="si">SI</label><br>
                   <input type="radio" id="no" name="is_visible" value="0">
                   <label for="no">NO</label><br>
                 </div>
+                <div>
+                  <button type="submit" class="btn btn-primary">Conferma</button>
+                </div>
 
-                <button type="submit" class="btn btn-primary">Conferma</button>
               </form>
             </div>
           </div>

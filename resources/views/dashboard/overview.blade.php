@@ -5,7 +5,7 @@
   <!-- left menu -->
     @include('dashboard.sidebar')
 
-    <div class="col-11 col-lg-9 dashboard-main">
+    <div class="col-10 dashboard-main">
 
       <!-- orders received -->
       <div class="row dashboard d-flex flex-column">

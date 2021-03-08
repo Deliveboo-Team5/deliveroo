@@ -11657,27 +11657,32 @@ main {
   background-color: #1a8a8c;
 }
 
+.btn-primary:visited {
+  background-color: #1a8a8c;
+}
+
 .desk_dash {
-  height: vh;
+  height: 100vh;
   max-width: 300px;
-  background-color: #F5F7FA;
 }
 
 .desk_dash ul {
-  position: fixed;
-  top: 70px;
-  left: 20px;
+  position: -webkit-sticky;
+  /* Safari */
+  position: sticky;
+  top: 115px;
 }
 
 .mob_dash {
-  height: vh;
+  height: 100vh;
   width: 50px;
 }
 
 .mob_dash ul {
-  position: fixed;
-  top: 60px;
-  left: 20px;
+  position: -webkit-sticky;
+  /* Safari */
+  position: sticky;
+  top: 115px;
 }
 
 .dashboard .card {
@@ -11695,7 +11700,8 @@ main {
 
 .orders-list,
 .menu-list {
-  margin-left: 5px;
+  margin: 20px 0;
+  padding: 30px;
 }
 
 .orders-list h3,
@@ -11713,8 +11719,27 @@ main {
 
 .orders-list .card,
 .menu-list .card {
-  padding-top: 4px;
+  padding: 30px 0;
   width: 100%;
+  min-width: 400px;
+}
+
+.orders-list input,
+.orders-list textarea,
+.menu-list input,
+.menu-list textarea {
+  width: 90%;
+}
+
+.orders-list .is_visible *,
+.menu-list .is_visible * {
+  width: auto;
+  margin-right: 10px;
+}
+
+.orders-list .col,
+.menu-list .col {
+  margin-top: 20px;
 }
 
 .orders-list .card-body ul li:not(:last-child)::after,
@@ -11722,8 +11747,26 @@ main {
   content: " | ";
 }
 
+.menu-create {
+  margin-bottom: 20px;
+}
+
 .order-details {
   margin-left: 50px;
+  padding: 0;
+}
+
+.order-details .card-body {
+  padding: 0 1rem;
+}
+
+.order-details .card-body button {
+  margin-left: 10px;
+}
+
+.order-details ul,
+.order-details form {
+  margin-top: 30px;
 }
 
 footer {
@@ -11788,7 +11831,7 @@ footer .footer-data .credits span {
 }
 
 .jumbotron {
-  background-color: #00ccbc;
+  background: linear-gradient(to bottom right, #00ccbc 50%, #c6e795 50%);
   max-height: 600px;
   padding-bottom: 20px;
   margin-bottom: 40px;
@@ -11818,6 +11861,7 @@ footer .footer-data .credits span {
   display: flex;
   flex-wrap: nowrap;
   overflow-x: scroll;
+  scrollbar-width: none;
   -ms-overflow-style: none;
 }
 
@@ -11826,8 +11870,8 @@ footer .footer-data .credits span {
 }
 
 .category-container .category {
-  flex: 0 0 275px;
-  height: 10rem;
+  flex: 0 0 300px;
+  height: 11rem;
   margin: 1rem 2rem 1rem 0;
   background-size: 100% 100%;
   position: relative;
@@ -11843,11 +11887,13 @@ footer .footer-data .credits span {
   left: 0;
   margin-left: 0.5rem;
   color: #fff;
+  font-size: 2rem;
   font-weight: bold;
+  text-shadow: 0 0 5px black;
 }
 
 .restaurant {
-  width: 150px;
+  width: 200px;
   height: 250px;
   margin: 0.5rem 0;
 }
@@ -11887,11 +11933,20 @@ img.img-restaurant {
 }
 
 .title-create {
+  margin-top: 30px;
   color: #00ccbc;
 }
 
 .create-rest label {
   margin: 5px 0;
+}
+
+.create-rest input {
+  width: 100%;
+}
+
+.category-check {
+  margin-top: 30px;
 }
 
 .category-check legend {

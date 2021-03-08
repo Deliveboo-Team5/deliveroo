@@ -6,7 +6,7 @@
     @include('dashboard.sidebar')
 
   {{-- right block --}}
-    <div class="col-11 col-lg-9">
+    <div class="col-10">
 
       <div class="row orders-list d-flex flex-column">
         <h3>Ordini</h3>
@@ -64,7 +64,7 @@
           {{--end open row--}}
           @endforeach
         @else
-           <h5>Il tuo ristorante non ha ancora ricevuto ordini!</h5> 
+           <h5>Il tuo ristorante non ha ancora ricevuto ordini!</h5>
         @endif
 
       </div>

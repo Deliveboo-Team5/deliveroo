@@ -40,4 +40,8 @@ main {
   &:active{
     background-color: $primary-color-darker;
   }
+
+  &:visited{
+    background-color: $primary-color-darker;
+  }
 }

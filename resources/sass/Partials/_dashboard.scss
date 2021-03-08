@@ -1,24 +1,23 @@
 .desk_dash {
-  height: vh;
+  height: 100vh;
   max-width: 300px;
-  background-color: #F5F7FA;
 
   ul{
-    position: fixed;
-    top: 70px;
-    left: 20px;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 115px;
 
   }
 }
 
 .mob_dash{
-  height: vh;
+  height: 100vh;
   width: 50px;
 
   ul{
-    position: fixed;
-    top: 60px;
-    left: 20px;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 115px;
 
   }
 }
@@ -39,7 +38,9 @@
 
 
 .orders-list, .menu-list{
-  margin-left: 5px;
+  margin: 20px 0;
+
+  padding: 30px;
 
   h3{
     margin-bottom: 20px;
@@ -51,15 +52,46 @@
   }
 
   .card{
-    padding-top: 4px;
+    padding: 30px 0;
     width: 100%;
+    min-width: 400px;
   }
+
+  input, textarea{
+    width: 90%;
+  }
+
+  .is_visible *{
+    width: auto;
+    margin-right: 10px;
+  }
+
+  .col{
+    margin-top: 20px;
+  }
+
 
   .card-body ul li:not(:last-child)::after{
     content: " | ";
   }
 }
 
+.menu-create{
+  margin-bottom: 20px;
+}
+
 .order-details{
   margin-left: 50px;
+  padding: 0;
+
+  .card-body{
+    padding: 0 1rem;
+    button{
+      margin-left: 10px;
+    }
+  }
+
+  ul, form{
+    margin-top: 30px;
+  }
 }

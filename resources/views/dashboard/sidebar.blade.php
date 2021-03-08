@@ -1,5 +1,5 @@
 <!-- larger devices version -->
-<div class="col-3 desk_dash d-none d-lg-block">
+<div class="col-2 desk_dash d-none d-lg-block">
   <ul class="nav flex-column">
     <li class="nav-item">
       <a class="nav-link active" aria-current="page" href="{{asset('overview')}}">Overview</a>
@@ -16,7 +16,7 @@
   </ul>
 </div>
 <!-- smaller devices version -->
-<div class="col-1 mob_dash d-block d-lg-none">
+<div class="col-2 mob_dash d-block d-lg-none">
   <ul class="nav flex-column">
     <li class="nav-item">
       <a class="nav-link active" aria-current="page" href="#">Overview</a>

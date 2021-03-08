@@ -1,5 +1,5 @@
 .jumbotron{
-    background-color: $primary-color;
+    background: linear-gradient(to bottom right, $primary-color 50%, $primary-color-contrast 50%);;
     max-height: 600px;
     padding-bottom: 20px;
     margin-bottom: 40px;
@@ -25,14 +25,15 @@
     display: flex;
     flex-wrap: nowrap;
     overflow-x: scroll;
+    scrollbar-width: none;
     -ms-overflow-style: none;
     &::-webkit-scrollbar{
         display: none;
     }
-    
+
     .category {
-        flex: 0 0 275px;
-        height: 10rem;
+        flex: 0 0 300px;
+        height: 11rem;
         margin: 1rem 2rem 1rem 0;
         background-size: 100% 100%;
         position: relative;
@@ -40,20 +41,22 @@
         &:hover {
             cursor: pointer;
         }
-    
+
         .category-name {
             position: absolute;
             bottom: 0;
             left: 0;
             margin-left: 0.5rem;
             color: $secondary-color;
+            font-size: 2rem;
             font-weight: bold;
+            text-shadow: 0 0 5px black;
         }
     }
 }
 
 .restaurant {
-    width: 150px;
+    width: 200px;
     height: 250px;
     margin: 0.5rem 0;
 }
@@ -94,6 +97,7 @@ img.img-restaurant {
 }
 //CREATE
 .title-create{
+    margin-top: 30px;
     color: $primary-color;
 }
 
@@ -101,9 +105,15 @@ img.img-restaurant {
     label{
         margin: 5px 0;
     }
+
+    input{
+      width: 100%
+    }
 }
 
 .category-check{
+    margin-top: 30px;
+
     legend{
         color: $primary-color;
     }
@@ -115,5 +125,3 @@ img.img-restaurant {
         margin: 10px;
     }
 }
-
-
