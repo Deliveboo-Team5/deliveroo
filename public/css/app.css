@@ -11619,6 +11619,10 @@ body {
   font-family: "PT Sans", "FontAwesome 5 free", sans-serif;
 }
 
+main {
+  padding-top: 70px !important;
+}
+
 .p-relative {
   position: relative;
 }
@@ -11772,24 +11776,54 @@ footer .footer-data .credits span {
   color: #434848;
 }
 
+.jumbotron {
+  background-color: #00ccbc;
+  max-height: 600px;
+  padding-bottom: 20px;
+  margin-bottom: 40px;
+}
+
+.jumbotron h1,
+.jumbotron .h1 {
+  color: #fff;
+}
+
+.jumbotron img {
+  max-height: 550px;
+  padding: 20px;
+}
+
+.card-select {
+  border: none;
+}
+
+.card-select:hover {
+  color: inherit;
+  text-decoration: none;
+  border: 2px solid #00ccbc;
+}
+
 .category-container {
   display: flex;
   flex-wrap: nowrap;
-  overflow-x: auto;
+  overflow-x: scroll;
+  -ms-overflow-style: none;
+}
+
+.category-container::-webkit-scrollbar {
+  display: none;
 }
 
 .category-container .category {
-  flex: 0 0 200px;
-  height: 100px;
-  margin: 1rem 0.5rem;
-  background-image: url("https://co-restaurants.roocdn.com/images/7ad71ac1a9374b26bd749b9c365f14c6eb8b28c5/shortcut/sushi-1.png?width=334.00000497698784&amp;height=176.00000262260437&amp;fit=crop&amp;bg-color=00ccbc&amp;auto=webp&amp;format=png");
+  flex: 0 0 275px;
+  height: 10rem;
+  margin: 1rem 2rem 1rem 0;
   background-size: 100% 100%;
   position: relative;
 }
 
 .category-container .category:hover {
   cursor: pointer;
-  box-shadow: 5px 5px 5px grey;
 }
 
 .category-container .category .category-name {
@@ -11797,19 +11831,14 @@ footer .footer-data .credits span {
   bottom: 0;
   left: 0;
   margin-left: 0.5rem;
+  color: #fff;
+  font-weight: bold;
 }
 
 .restaurant {
   width: 150px;
   height: 250px;
   margin: 0.5rem 0;
-}
-
-.restaurant:hover {
-  color: inherit;
-  text-decoration: none;
-  border: 2px solid #00ccbc;
-  box-shadow: 5px 5px 5px grey;
 }
 
 img.img-restaurant {
@@ -11833,6 +11862,7 @@ nav {
   height: 70px;
   background-color: #fff;
   border-bottom: 1px groove #EBEBEB;
+  display: fixed;
 }
 
 nav a img {

@@ -3,6 +3,7 @@ nav{
     height: 70px;
     background-color: $secondary-color;
     border-bottom: 1px groove $box-color;
+    display: fixed;
     a{
         img{
             height: 30px;
