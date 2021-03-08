@@ -44,13 +44,13 @@ const app = new Vue({
         },
         addToCart(element){
             this.foods.forEach(food => {
-                food.quantity = 1;
                 if(food.id == element){
-                    this.cart.push(food)
+                    food.quantity = 1;
+                    this.cart.push(food);
                 }            
             })          
         },
-        removeFromCart(index, price, itemQuantity){
+        removeFromCart(index, price){
             this.cart.splice(index, 1);
         },
         refreshTotal(){

@@ -145,14 +145,14 @@ var app = new Vue({
       var _this4 = this;
 
       this.foods.forEach(function (food) {
-        food.quantity = 1;
-
         if (food.id == element) {
+          food.quantity = 1;
+
           _this4.cart.push(food);
         }
       });
     },
-    removeFromCart: function removeFromCart(index, price, itemQuantity) {
+    removeFromCart: function removeFromCart(index, price) {
       this.cart.splice(index, 1);
     },
     refreshTotal: function refreshTotal() {

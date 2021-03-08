@@ -43,7 +43,7 @@
                             <span for="name"><strong>Prezzo: </strong>@{{element.price}}€</span>
                             <span>
                                 <strong>Quantità: </strong>
-                                <input class="quantity-input" type="number" name="quantity" id="quantity" min="1" max="10" v-model="element.quantity" v-on:change="refreshTotal">
+                                <input class="quantity-input" type="number" name="quantity" id="quantity" min="1" max="10" v-model="element.quantity" v-on:change="refreshTotal()">
                             </span>
                         </div>
                         <div class="remove" v-on:click="removeFromCart(i, element.price), refreshTotal()">
