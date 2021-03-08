@@ -11649,11 +11649,16 @@ button {
 .btn-primary {
   background-color: #00ccbc;
   color: #fff;
+  border: none;
 }
 
 .btn-primary:hover {
-  background-color: #26cbce;
+  background-color: #5fdfe1;
   color: black;
+}
+
+.btn-primary:active {
+  background-color: #1a8a8c;
 }
 
 .desk_dash {
@@ -11999,7 +12004,8 @@ nav .hamburger {
   }
 }
 
-.register {
+.register,
+.login {
   min-height: 600px;
 }
 
