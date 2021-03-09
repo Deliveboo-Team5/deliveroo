@@ -73,13 +73,14 @@
                   <label for="price" class="form-label">Price €:</label>
                   <input name="price" type="text" class="form-control" id="price" value="{{$food->price}}">
                 </div>
-                <div class="mb-3">
+                <div class="mb-3 d-flex is_visible align-items-baseline">
                   <label for="is_visible" class="form-label">Is Visibile:</label>
                   <input type="radio" id="si" name="is_visible" value="1" {{$food->is_visible ? 'checked' : ''}}>
                   <label for="si">SI</label><br>
                   <input type="radio" id="no" name="is_visible" value="0" {{!$food->is_visible ? 'checked' : ''}}>
                   <label for="no">NO</label><br>
                 </div>
+
                 <div class="card-body d-flex align-items-baseline justify-content-end">
                     <button type="submit" class="btn btn-primary">Conferma Edizione</button>
                     <button type="button" class="btn btn-danger" data-bs-toggle="collapse" data-bs-target="#collapseEdit{{$food->id}}" aria-expanded="false" aria-controls="collapseEdit{{$food->id}}">Cancela edizione</button>
