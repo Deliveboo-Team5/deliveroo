@@ -5,7 +5,7 @@ const app = new Vue({
         categories: [],
         foods: [],
         cart: [],
-        activeCategory: '',
+        activeCategory: [],
         searchByName: '',
         totalPrice: 0
     },
@@ -24,13 +24,17 @@ const app = new Vue({
     },
     methods: {
         selectCategory(element){
-            this.activeCategory = element;
+            if(!this.activeCategory.includes(element)){
+                this.activeCategory.push(element);
+            }else{
+                this.activeCategory.splice(this.activeCategory.indexOf(element), 1)
+            }
         },
         filterRestaurant(element){
-            if(this.activeCategory == ''){
+            if(this.activeCategory.length == 0){
                 return this.restaurants;
             } else {
-                return this.restaurants.filter(restaurant => restaurant.category_id.includes(this.activeCategory));
+                return this.restaurants.filter(restaurant => this.activeCategory.every(v => restaurant.category_id.includes(v)));
             }
         },
         filterByName(){

@@ -17,7 +17,7 @@
         <div class="row">
             <div class="col category-container">
                     <div class="card card-select category" v-bind:style="{backgroundImage: 'url(' + category.img +')'}"
-                    v-for="(category, i) in categories" v-on:click="selectCategory(category.id)" :value="category.id">
+                    v-for="(category, i) in categories" v-on:click="selectCategory(category.id)" :value="category.id" name="category_id[]">
                         <span class="category-name">@{{category.name_category}}</span>
                     </div>
             </div>
