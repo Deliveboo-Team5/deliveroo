@@ -35,7 +35,6 @@
                           <h5 class="card-title">@{{restaurant.name_restaurant}}</h5>
                           <p class="card-text">
                               <span v-for="category in restaurant.get_category">
-
                                   @{{ category.name_category}}
                               </span>
                           </p>

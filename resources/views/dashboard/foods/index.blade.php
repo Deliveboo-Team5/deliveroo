@@ -23,7 +23,7 @@
             <ul class="d-flex flex-wrap">
               <li>ID: <strong>{{$food->id}}</strong></li>
               <li>Nome: <strong>{{$food->name_food}}</strong></li>
-              <li>Prezzo: <strong>€{{$food->price}}</strong></li>
+              <li>Prezzo: <strong>€{{number_format($food->price, 2, '.', ',')}}</strong></li>
               <li>Visibile: {{$food->is_visible ? 'SI' : 'NO'}}</li>
             </ul>
             <div>
@@ -42,7 +42,7 @@
                 <li>ID:<strong> {{$food->id}}</strong></li>
                 <li>Nome:<strong> {{$food->name_food}}</strong></li>
                 <li>Descrizione:<strong> {{$food->ingredients}}</strong></li>
-                <li>Prezzo:<strong> {{$food->ingredients}}</strong></li>
+                <li>Prezzo: <strong>€{{number_format($food->price, 2, '.', ',')}}</strong></li>
               </ul>
             </div>
             <div class="card-body d-flex align-items-baseline justify-content-end">

@@ -27,7 +27,6 @@ const app = new Vue({
             this.activeCategory = element;
         },
         filterRestaurant(element){
-
             if(this.activeCategory == ''){
                 return this.restaurants;
             } else {
@@ -50,7 +49,7 @@ const app = new Vue({
                 }            
             })          
         },
-        removeFromCart(index, price){
+        removeFromCart(index){
             this.cart.splice(index, 1);
         },
         refreshTotal(){

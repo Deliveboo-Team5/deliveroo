@@ -11902,17 +11902,15 @@ img.img-restaurant {
   width: 100%;
 }
 
-.food {
-  width: 100%;
-  height: 100px;
-  margin-top: 0.5rem;
-  padding: 0.5rem;
+img.food-image {
+  max-width: 100%;
 }
 
-.food > .price {
-  position: absolute;
-  right: 0;
-  margin-right: 0.5rem;
+.food {
+  width: 100%;
+  height: 125px;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
 }
 
 .card.cart-element {
