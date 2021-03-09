@@ -24,8 +24,8 @@ class RestaurantController extends Controller
     public function index()
     {
         $category = Category::all();
-
         return view( 'restaurant.index', compact('category'));
+
     }
 
     /**
@@ -50,9 +50,9 @@ class RestaurantController extends Controller
 
         $validated = $request->validated();
         $image ='';
-        if($request->img){
-        $image =  $validated['img'] ;
-        }else{
+            if($request['img'] !== null){
+                $image = $validated['img']->storePublicly('images');  
+            }else{
             $image = 'https://www.novarellovillaggioazzurro.com/wp-content/uploads/2018/05/ristorante-servizio-1140x665.jpg';
         }
         
@@ -65,6 +65,7 @@ class RestaurantController extends Controller
             'user_id' => Auth::user()->id
         ]);
 
+         
         $validatedCategory = $request->category;
         foreach($validatedCategory as $idCategory){
             DB::table("restaurant_category")->insert([

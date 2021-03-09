@@ -15,7 +15,7 @@
 
             </div>
             <div class="col-4">
-                <img class="img-restaurant" src="{{$restaurant->img}}" alt="">
+                <img class="img-restaurant" src="{{asset($restaurant->img)}}" alt="">
             </div>
         </div>
     </div>

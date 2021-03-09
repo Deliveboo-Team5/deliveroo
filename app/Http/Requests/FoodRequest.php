@@ -27,7 +27,7 @@ class FoodRequest extends FormRequest
     {
         return [
             'name_food' => ['required','max:50'],
-            'img' => ['mimetypes:image/jpeg,image/png','max:1024'],
+            'img' => ['mimetypes:image/jpeg,image/png ,image/jpg','max:12040'],
             'price' => ['required','max:10'],
             'ingredients' => ['required','max:255'] ,
             'is_visible' => ['required','boolean'],

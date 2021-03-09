@@ -28,7 +28,7 @@ class RestaurantFormRequest extends FormRequest
     {
         return [
             'name_restaurant' => ['required','max:50'],
-            'img' => ['mimetypes:image/jpeg,image/png','max:1024'],
+            'img' => ['mimetypes:image/jpeg,image/png ,image/jpg','max:12040'],
             'phone' => ['required','max:255'],
             'address' => ['required','max:255'] ,
             'VAT' => ['required','max:255','min:13'],

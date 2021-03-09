@@ -44,14 +44,13 @@ class FoodsController extends Controller
     public function store(FoodRequest $request)
     {
       $restaurant = Auth::User()->getRestaurant->id;
-
       $validated = $request->validated();
       $image ='';
-        if($request->img){
-        $image =  $validated['img'];
-        }else{
-          $image = "https://upload.wikimedia.org/wikipedia/commons/a/a3/Eq_it-na_pizza-margherita_sep2005_sml.jpg";
-        }
+      if($request['img'] !== null){
+          $image = $validated['img']->storePublicly('images');  
+      }else{
+      $image = 'https://www.novarellovillaggioazzurro.com/wp-content/uploads/2018/05/ristorante-servizio-1140x665.jpg';
+  }
       
       $newFood = Food::firstOrCreate([
         'name_food' => $validated['name_food'],
