@@ -11619,10 +11619,6 @@ body {
   font-family: "PT Sans", "FontAwesome 5 free", sans-serif;
 }
 
-main {
-  padding-top: 70px !important;
-}
-
 .p-relative {
   position: relative;
 }
@@ -11637,9 +11633,9 @@ a {
 }
 
 main {
-  padding-top: 2rem;
+  padding-top: 70px;
   padding-bottom: 2rem;
-  min-height: calc(100vh - 70px);
+  min-height: 100vh;
 }
 
 .btn-primary {
@@ -12058,5 +12054,9 @@ nav .hamburger {
 .register,
 .login {
   min-height: 600px;
+}
+
+.payment-container {
+  height: calc(100vh - 70px);
 }
 

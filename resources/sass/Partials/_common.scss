@@ -1,30 +1,26 @@
 @import '_variables';
 
 body{
-    font-family: 'PT Sans', 'FontAwesome 5 free', sans-serif;
-    ;
-}
-main{
-    padding-top: 70px !important;
+  font-family: 'PT Sans', 'FontAwesome 5 free', sans-serif;
 }
 
 .p-relative{
-    position: relative;
+  position: relative;
 }
 
 .p-absolute{
-    position: absolute;
+  position: absolute;
 }
 
 a {
-    color:inherit;
-    text-decoration: none;
+  color:inherit;
+  text-decoration: none;
 }
 
 main {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    min-height: calc(100vh - 70px);
+  padding-top: 70px;
+  padding-bottom: 2rem;
+  min-height: 100vh;
 }
 
 .btn-primary{
