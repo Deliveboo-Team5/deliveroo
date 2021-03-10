@@ -26,7 +26,7 @@ class categorySeeder extends Seeder
           ],
           [
             'name' => 'Healthy',
-            'img' => 'https://www.freepik.com/search?dates=any&format=search&page=1&query=healthy%20food&sort=popular&type=photo',
+            'img' => 'https://img.freepik.com/free-photo/quinoa-mushrooms-lettuce-red-cabbage-spinach-cucumbers-tomatoes-bowl-buddha-dark-top-view_127032-1963.jpg?size=626&ext=jpg&uid=R533347&ga=GA1.2.1489747274.1570093904',
           ],
           [
             'name' => 'Gelato',
@@ -57,7 +57,7 @@ class categorySeeder extends Seeder
 
         foreach($data as $d){
         $newCategory = new Category();
-        $newCategory->name = $d['name'];
+        $newCategory->name_category = $d['name'];
         $newCategory->img = $d['img'];
         $newCategory->save();
         }
