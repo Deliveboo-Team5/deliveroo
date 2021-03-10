@@ -37,7 +37,7 @@
               <div class="order-details">
                 <ul class="d-flex flex-column">
                   <li>Ordine numero: <strong>{{$order->id}}</strong></li>
-                  <li>Cliente:<strong> {{$order->name_customer}} </strong>| email:<strong> name@email.com </strong>| Telefono:<strong> {{$order->phone}}</strong></li>
+                  <li>Cliente:<strong> {{$order->name_customer}} </strong>| email:<strong> {{$order->email}} </strong>| Telefono:<strong> {{$order->phone}}</strong></li>
                   <li>Indirizzo di consegna:<strong> {{$order->delivery_address}}</strong></li>
                   <li>Orario di consegna: <strong>{{$order->delivery_time}}h</strong></li>
                   <li>Prodotti:

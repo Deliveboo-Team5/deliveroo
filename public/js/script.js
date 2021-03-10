@@ -114,34 +114,6 @@ var app = new Vue({
     axios.get('http://localhost:8000/api/food').then(function (result) {
       _this.foods = result.data.data.food;
     });
-    var form = document.querySelector('#payment-form');
-    var client_token = "{{ $token }}";
-    braintree.dropin.create({
-      authorization: client_token,
-      selector: '#bt-dropin',
-      paypal: {
-        flow: 'vault'
-      }
-    }, function (createErr, instance) {
-      if (createErr) {
-        console.log('Create Error', createErr);
-        return;
-      }
-
-      form.addEventListener('submit', function (event) {
-        event.preventDefault();
-        instance.requestPaymentMethod(function (err, payload) {
-          if (err) {
-            console.log('Request Payment Method Error', err);
-            return;
-          } // Add the nonce to the form and submit
-
-
-          document.querySelector('#nonce').value = payload.nonce;
-          form.submit();
-        });
-      });
-    });
   },
   methods: {
     selectCategory: function selectCategory(element) {
@@ -211,7 +183,7 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\deliveroo\resources\js\script.js */"./resources/js/script.js");
+module.exports = __webpack_require__(/*! C:\Users\Rinal\Desktop\Boolean\Proj\deliveroo\resources\js\script.js */"./resources/js/script.js");
 
 
 /***/ })

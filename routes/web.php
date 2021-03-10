@@ -3,8 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Resources\Restaurant as RestaurantResource;
 use App\Restaurant;
+use App\Order;
 use Illuminate\Http\Request;
-
+use Carbon\Carbon;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,21 +48,6 @@ Route::resource('restaurant', 'RestaurantController')->only('index','show');
 Route::get('/api/restaurant', 'RestaurantController@ajaxcall');
 Route::get('/api/food', 'FoodsController@ajaxcall');
 
-Route::get('payment', function(){
-    $gateway = new Braintree\Gateway([
-        'environment' => config('services.braintree.environment'),
-        'merchantId' => config('services.braintree.merchantId'),
-        'publicKey' => config('services.braintree.publicKey'),
-        'privateKey' => config('services.braintree.privateKey')
-    ]);
-
-    $token = $gateway->ClientToken()->generate();
-
-    return view('payment', [
-        'token' => $token
-    ]);
-});
-
 Route::post('/checkout', function (Request $request) {
 
     $gateway = new Braintree\Gateway([
@@ -82,11 +68,31 @@ Route::post('/checkout', function (Request $request) {
         ]
     ]);
 
+    
+
     if ($result->success) {
         $transaction = $result->transaction;
+        $newOrder = new Order([
+            'name_customer' => $request->name,
+            'delivery_address' => $request->address,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'delivery_time' => $request->delivery_time,
+            'total_price' => $request->amount,
+            'restaurant_id' => $request->restaurant,
+        ]);
+        $newOrder->save();
+
+        for($i=0; $i < count($request->food); $i++){
+            DB::table("order_food")->insert([
+                "food_id" => $request->food[$i],
+                "order_id" => $newOrder->id, 
+                "quantity" =>  $request->quantity[$i],
+            ]);
+        };
         //header("Location: " . $baseUrl . "transaction.php?id=" . $transaction->id);
 
-        return back()->with('success_message', 'Transaction successful. The ID is: ' . $transaction->id);
+        return back()->with('success_message', 'Il tuo ordine è stato inviato al ristorante. L\'ID dell\'ordine è: ' . $newOrder->id);
     } else {
         $errorString = "";
 
