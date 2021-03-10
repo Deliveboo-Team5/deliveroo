@@ -55,11 +55,11 @@ class RestaurantController extends Controller
         $validated = $request->validated();
         $image ='';
             if($request['img'] !== null){
-                $image = $validated['img']->storePublicly('images');  
+                $image = $validated['img']->storePublicly('images');
             }else{
             $image = 'https://www.novarellovillaggioazzurro.com/wp-content/uploads/2018/05/ristorante-servizio-1140x665.jpg';
         }
-        
+
         $newRestaurant = Restaurant::firstOrCreate([
             'name_restaurant' => $validated['name_restaurant'],
             'img' => $image,
@@ -69,7 +69,7 @@ class RestaurantController extends Controller
             'user_id' => Auth::user()->id
         ]);
 
-         
+
         $validatedCategory = $request->category;
         foreach($validatedCategory as $idCategory){
             DB::table("restaurant_category")->insert([
@@ -77,9 +77,9 @@ class RestaurantController extends Controller
                 "category_id" => $idCategory
             ]);
         }
-        
+
         return redirect(route('overview'));
-    
+
     }
 
     /**
@@ -145,9 +145,32 @@ class RestaurantController extends Controller
 
     public function ajaxcall(Request $request){
 
-        $restaurants = Restaurant::all();
+        $restaurantsRaw = Restaurant::all();
         $categories = Category::all();
 
+        function restaurantShuffle($array)
+        {
+            // Get array length
+            $count = count($array);
+            // Create a range of indicies
+            $indi = range(0,$count-1);
+            // Randomize indicies array
+            shuffle($indi);
+            // Initialize new array
+            $newarray = array($count);
+            // Holds current index
+            $i = 0;
+            // Shuffle multidimensional array
+            foreach ($indi as $index)
+            {
+                $newarray[$i] = $array[$index];
+                $i++;
+            }
+            return $newarray;
+        }
+
+        $restaurants = restaurantShuffle($restaurantsRaw);
+        
         foreach($restaurants as $restaurant){
             $restaurant->category_id = [];
             $restaurant_categories = [];
