@@ -43,9 +43,10 @@ Route::resource('restaurant', 'RestaurantController')->except('index','show')->m
 
 Route::resource('restaurant', 'RestaurantController')->only('index','show');
 
- 
+
 Route::get('/api/restaurant', 'RestaurantController@ajaxcall');
 Route::get('/api/food', 'FoodsController@ajaxcall');
+Route::get('/api/statistics', 'ChartController@index');
 
 
 Route::get('payment', function(){
@@ -98,6 +99,6 @@ Route::post('/checkout', function (Request $request) {
         //$_SESSION["errors"] = $errorString;
         //header("Location: " . $baseUrl . "index.php");
 
-        return back()->withErrors('An error occurred with the message: ' . $result->message);   
+        return back()->withErrors('An error occurred with the message: ' . $result->message);
     }
 });
