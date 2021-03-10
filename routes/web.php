@@ -47,7 +47,6 @@ Route::resource('restaurant', 'RestaurantController')->only('index','show');
 Route::get('/api/restaurant', 'RestaurantController@ajaxcall');
 Route::get('/api/food', 'FoodsController@ajaxcall');
 
-
 Route::get('payment', function(){
     $gateway = new Braintree\Gateway([
         'environment' => config('services.braintree.environment'),
@@ -101,3 +100,4 @@ Route::post('/checkout', function (Request $request) {
         return back()->withErrors('An error occurred with the message: ' . $result->message);   
     }
 });
+
