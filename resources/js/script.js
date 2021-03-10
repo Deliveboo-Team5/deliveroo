@@ -20,7 +20,7 @@ const app = new Vue({
             .get('http://localhost:8000/api/food')
             .then(result => {
                 this.foods = result.data.data.food;
-            })
+            });
     },
     methods: {
         selectCategory(element){

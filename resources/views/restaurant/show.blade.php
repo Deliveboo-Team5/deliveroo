@@ -2,6 +2,21 @@
 
 @section('content')
     <div class="container">
+        @if(session('success_message'))
+            <div class="alert alert-success">
+                {{ session('success_message') }}
+            </div>
+        @endif
+
+        @if(count($errors) > 0)
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <div class="row">
             <div class="col-8">
                 <h1>{{$restaurant->name_restaurant}}</h1>
@@ -57,11 +72,55 @@
                     </div>
                     <div v-if="cart.length > 0">
                         <strong>Totale: </strong>@{{totalPrice}}€
-                        <button class="btn btn-primary">Paga Subito</button>
+
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            Paga
+                        </button>
+                        
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        {{-- <form method="post" id="payment-form" action="{{ url('/checkout') }}">
+                                            @csrf
+                                            <section>
+                                                <label for="amount">
+                                                    <span class="input-label">Amount</span>
+                                                    <div class="input-wrapper amount-wrapper">
+                                                        <input id="amount" name="amount" type="tel" min="1" placeholder="Amount" value="10">
+                                                    </div>
+                                                </label>
+                                
+                                                <div class="bt-drop-in-wrapper">
+                                                    <div id="bt-dropin"></div>
+                                                </div>
+                                            </section>
+                                
+                                            <input id="nonce" name="payment_method_nonce" type="hidden" />
+                                            <button class="button" type="submit"><span>Test Transaction</span></button>
+                                        </form> --}}
+                                        <template>
+                                            @include('payment')
+                                        </template>
+                                    </div>
+                                    <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            
         </div>
     </div>
+
 @endsection
+

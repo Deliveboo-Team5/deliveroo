@@ -12,6 +12,10 @@ use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\RestaurantFormRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Braintree;
+use Braintree\Gateway;
+use Braintree\Transaction;
+
 
 
 class RestaurantController extends Controller
@@ -86,8 +90,23 @@ class RestaurantController extends Controller
      */
     public function show($id)
     {
+
+        $gateway = new Braintree\Gateway([
+            'environment' => config('services.braintree.environment'),
+            'merchantId' => config('services.braintree.merchantId'),
+            'publicKey' => config('services.braintree.publicKey'),
+            'privateKey' => config('services.braintree.privateKey')
+        ]);
+    
+        $token = $gateway->ClientToken()->generate();
+    
+        
+
         $restaurant = Restaurant::find($id);
-        return view('restaurant.show',compact('restaurant'));
+        return view('restaurant.show', [
+            'restaurant' => $restaurant,
+            'token' => $token
+        ]);
     }
 
     /**
