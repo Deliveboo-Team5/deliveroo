@@ -118,53 +118,7 @@ var app = new Vue({
     axios.get('http://localhost:8000/api/food').then(function (result) {
       _this.foods = result.data.data.food;
     });
-    axios.get('http://localhost:8000/api/statistics').then(function (result) {
-      _this.statsFood = result.data.data.food;
-      _this.statsOrder = result.data.data.order;
 
-      _this.statsOrder.forEach(function (order) {
-        if (!_this.statsLabel.includes(order.delivery_time.substring(0, 4))) {
-          _this.statsLabel.push(order.delivery_time.substring(0, 4));
-        }
-      });
-
-      _this.statsLabel.forEach(function (year) {
-        var count = 0;
-
-        _this.statsOrder.forEach(function (order) {
-          if (order.delivery_time.substring(0, 4) == year) {
-            count++;
-          }
-        });
-
-        _this.statsData.push(count);
-      });
-
-      new Chart(document.getElementById("bar-chart"), {
-        type: 'bar',
-        data: {
-          labels: _this.statsLabel,
-          datasets: [{
-            label: "Population (millions)",
-            backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
-            data: _this.statsData
-          }]
-        },
-        options: {}
-      });
-    });
-    new Chart(document.getElementById("bar-chart"), {
-      type: 'bar',
-      data: {
-        labels: this.statsLabel,
-        datasets: [{
-          label: "Population (millions)",
-          backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
-          data: [2478, 5267, 734, 784, 433]
-        }]
-      },
-      options: {}
-    });
   },
   methods: {
     selectCategory: function selectCategory(element) {
@@ -234,7 +188,7 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/mirellenascimento/Dropbox/Boolean/Progetto/deliveroo/resources/js/script.js */"./resources/js/script.js");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\deliveroo\resources\js\script.js */"./resources/js/script.js");
 
 
 /***/ })

@@ -20,14 +20,14 @@
         <div class="row">
             <div class="col-8">
                 <h1>{{$restaurant->name_restaurant}}</h1>
-                <p class="text-capitalize"><strong>Categorie: </strong>
+                <p class="text-capitalize"><strong>Categoria: </strong>
                     @foreach ($restaurant->getCategory as $restCategory)
                         <span>{{$restCategory->name_category}}</span>
                     @endforeach
                 </p>
                 <p><strong>Indirizzo: </strong>{{$restaurant->address}}</p>
                 <p><strong>Telefono: </strong>{{$restaurant->phone}}</p>
-
+                
             </div>
             <div class="col-4">
                 <img class="img-restaurant" src="{{asset($restaurant->img)}}" alt="">
@@ -83,10 +83,10 @@
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Concludi il tuo ordine</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
-                                    <div class="modal-body">
+                                    
                                         {{-- <form method="post" id="payment-form" action="{{ url('/checkout') }}">
                                             @csrf
                                             <section>
@@ -108,11 +108,7 @@
                                         <template>
                                             @include('payment')
                                         </template>
-                                    </div>
-                                    <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save changes</button>
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
