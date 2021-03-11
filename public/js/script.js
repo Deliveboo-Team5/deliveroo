@@ -145,7 +145,7 @@ var app = new Vue({
         data: {
           labels: _this.statsLabel,
           datasets: [{
-            label: "Population (millions)",
+            label: "Ordini",
             backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
             data: _this.statsData
           }]
