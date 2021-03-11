@@ -3,7 +3,7 @@
         <div class="container-fluid">
             <div class="container">
                 <div class="row d-flex justify-content-center">
-                    <div class="footer-card">
+                    <div class="footer-card col">
                         <ul class= "list-unstyled">
                             <li>
                                 <h4>Scopri Deliveroo</h4>
@@ -31,7 +31,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="footer-card">
+                    <div class="footer-card col">
                         <ul class= "list-unstyled">
                             <li>
                                 <h4>Note Legali</h4>
@@ -47,7 +47,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="footer-card">
+                    <div class="footer-card col">
                         <ul class= "list-unstyled">
                             <li>
                                 <h4>Aiuto</h4>
@@ -66,7 +66,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="footer-card">
+                    <div class="footer-card col">
                         <ul class= "list-unstyled">
                             <li>
                                 <h4>Porta Deliveroo con te</h4>
