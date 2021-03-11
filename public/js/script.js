@@ -128,6 +128,8 @@ var app = new Vue({
         }
       });
 
+      _this.statsLabel.sort();
+
       _this.statsLabel.forEach(function (year) {
         var count = 0;
 
@@ -150,7 +152,16 @@ var app = new Vue({
             data: _this.statsData
           }]
         },
-        options: {}
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: true,
+                suggestedMax: 10
+              }
+            }]
+          }
+        }
       });
     });
   },
