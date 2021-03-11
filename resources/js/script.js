@@ -67,23 +67,6 @@ const app = new Vue({
                   });
 
             });
-
-
-            new Chart(document.getElementById("bar-chart"), {
-                type: 'bar',
-                data: {
-                  labels: this.statsLabel,
-                  datasets: [
-                    {
-                      label: "Population (millions)",
-                      backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-                      data: [2478,5267,734,784,433]
-                    }
-                  ]
-                },
-                options: {
-                }
-            });
     },
     methods: {
         selectCategory(element){
@@ -93,7 +76,13 @@ const app = new Vue({
                 this.activeCategory.splice(this.activeCategory.indexOf(element), 1)
             }
         },
-        filterRestaurant(element){
+        goto(refName) {
+            var element = this.$refs[refName];
+            console.log(element);
+            var top = element.offsetTop;
+            window.scrollTo(0, (top - 70));
+        },
+        filterRestaurant(){
             if(this.activeCategory.length == 0){
                 return this.restaurants;
             } else {

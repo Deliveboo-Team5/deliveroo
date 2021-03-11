@@ -27,8 +27,8 @@
               <li>Visibile: {{$food->is_visible ? 'SI' : 'NO'}}</li>
             </ul>
             <div>
-              <button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseDetails{{$food->id}}" aria-expanded="false" aria-controls="collapseDetails{{$food->id}}">Details</button>
-              <button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseEdit{{$food->id}}" aria-expanded="false" aria-controls="collapseEdit{{$food->id}}">Edit</button>
+              <button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseDetails{{$food->id}}" aria-expanded="false" aria-controls="collapseDetails{{$food->id}}">Dettagli</button>
+              <button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseEdit{{$food->id}}" aria-expanded="false" aria-controls="collapseEdit{{$food->id}}">Modifica</button>
             </div>
           </div>
         </div>
@@ -82,8 +82,8 @@
                 </div>
 
                 <div class="card-body d-flex align-items-baseline justify-content-end">
-                    <button type="submit" class="btn btn-primary">Conferma Edizione</button>
-                    <button type="button" class="btn btn-danger" data-bs-toggle="collapse" data-bs-target="#collapseEdit{{$food->id}}" aria-expanded="false" aria-controls="collapseEdit{{$food->id}}">Cancela edizione</button>
+                    <button type="submit" class="btn btn-primary">Conferma Modifica</button>
+                    <button type="button" class="btn btn-danger" data-bs-toggle="collapse" data-bs-target="#collapseEdit{{$food->id}}" aria-expanded="false" aria-controls="collapseEdit{{$food->id}}">Annulla Modifica</button>
                 </div>
 
 

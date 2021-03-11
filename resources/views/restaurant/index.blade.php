@@ -17,14 +17,14 @@
         <div class="row">
             <div class="col category-container">
                     <div class="card card-select category" v-bind:style="{backgroundImage: 'url(' + category.img +')'}"
-                    v-for="(category, i) in categories" v-on:click="selectCategory(category.id)" :value="category.id" name="category_id[]">
+                    v-for="(category, i) in categories" v-on:click="selectCategory(category.id)" :class="activeCategory.includes(category.id) ? 'active' : ''" :value="category.id" name="category_id[]">
                         <span class="category-name">@{{category.name_category}}</span>
                     </div>
             </div>
         </div>
     </div>
 
-    <div class="container home">
+    <div ref="restaurants" class="container home">
         <h3>Ristoranti</h3>
         <div v-if="activeCategory == '' && searchByName == ''" class="row d-flex justify-content-between flex-wrap">
           <div class="col-4" v-for="(restaurant, index) in filterByName()">

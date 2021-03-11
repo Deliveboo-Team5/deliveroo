@@ -118,7 +118,41 @@ var app = new Vue({
     axios.get('http://localhost:8000/api/food').then(function (result) {
       _this.foods = result.data.data.food;
     });
+    axios.get('http://localhost:8000/api/statistics').then(function (result) {
+      _this.statsFood = result.data.data.food;
+      _this.statsOrder = result.data.data.order;
 
+      _this.statsOrder.forEach(function (order) {
+        if (!_this.statsLabel.includes(order.delivery_time.substring(0, 4))) {
+          _this.statsLabel.push(order.delivery_time.substring(0, 4));
+        }
+      });
+
+      _this.statsLabel.forEach(function (year) {
+        var count = 0;
+
+        _this.statsOrder.forEach(function (order) {
+          if (order.delivery_time.substring(0, 4) == year) {
+            count++;
+          }
+        });
+
+        _this.statsData.push(count);
+      });
+
+      new Chart(document.getElementById("bar-chart"), {
+        type: 'bar',
+        data: {
+          labels: _this.statsLabel,
+          datasets: [{
+            label: "Population (millions)",
+            backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+            data: _this.statsData
+          }]
+        },
+        options: {}
+      });
+    });
   },
   methods: {
     selectCategory: function selectCategory(element) {
@@ -128,7 +162,13 @@ var app = new Vue({
         this.activeCategory.splice(this.activeCategory.indexOf(element), 1);
       }
     },
-    filterRestaurant: function filterRestaurant(element) {
+    "goto": function goto(refName) {
+      var element = this.$refs[refName];
+      console.log(element);
+      var top = element.offsetTop;
+      window.scrollTo(0, top - 70);
+    },
+    filterRestaurant: function filterRestaurant() {
       var _this2 = this;
 
       if (this.activeCategory.length == 0) {
