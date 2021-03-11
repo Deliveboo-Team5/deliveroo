@@ -47,11 +47,11 @@ class FoodsController extends Controller
       $validated = $request->validated();
       $image ='';
       if($request['img'] !== null){
-          $image = $validated['img']->storePublicly('images');  
+          $image = $validated['img']->storePublicly('images');
       }else{
       $image = 'https://www.novarellovillaggioazzurro.com/wp-content/uploads/2018/05/ristorante-servizio-1140x665.jpg';
   }
-      
+
       $newFood = Food::firstOrCreate([
         'name_food' => $validated['name_food'],
         'img' => $image,
@@ -92,15 +92,18 @@ class FoodsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Food $food)
+    public function update(FoodRequest $request, Food $food)
     {
-        $data = [
-          'name_food' => $request['name_food'],
-          'price' => $request['price'],
-          'ingredients' => $request['ingredients'],
-          'is_visible' => $request['is_visible']
-        ];
+        $data = $request->validated();
         $food->update($data);
+
+        $image ='';
+        if(isset($request['img'])){
+            $image = $data['img']->storePublicly('images');
+        }
+        $food->img = $image;
+        $food->save();
+
         return redirect(route('foods.index'));
     }
 
@@ -128,6 +131,3 @@ class FoodsController extends Controller
       ]);
     }
 }
-
-
-

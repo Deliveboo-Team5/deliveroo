@@ -19,13 +19,18 @@
         {{-- template foods --}}
 
         <div class="col card">
-          <div class="card-body d-flex align-items-baseline justify-content-between flex-wrap">
-            <ul class="d-flex flex-wrap">
-              <li>ID: <strong>{{$food->id}}</strong></li>
-              <li>Nome: <strong>{{$food->name_food}}</strong></li>
-              <li>Prezzo: <strong>€{{number_format($food->price, 2, '.', ',')}}</strong></li>
-              <li>Visibile: {{$food->is_visible ? 'SI' : 'NO'}}</li>
-            </ul>
+          <div class="card-body d-flex align-items-center justify-content-between flex-wrap">
+            <div class="col d-flex align-items-center">
+              <img style="width: 60px; border-radius: 5px" src="{{$food->img}}" alt="">
+              <ul class=" col d-flex flex-wrap">
+                <li>ID: <strong>{{$food->id}}</strong></li>
+                <li>Nome: <strong>{{$food->name_food}}</strong></li>
+                <li>Prezzo: <strong>€{{number_format($food->price, 2, '.', ',')}}</strong></li>
+                <li>Visibile: {{$food->is_visible ? 'SI' : 'NO'}}</li>
+              </ul>
+
+            </div>
+
             <div>
               <button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseDetails{{$food->id}}" aria-expanded="false" aria-controls="collapseDetails{{$food->id}}">Dettagli</button>
               <button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseEdit{{$food->id}}" aria-expanded="false" aria-controls="collapseEdit{{$food->id}}">Modifica</button>
@@ -37,13 +42,18 @@
         <div class="col card collapse" id="collapseDetails{{$food->id}}">
           <div class="d-flex flex-column">
             <div class="order-details">
-              <ul class="d-flex flex-column">
-                <li>Visibile: {{$food->is_visible ? 'SI' : 'NO'}}</li>
-                <li>ID:<strong> {{$food->id}}</strong></li>
-                <li>Nome:<strong> {{$food->name_food}}</strong></li>
-                <li>Descrizione:<strong> {{$food->ingredients}}</strong></li>
-                <li>Prezzo: <strong>€{{number_format($food->price, 2, '.', ',')}}</strong></li>
-              </ul>
+              <div class="row">
+                <div class="col">
+                  <img style="width: 100%; border-radius: 5px" src="{{$food->img}}" alt="">
+                </div>
+                <ul class="col d-flex flex-column">
+                  <li>Visibile: {{$food->is_visible ? 'SI' : 'NO'}}</li>
+                  <li>ID:<strong> {{$food->id}}</strong></li>
+                  <li>Nome:<strong> {{$food->name_food}}</strong></li>
+                  <li>Descrizione:<strong> {{$food->ingredients}}</strong></li>
+                  <li>Prezzo: <strong>€{{number_format($food->price, 2, '.', ',')}}</strong></li>
+                </ul>
+              </div>
             </div>
             <div class="card-body d-flex align-items-baseline justify-content-end">
                 <button type="button" class="btn btn-secondary" data-bs-toggle="collapse" data-bs-target="#collapseDetails{{$food->id}}" aria-expanded="false" aria-controls="collapseDetails{{$food->id}}">Nascondi dettagli</button>
@@ -58,7 +68,10 @@
         <div class="col card collapse" id="collapseEdit{{$food->id}}">
           <div class="d-flex flex-column">
             <div class="order-details">
-              <form class="d-flex flex-column" action="{{route('foods.update', $food->id)}}" method="post">
+              <div class="">
+                <img style="width: 90%; margin:auto; border-radius: 5px" src="{{$food->img}}" alt="">
+              </div>
+              <form class="d-flex flex-column" action="{{route('foods.update', $food->id)}}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="mb-3">
@@ -68,6 +81,10 @@
                 <div class="mb-3">
                   <label for="food_description" class="form-label">Descrizione:</label>
                   <textarea name="ingredients" class="form-control" id="food_description">{{$food->ingredients}}</textarea>
+                </div>
+                <div class="mb-3">
+                  <label for="img" class="form-label">Cambia imagine:</label>
+                  <input id="img" type="file" class="form-control" name="img">
                 </div>
                 <div class="mb-3">
                   <label for="price" class="form-label">Price €:</label>
