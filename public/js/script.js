@@ -145,7 +145,7 @@ var app = new Vue({
         data: {
           labels: _this.statsLabel,
           datasets: [{
-            label: "Population (millions)",
+            label: "Ordini",
             backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
             data: _this.statsData
           }]
@@ -228,7 +228,7 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\deliveroo\resources\js\script.js */"./resources/js/script.js");
+module.exports = __webpack_require__(/*! /Users/mirellenascimento/Dropbox/Boolean/Progetto/deliveroo/resources/js/script.js */"./resources/js/script.js");
 
 
 /***/ })

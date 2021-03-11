@@ -10,9 +10,9 @@
     <li class="nav-item">
       <a class="nav-link" href="{{asset('foods')}}">Prodotti</a>
     </li>
-    <li class="nav-item">
+    <!-- <li class="nav-item">
       <a class="nav-link" href="{{asset('statistics')}}">Statistiche</a>
-    </li>
+    </li> -->
   </ul>
 </div>
 <!-- smaller devices version -->
@@ -27,8 +27,8 @@
     <li class="nav-item">
       <a class="nav-link" href="#">Prodotti</a>
     </li>
-    <li class="nav-item">
+    <!-- <li class="nav-item">
       <a class="nav-link" href="#">Statistiche</a>
-    </li>
+    </li> -->
   </ul>
 </div>
