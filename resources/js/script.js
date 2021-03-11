@@ -8,8 +8,15 @@ const app = new Vue({
         cart: [],
         statsFood: [],
         statsOrder: [],
-        statsLabel: [],
-        statsData: [],
+        selectedYear:'',
+        chartMonth:{
+            statsLabel: ['Gennaio','Febraio','Marzo','Aprile','Maggio','Giugno','Luglio','Agosto','Settembre','Ottobre','Novembre','Dicembre'],
+            statsData: []
+        },
+        chartYear:{
+            statsLabel: [],
+            statsData: []
+        },
         activeCategory: [],
         searchByName: '',
         totalPrice: 0
@@ -33,33 +40,34 @@ const app = new Vue({
                 this.statsFood = result.data.data.food;
                 this.statsOrder = result.data.data.order;
 
-                  this.statsOrder.forEach((order) => {
-                    if(!this.statsLabel.includes(order.delivery_time.substring(0,4))){
-                        this.statsLabel.push(order.delivery_time.substring(0,4));
+
+                // GRAFICO ANNI
+
+                this.statsOrder.forEach((order) => {
+                    if(!this.chartYear.statsLabel.includes(order.delivery_time.substring(0,4))){
+                        this.chartYear.statsLabel.push(order.delivery_time.substring(0,4));
                     }
-                  });
-                  this.statsLabel.sort();
-                  this.statsLabel.forEach((year) => {
-                    let count = 0;
+                });
+                this.chartYear.statsLabel.sort();
+                this.chartYear.statsLabel.forEach((year) => {
+                     let count = 0;
                     this.statsOrder.forEach((order) => {
-                      if(order.delivery_time.substring(0,4) == year){
+                        if(order.delivery_time.substring(0,4) == year){
                         count++;
-                      }
+                        }
                     });
-
-                    this.statsData.push(count);
-                  });
-
-
-                new Chart(document.getElementById("bar-chart"), {
+                    this.chartYear.statsData.push(count);
+                });
+                
+                new Chart(document.getElementById("chartYear"),{
                     type: 'bar',
                     data: {
-                    labels: this.statsLabel,
+                    labels: this.chartYear.statsLabel,
                     datasets: [
                         {
                         label: "Ordini",
-                        backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-                        data: this.statsData
+                        backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850","#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850","#e8c3b9","#c45850"],
+                        data: this.chartYear.statsData
                         }
                     ]
                     },
@@ -73,9 +81,12 @@ const app = new Vue({
                             }]
                         }
                     }
-                });
+                    });
 
-            });
+               // GRAFICO MESE
+                    
+                });
+           
     },
     methods: {
         selectCategory(element){
@@ -124,8 +135,40 @@ const app = new Vue({
                 this.totalPrice += food.totalPrice;
             })
             this.totalPrice = (Math.round(this.totalPrice * 100) / 100).toFixed(2);
+        },
+        refreshGraphicYear(){
+            for(let i = 1; i <= 12; i++){   
+                let count = 0;
+                this.statsOrder.forEach((order) => {
+                    if((order.delivery_time.substring(0,4) ==  this.selectedYear) && (order.delivery_time.substring(5,7) == i)){
+                        count++;
+                    }
+                });
+                this.chartMonth.statsData.push(count);
+            }
+            new Chart(document.getElementById("chartMonth"),{
+                type: 'bar',
+                data: {
+                    labels: this.chartMonth.statsLabel,
+                    datasets: [
+                        {
+                            label: "Ordini",
+                            backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850","#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850","#e8c3b9","#c45850"],
+                            data: this.chartMonth.statsData
+                        }
+                    ]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true,
+                                suggestedMax: 10,
+                            }
+                        }]
+                    }
+                }
+            });
         }
-
-
     }
 });

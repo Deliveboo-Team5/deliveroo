@@ -11772,7 +11772,7 @@ footer {
 }
 
 footer .footer-card {
-  min-width: 300px;
+  width: calc((100% - 80px)/4);
   height: 250px;
   padding: 25px;
   margin: 20px 10px;

@@ -50,8 +50,21 @@
         </div>
         <div class="row">
           <div class="col stat-data d-flex justify-content-center align-items-center">
-            <canvas id="bar-chart" width="400" height="200"></canvas>
+            <canvas id="chartYear" width="400" height="200"></canvas>
 
+          </div>
+
+        </div>
+        <div class="row">
+          
+          <div class="col stat-data d-flex  flex-column justify-content-center align-items-center">
+           <div>
+              <label for="yearGraphic">Seleziona anno</label>
+              <select name="" v-model="selectedYear"id="yearGraphic" v-on:change="refreshGraphicYear()" >
+                <option :value="year" v-for="year in chartYear.statsLabel">@{{year}}</option>
+              </select>
+          </div>
+              <canvas id="chartMonth" width="400" height="200"></canvas>
           </div>
 
         </div>

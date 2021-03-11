@@ -102,8 +102,15 @@ var app = new Vue({
     cart: [],
     statsFood: [],
     statsOrder: [],
-    statsLabel: [],
-    statsData: [],
+    selectedYear: '',
+    chartMonth: {
+      statsLabel: ['Gennaio', 'Febraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'],
+      statsData: []
+    },
+    chartYear: {
+      statsLabel: [],
+      statsData: []
+    },
     activeCategory: [],
     searchByName: '',
     totalPrice: 0
@@ -120,17 +127,17 @@ var app = new Vue({
     });
     axios.get('http://localhost:8000/api/statistics').then(function (result) {
       _this.statsFood = result.data.data.food;
-      _this.statsOrder = result.data.data.order;
+      _this.statsOrder = result.data.data.order; // GRAFICO ANNI
 
       _this.statsOrder.forEach(function (order) {
-        if (!_this.statsLabel.includes(order.delivery_time.substring(0, 4))) {
-          _this.statsLabel.push(order.delivery_time.substring(0, 4));
+        if (!_this.chartYear.statsLabel.includes(order.delivery_time.substring(0, 4))) {
+          _this.chartYear.statsLabel.push(order.delivery_time.substring(0, 4));
         }
       });
 
-      _this.statsLabel.sort();
+      _this.chartYear.statsLabel.sort();
 
-      _this.statsLabel.forEach(function (year) {
+      _this.chartYear.statsLabel.forEach(function (year) {
         var count = 0;
 
         _this.statsOrder.forEach(function (order) {
@@ -139,17 +146,17 @@ var app = new Vue({
           }
         });
 
-        _this.statsData.push(count);
+        _this.chartYear.statsData.push(count);
       });
 
-      new Chart(document.getElementById("bar-chart"), {
+      new Chart(document.getElementById("chartYear"), {
         type: 'bar',
         data: {
-          labels: _this.statsLabel,
+          labels: _this.chartYear.statsLabel,
           datasets: [{
             label: "Ordini",
-            backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
-            data: _this.statsData
+            backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850", "#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850", "#e8c3b9", "#c45850"],
+            data: _this.chartYear.statsData
           }]
         },
         options: {
@@ -162,7 +169,7 @@ var app = new Vue({
             }]
           }
         }
-      });
+      }); // GRAFICO MESE
     });
   },
   methods: {
@@ -226,6 +233,47 @@ var app = new Vue({
         _this5.totalPrice += food.totalPrice;
       });
       this.totalPrice = (Math.round(this.totalPrice * 100) / 100).toFixed(2);
+    },
+    refreshGraphicYear: function refreshGraphicYear() {
+      var _this6 = this;
+
+      var _loop = function _loop(i) {
+        var count = 0;
+
+        _this6.statsOrder.forEach(function (order) {
+          if (order.delivery_time.substring(0, 4) == _this6.selectedYear && order.delivery_time.substring(5, 7) == i) {
+            count++;
+          }
+        });
+
+        _this6.chartMonth.statsData.push(count);
+      };
+
+      for (var i = 1; i <= 12; i++) {
+        _loop(i);
+      }
+
+      new Chart(document.getElementById("chartMonth"), {
+        type: 'bar',
+        data: {
+          labels: this.chartMonth.statsLabel,
+          datasets: [{
+            label: "Ordini",
+            backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850", "#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850", "#e8c3b9", "#c45850"],
+            data: this.chartMonth.statsData
+          }]
+        },
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: true,
+                suggestedMax: 10
+              }
+            }]
+          }
+        }
+      });
     }
   }
 });
@@ -239,7 +287,7 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Rinal\Desktop\Boolean\Proj\deliveroo\resources\js\script.js */"./resources/js/script.js");
+module.exports = __webpack_require__(/*! /Users/marcosimonefontaine/Desktop/boolean/esercizi-boolean/deliveboo/resources/js/script.js */"./resources/js/script.js");
 
 
 /***/ })
