@@ -11772,7 +11772,7 @@ footer {
 }
 
 footer .footer-card {
-  width: calc((100% - 80px)/4);
+  min-width: 300px;
   height: 250px;
   padding: 25px;
   margin: 20px 10px;
@@ -11860,6 +11860,12 @@ footer .footer-data .credits span {
   border: 2px solid #00ccbc;
 }
 
+.card-select img {
+  height: 45%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .category-container {
   display: flex;
   flex-wrap: nowrap;
@@ -11878,6 +11884,7 @@ footer .footer-data .credits span {
   margin: 1rem 2rem 1rem 0;
   background-size: 100% 100%;
   position: relative;
+  background-size: cover;
 }
 
 .category-container .category:hover {
@@ -11914,19 +11921,40 @@ footer .footer-data .credits span {
   bottom: 4px;
 }
 
+.col_img {
+  height: 300px;
+  width: 100vw;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 50px;
+}
+
+.col-cart {
+  border-left: 1px solid black;
+}
+
 img.img-restaurant {
-  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.food-img-container {
+  padding: 0;
+  height: 125px;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 img.food-image {
-  max-width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .food {
   width: 100%;
-  height: 125px;
   margin-top: 0.5rem;
   padding: 0.5rem;
+  flex-direction: row !important;
 }
 
 .card.cart-element {
@@ -12038,6 +12066,7 @@ nav .hamburger {
 }
 
 .menu {
+  margin-top: 70px;
   background-color: #00ccbc;
   color: #fff;
 }
@@ -12062,12 +12091,22 @@ nav .hamburger {
   text-decoration: none;
 }
 
+.dropdown {
+  position: static;
+}
+
+.dropdown .dropdown-menu {
+  width: 100vw;
+  margin-top: 0;
+  height: 70px;
+}
+
+.dropdown .btn_dropdown {
+  height: 100%;
+}
+
 @media (max-width: 768px) {
   nav .nav_btn {
-    display: none;
-  }
-
-  nav .nav-form {
     display: none;
   }
 
@@ -12075,6 +12114,15 @@ nav .hamburger {
     display: flex !important;
     font-size: 1.3rem;
     color: #00ccbc;
+  }
+
+  nav a {
+    padding: 0;
+    margin: 0 !important;
+  }
+
+  nav a img {
+    height: 40px;
   }
 }
 

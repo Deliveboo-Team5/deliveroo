@@ -18,43 +18,36 @@
             </div>
         @endif
         <div class="row">
+            <div class="col col_img" style="background-image: url({{asset($restaurant->img)}})" >
+            </div>
+        </div>
+        <div class="row">
             <div class="col-8">
+
+                {{-- Informazioni ristorante --}}
                 <h1>{{$restaurant->name_restaurant}}</h1>
                 <p class="text-capitalize"><strong>Categoria: </strong>
                     @foreach ($restaurant->getCategory as $restCategory)
-                        <span>{{$restCategory->name_category}}</span>
+                    <span>{{$restCategory->name_category}}</span>
                     @endforeach
                 </p>
                 <p><strong>Indirizzo: </strong>{{$restaurant->address}}</p>
                 <p><strong>Telefono: </strong>{{$restaurant->phone}}</p>
-                
-            </div>
-            <div class="col-4">
-                <img class="img-restaurant" src="{{asset($restaurant->img)}}" alt="">
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-8 d-flex flex-wrap">
 
+                {{-- Piatti ristorante --}}
                 @foreach ($restaurant->getFood as $restFood)
-                <div class="col-6">
                     <div class="card food row" value="{{$restFood->id}}" v-on:click="addToCart({{$restFood->id}}), refreshTotal()">
-                        <div class="col-9 d-flex flex-column justify-content-between">
+                        <div class="col-12 col-md-3 food-img-container" style="background-image: url({{asset($restFood->img)}})">
+                        </div>
+                        <div class="col-12 col-md-9 d-flex flex-column">
                             <h5 class="text-capitalize">{{$restFood->name_food}}</h5>
                             <span>{{$restFood->ingredients}}</span>
                             <span class="align-self-end">{{number_format($restFood->price, 2, '.', ',')}}€</span>
                         </div>
-                        <div class="col-3">
-                            <img class="food-image" src="{{asset($restFood->img)}}" alt="food image">
-                        </div>
                     </div>
-                </div>
                 @endforeach
             </div>
-                    
-            <div class="col-4">
+            <div class="col-4 col-cart">
                 <h1 class="text-center">Carrello</h1>
                 <div>
                     <div class="card cart-element" v-for="(element, i) in cart">
@@ -72,7 +65,7 @@
                     </div>
                     <div v-if="cart.length > 0">
                         <strong>Totale: </strong>@{{totalPrice}}€
-
+        
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                             Paga
@@ -83,32 +76,12 @@
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Concludi il tuo ordine</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        <h5 class="modal-title" id="exampleModalLabel">Concludi il tuo ordine</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
-                                    
-                                        {{-- <form method="post" id="payment-form" action="{{ url('/checkout') }}">
-                                            @csrf
-                                            <section>
-                                                <label for="amount">
-                                                    <span class="input-label">Amount</span>
-                                                    <div class="input-wrapper amount-wrapper">
-                                                        <input id="amount" name="amount" type="tel" min="1" placeholder="Amount" value="10">
-                                                    </div>
-                                                </label>
-                                
-                                                <div class="bt-drop-in-wrapper">
-                                                    <div id="bt-dropin"></div>
-                                                </div>
-                                            </section>
-                                
-                                            <input id="nonce" name="payment_method_nonce" type="hidden" />
-                                            <button class="button" type="submit"><span>Test Transaction</span></button>
-                                        </form> --}}
-                                        <template>
-                                            @include('payment')
-                                        </template>
-                                    
+                                    <template>
+                                        @include('payment')
+                                    </template>
                                 </div>
                             </div>
                         </div>
@@ -117,6 +90,5 @@
             </div>
         </div>
     </div>
-
-@endsection
+ @endsection
 

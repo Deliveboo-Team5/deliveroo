@@ -47,6 +47,7 @@ nav{
 }
 
 .menu{
+    margin-top: 70px;
     background-color: $primary-color;
     color: $secondary-color;
     ul{
@@ -67,18 +68,34 @@ nav{
     }
 }
 
+.dropdown{
+    position: static;
+    .dropdown-menu{
+        width: 100vw;
+        margin-top: 0;
+        height: 70px;
+    }
+    .btn_dropdown{
+        height: 100%;
+    }
+}
+
 @media (max-width: $tablet-breakpoint){
     nav{
         .nav_btn{
-            display: none;
-        }
-        .nav-form{
             display: none;
         }
         .hamburger{
             display: flex !important;
             font-size: 1.3rem;
             color: $primary-color;
+        }
+        a{
+            padding: 0;
+            margin: 0 !important;
+            img{
+                height:40px;
+            }
         }
 
     }
