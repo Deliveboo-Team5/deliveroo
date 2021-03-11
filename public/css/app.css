@@ -11853,6 +11853,12 @@ footer .footer-data .credits span {
   border: 2px solid #00ccbc;
 }
 
+.card-select:target {
+  color: inherit;
+  text-decoration: none;
+  border: 2px solid #00ccbc;
+}
+
 .category-container {
   display: flex;
   flex-wrap: nowrap;
@@ -11877,6 +11883,10 @@ footer .footer-data .credits span {
   cursor: pointer;
 }
 
+.category-container .category.active {
+  border: 4px solid #00ccbc;
+}
+
 .category-container .category .category-name {
   position: absolute;
   bottom: 0;
@@ -11889,9 +11899,18 @@ footer .footer-data .credits span {
 }
 
 .restaurant {
-  width: 200px;
-  height: 250px;
+  width: 300px;
+  height: 350px;
   margin: 0.5rem 0;
+}
+
+.restaurant h3,
+.restaurant .h3 {
+  font-style: italic;
+}
+
+.restaurant .card-text {
+  bottom: 4px;
 }
 
 img.img-restaurant {
@@ -11924,6 +11943,13 @@ img.food-image {
 
 .card.cart-element .remove {
   cursor: pointer;
+}
+
+.home h3,
+.home .h3 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #00ccbc;
 }
 
 .title-create {

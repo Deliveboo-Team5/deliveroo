@@ -128,6 +128,8 @@ var app = new Vue({
         }
       });
 
+      _this.statsLabel.sort();
+
       _this.statsLabel.forEach(function (year) {
         var count = 0;
 
@@ -150,7 +152,16 @@ var app = new Vue({
             data: _this.statsData
           }]
         },
-        options: {}
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: true,
+                suggestedMax: 10
+              }
+            }]
+          }
+        }
       });
     });
   },
@@ -228,7 +239,7 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/mirellenascimento/Dropbox/Boolean/Progetto/deliveroo/resources/js/script.js */"./resources/js/script.js");
+module.exports = __webpack_require__(/*! C:\Users\Rinal\Desktop\Boolean\Proj\deliveroo\resources\js\script.js */"./resources/js/script.js");
 
 
 /***/ })

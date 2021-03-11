@@ -38,6 +38,7 @@ const app = new Vue({
                         this.statsLabel.push(order.delivery_time.substring(0,4));
                     }
                   });
+                  this.statsLabel.sort();
                   this.statsLabel.forEach((year) => {
                     let count = 0;
                     this.statsOrder.forEach((order) => {
@@ -50,21 +51,29 @@ const app = new Vue({
                   });
 
 
-                  new Chart(document.getElementById("bar-chart"), {
-                      type: 'bar',
-                      data: {
-                        labels: this.statsLabel,
-                        datasets: [
-                          {
-                            label: "Ordini",
-                            backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-                            data: this.statsData
-                          }
-                        ]
-                      },
-                      options: {
-                      }
-                  });
+                new Chart(document.getElementById("bar-chart"), {
+                    type: 'bar',
+                    data: {
+                    labels: this.statsLabel,
+                    datasets: [
+                        {
+                        label: "Ordini",
+                        backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+                        data: this.statsData
+                        }
+                    ]
+                    },
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true,
+                                    suggestedMax: 10,
+                                }
+                            }]
+                        }
+                    }
+                });
 
             });
     },
