@@ -19,15 +19,14 @@ class OverviewController extends Controller
     {
         $restaurant = Auth::User()->getRestaurant->id;
 
-
+        $today = substr(Carbon::today(), 0, 10);
         $data = [
-            'day_order' => Order::where('restaurant_id',$restaurant)->where('created_at', '=', Carbon::today())->count(),
+            'day_order' => Order::where('restaurant_id',$restaurant)->where('delivery_time', 'like', $today.'%')->count(),
             'total_order' => Order::where('restaurant_id',$restaurant)->count(),
             'total_customer' => Order::where('restaurant_id',$restaurant)->groupBy('name_customer')->count(),
             'total_earnings' => DB::table('orders')->where('restaurant_id',$restaurant)->sum('total_price'),
-            'daily_earnings' => Order::where('restaurant_id',$restaurant)->where('created_at', '=', Carbon::today())->sum('total_price')
+            'daily_earnings' => Order::where('restaurant_id',$restaurant)->where('delivery_time', 'like', $today.'%')->sum('total_price')
             ];
-
 
         return view('dashboard.overview', compact('data'));
     }
