@@ -152,11 +152,15 @@ img.food-image {
 
 }
 
-
-
 .total_price{
-  margin-top: 20px;
+    margin-top: 20px;
+
+    .cart_total {
+        margin-right: 0.5rem;
+    }
 }
+
+
 .home{
     h3{
         font-size: 2rem;

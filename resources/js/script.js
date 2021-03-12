@@ -136,8 +136,6 @@ const app = new Vue({
           localStorage.setItem('cart', parsed);
 
         },
-
-
         addToCart(element){
             this.foods.forEach(food => {
                 if(food.id == element){
@@ -149,6 +147,10 @@ const app = new Vue({
         },
         removeFromCart(index){
             this.cart.splice(index, 1);
+            this.saveCart();
+        },
+        emptyCart(){
+            this.cart = [];
             this.saveCart();
         },
         refreshTotal(){

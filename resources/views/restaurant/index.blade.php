@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-6 d-flex align-items-center">
-                <h1> <strong>I tuoi piatti preferiti a casa. <br> Con Deliveroo.</strong> </h1>
+                <h1> <strong>I tuoi piatti preferiti a casa. <br> Con Deliveboo.</strong> </h1>
             </div>
             <div class="col-6">
                 <img src="{{asset('img\campaign.5add8e18.svg')}}" alt="" class="">

@@ -243,6 +243,10 @@ var app = new Vue({
       this.cart.splice(index, 1);
       this.saveCart();
     },
+    emptyCart: function emptyCart() {
+      this.cart = [];
+      this.saveCart();
+    },
     refreshTotal: function refreshTotal() {
       var _this5 = this;
 
