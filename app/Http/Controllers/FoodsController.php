@@ -97,7 +97,7 @@ class FoodsController extends Controller
         $data = $request->validated();
         $food->update($data);
 
-        $image ='';
+        $image =$food->img;
         if(isset($request['img'])){
             $image = $data['img']->storePublicly('images');
         }

@@ -11657,6 +11657,66 @@ main {
   background-color: #1a8a8c;
 }
 
+input[type=number] {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+.number-input {
+  border: 2px solid #ddd;
+  display: inline-flex;
+}
+
+.number-input,
+.number-input * {
+  box-sizing: border-box;
+}
+
+.number-input button {
+  outline: none;
+  -webkit-appearance: none;
+  background-color: transparent;
+  border: none;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  cursor: pointer;
+  margin: 0;
+  position: relative;
+}
+
+.number-input button:after {
+  display: inline-block;
+  position: absolute;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\F077";
+  transform: translate(-50%, -50%) rotate(180deg);
+}
+
+.number-input button.plus:after {
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.number-input input[type=number] {
+  font-family: sans-serif;
+  max-width: 5rem;
+  padding: 0.5rem;
+  border: solid #ddd;
+  border-width: 0 2px;
+  font-size: 2rem;
+  height: 3rem;
+  font-weight: bold;
+  text-align: center;
+}
+
 .desk_dash {
   height: 100vh;
   max-width: 300px;
@@ -11941,7 +12001,7 @@ img.img-restaurant {
 .food-img-container {
   padding: 0;
   height: 125px;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
 }
 
@@ -11953,8 +12013,15 @@ img.food-image {
 .food {
   width: 100%;
   margin-top: 0.5rem;
+  margin-left: 0;
+  margin-right: 0;
   padding: 0.5rem;
   flex-direction: row !important;
+}
+
+.food:hover {
+  cursor: pointer;
+  box-shadow: 0 0 5px #00ccbc;
 }
 
 .card.cart-element {
@@ -11962,6 +12029,11 @@ img.food-image {
   flex-direction: row;
   justify-content: space-between;
   padding: 0.5rem 1rem;
+  margin-top: 0.5rem;
+}
+
+.card.cart-element .quantity-input {
+  border: none;
 }
 
 .card.cart-element .quantity-input {
@@ -11971,7 +12043,16 @@ img.food-image {
 }
 
 .card.cart-element .remove {
+  font-size: 1.2rem;
+  color: #00ccbc;
+}
+
+.card.cart-element .remove {
   cursor: pointer;
+}
+
+.total_price {
+  margin-top: 20px;
 }
 
 .home h3,
@@ -12009,6 +12090,21 @@ img.food-image {
 .category-check button {
   color: #fff;
   margin: 10px;
+}
+
+#cart {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .col-cart {
+    border: none;
+  }
+
+  #cart {
+    height: 70px;
+    display: block;
+  }
 }
 
 nav {
@@ -12105,6 +12201,14 @@ nav .hamburger {
   height: 100%;
 }
 
+.cart_mobile {
+  display: none;
+}
+
+.nav_btn {
+  right: 0;
+}
+
 @media (max-width: 768px) {
   nav .nav_btn {
     display: none;
@@ -12123,6 +12227,10 @@ nav .hamburger {
 
   nav a img {
     height: 40px;
+  }
+
+  nav .cart_mobile {
+    display: inline-block;
   }
 }
 
