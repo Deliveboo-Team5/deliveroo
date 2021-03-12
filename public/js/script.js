@@ -169,7 +169,7 @@ var app = new Vue({
             }]
           }
         }
-      }); // GRAFICO MESE
+      });
     });
 
     if (localStorage.getItem('cart')) {
@@ -250,6 +250,8 @@ var app = new Vue({
     refreshGraphicYear: function refreshGraphicYear() {
       var _this6 = this;
 
+      this.chartMonth.statsData = [];
+
       var _loop = function _loop(i) {
         var count = 0;
 
@@ -266,7 +268,8 @@ var app = new Vue({
         _loop(i);
       }
 
-      new Chart(document.getElementById("chartMonth"), {
+      var ChartName = 'chartMonth' + this.selectedYear;
+      new Chart(document.getElementById(ChartName), {
         type: 'bar',
         data: {
           labels: this.chartMonth.statsLabel,
@@ -300,7 +303,7 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/mirellenascimento/Dropbox/Boolean/Progetto/deliveroo/resources/js/script.js */"./resources/js/script.js");
+module.exports = __webpack_require__(/*! /Users/marcosimonefontaine/Desktop/boolean/esercizi-boolean/deliveboo/resources/js/script.js */"./resources/js/script.js");
 
 
 /***/ })

@@ -58,18 +58,18 @@
         <div class="row">
           
           <div class="col stat-data d-flex  flex-column justify-content-center align-items-center">
-           <div>
+            <div>
               <label for="yearGraphic">Seleziona anno</label>
               <select name="" v-model="selectedYear"id="yearGraphic" v-on:change="refreshGraphicYear()" >
                 <option :value="year" v-for="year in chartYear.statsLabel">@{{year}}</option>
               </select>
+            </div>
+            <template v-for='year in chartYear.statsLabel'>
+                <canvas :id="'chartMonth' + year" width="400" height="200" :class="selectedYear == year ? '' : 'd-none'"></canvas>
+            </template>
           </div>
-              <canvas id="chartMonth" width="400" height="200"></canvas>
-          </div>
-
         </div>
       </div>
-
     </div>
   </div>
 </div>

@@ -52,6 +52,10 @@ class categorySeeder extends Seeder
             'name' => 'Italiano',
             'img' => 'https://img.freepik.com/free-photo/penne-pasta-tomato-sauce-with-chicken-tomatoes-wooden-table_2829-19739.jpg?size=626&ext=jpg&uid=R533347&ga=GA1.2.1489747274.1570093904',
           ],
+          [
+            'name' => 'Luxury Food',
+            'img' => 'https://d37va2rovhwkkr.cloudfront.net/preview_images/ricetta/646_0.jpg',
+          ],
 
         ];
 

@@ -83,7 +83,7 @@ const app = new Vue({
                     }
                     });
 
-               // GRAFICO MESE
+              
 
                 });
 
@@ -149,6 +149,7 @@ const app = new Vue({
             this.totalPrice = (Math.round(this.totalPrice * 100) / 100).toFixed(2);
         },
         refreshGraphicYear(){
+            this.chartMonth.statsData = [];
             for(let i = 1; i <= 12; i++){
                 let count = 0;
                 this.statsOrder.forEach((order) => {
@@ -158,7 +159,8 @@ const app = new Vue({
                 });
                 this.chartMonth.statsData.push(count);
             }
-            new Chart(document.getElementById("chartMonth"),{
+            let ChartName = 'chartMonth' + this.selectedYear;
+            new Chart(document.getElementById(ChartName),{
                 type: 'bar',
                 data: {
                     labels: this.chartMonth.statsLabel,
