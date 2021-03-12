@@ -52,6 +52,9 @@
             <div  class="col-none col-md-4 col-cart">
                 <div id="cart" ref="cart"></div>
                 <h1 class="text-center">Carrello</h1>
+                <a class="btn btn-primary" v-on:click="emptyCart" v-if="cart.length > 0">
+                    Svuota il carrello
+                </a>
                 <div>
                     <div class="card cart-element" v-for="(element, i) in cart">
                         <div class="d-flex flex-column">
@@ -72,8 +75,10 @@
                             <i class="fas fa-times-circle"></i>
                         </div>
                     </div>
-                    <div class="total_price d-flex justify-content-end" v-if="cart.length > 0">
-                        <strong>Totale: </strong>@{{totalPrice}}€
+                    <div class="total_price d-flex justify-content-end align-items-center" v-if="cart.length > 0">
+                        <div class="cart_total">
+                            <strong>Totale: </strong>@{{totalPrice}}€
+                        </div>
 
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
