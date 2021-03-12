@@ -21,12 +21,13 @@
                         @endif
                         @else
                             <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                                <span>Benvenuto {{ Auth::user()->name }}</span>
+                                <span>Benvenuto &#32;{{ Auth::user()->name }}</span>
                                 <a class="btn-light btn" href="{{ route('overview') }}">
-                                    Dashboard
+                                    <i class="far fa-chart-bar"></i>
+                                    &#32; Dashboard
                                 </a>
                                 @csrf
-                                <button type="submit" class="btn-light btn">Logout</button>
+                                <button type="submit" class="btn-light btn"><i class="fas fa-sign-out-alt"></i></i>&#32; Logout</button>
                             </form>
                         @endguest
                     </div>

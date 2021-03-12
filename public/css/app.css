@@ -12241,6 +12241,11 @@ nav .hamburger {
   right: 0;
 }
 
+.nav_btn span {
+  color: #00ccbc;
+  line-height: 0 !important;
+}
+
 @media (max-width: 768px) {
   nav .nav_btn {
     display: none;
