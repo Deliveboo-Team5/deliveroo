@@ -2,13 +2,13 @@
     <header>
         <nav class="navbar navbar-light fixed-top">
             <div class="container-fluid">
-                <div class="container d-flex justify-content-between align-items-center p-relative">
+                <div class="container d-flex justify-content-between align-items-center">
                     <a class="navbar-brand d-flex d-none d-lg-block" href="{{asset('/')}}"><img class=""src="{{asset('img/deliveroo-logo.png')}}" alt="deliveroo_logo"></a>
                     <a class="navbar-brand d-flex d-lg-none" href="{{asset('/')}}"><img class=""src="{{asset('img/deliveroo-md.png')}}" alt="deliveroo_logo"></a>
                     @if (Request::url() === route('restaurant.index'))
-                    <input class="form-control me-2 nav-form" type="search" placeholder="Cerca il ristorante..." aria-label="Search" v-model="searchByName" v-on:keyup="goto('restaurants')">
+                        <input class="form-control me-2 nav-form" type="search" placeholder="Cerca il ristorante..." aria-label="Search" v-model="searchByName" v-on:keyup="goto('restaurants')">
                     @endif
-                    <div class="nav_btn p-absolute">
+                    <div class="nav_btn">
                         <!-- Authentication Links -->
                         @guest
                             <a class="btn-light btn" href="{{ route('login') }}">
@@ -30,9 +30,9 @@
                             </form>
                         @endguest
                     </div>
-                    <div class="d-flex flex-row align-items-center">
+                    <div class="d-flex d-lg-none flex-row align-items-center">
                       <div class="cart_mobile align-self-end" v-if="!cart.length == 0">
-                        <button class="btn" @click="gotocart" type="button" name="button"><i class="fas fa-shopping-basket"></i>&#32;@{{totalPrice}}€</button>
+                        <button class="btn" v-on:click="gotocart" type="button" name="button"><i class="fas fa-shopping-basket"></i>&#32;@{{totalPrice}}€</button>
                       </div>
 
                       <div class="dropdown">
