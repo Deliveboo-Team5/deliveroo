@@ -14,7 +14,7 @@ use Braintree\Transaction;
 
 class PaymentsController extends Controller
 {
-    public function checkout(PaymentRequest $requestData ,Request $request){
+    public function checkout(Request $request){
         $gateway = new Braintree\Gateway([
             'environment' => config('services.braintree.environment'),
             'merchantId' => config('services.braintree.merchantId'),
