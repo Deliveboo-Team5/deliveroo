@@ -11850,6 +11850,10 @@ input[type=number]::-webkit-outer-spin-button {
   margin-top: 30px;
 }
 
+.order-details .order_food_details {
+  margin-left: 2rem;
+}
+
 footer {
   background-color: #2E3333;
   color: #fff;

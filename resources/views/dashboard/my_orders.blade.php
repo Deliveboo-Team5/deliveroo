@@ -51,17 +51,17 @@
                   <li>Indirizzo di consegna:<strong> {{$order->delivery_address}}</strong></li>
                   <li>Orario di consegna: <strong>{{$order->delivery_time}}h</strong></li>
                   <li>Prodotti:
-                      <ul class="d-flex flex-column">
+                      <div class="d-flex flex-column">
 
                         @foreach($order->getFood as $food)
                           @foreach($data['food'] as $menu)
                             @if($food->id == $menu->id)
-                            <li>{{$food->pivot->quantity}} | {{$menu->name_food}} ({{$menu->id}}) | €{{$menu->price}}</li>
+                            <span class="order_food_details">{{$food->pivot->quantity}} | {{$menu->name_food}} ({{$menu->id}}) | €{{$menu->price}}</span>
                             @endif
                           @endforeach
                         @endforeach
 
-                      </ul>
+                      </div>
                   </li>
                   <li>Totale ordini: <strong>€{{number_format($order->total_price, 2, '.', ',')}}</strong></li>
                 </ul>

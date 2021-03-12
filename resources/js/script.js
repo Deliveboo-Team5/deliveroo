@@ -103,19 +103,16 @@ const app = new Vue({
                 this.activeCategory.splice(this.activeCategory.indexOf(element), 1)
             }
         },
-
         goto(refName) {
             var element = this.$refs[refName];
             console.log(element);
             var top = element.offsetTop;
             window.scrollTo(0, (top - 70));
         },
-
         gotocart(){
           let cartPosition = this.$refs.cart;
           cartPosition.scrollIntoView();
         },
-
         filterRestaurant(){
             if(this.activeCategory.length == 0){
                 return this.restaurants;
@@ -129,12 +126,10 @@ const app = new Vue({
             }else{
                 return this.restaurants.filter(restaurant => restaurant.name_restaurant.toLowerCase().includes(this.searchByName.toLowerCase()));
             }
-
         },
         saveCart() {
           const parsed = JSON.stringify(this.cart);
           localStorage.setItem('cart', parsed);
-
         },
         addToCart(element){
             this.foods.forEach(food => {
