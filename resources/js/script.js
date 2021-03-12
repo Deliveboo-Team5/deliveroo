@@ -1,4 +1,3 @@
-
 const app = new Vue({
     el: '#root',
     data: {
@@ -22,6 +21,7 @@ const app = new Vue({
         totalPrice: 0
     },
     mounted() {
+
         axios
             .get('http://localhost:8000/api/restaurant')
             .then(r => {
@@ -58,7 +58,7 @@ const app = new Vue({
                     });
                     this.chartYear.statsData.push(count);
                 });
-                
+
                 new Chart(document.getElementById("chartYear"),{
                     type: 'bar',
                     data: {
@@ -84,9 +84,13 @@ const app = new Vue({
                     });
 
                // GRAFICO MESE
-                    
+
                 });
-           
+
+                if (localStorage.getItem('cart')) {
+                      this.cart = JSON.parse(localStorage.getItem('cart'));
+                    };
+
     },
     methods: {
         selectCategory(element){
@@ -117,16 +121,24 @@ const app = new Vue({
             }
 
         },
+        saveCart() {
+          const parsed = JSON.stringify(this.cart);
+          localStorage.setItem('cart', parsed);
+        },
+
+
         addToCart(element){
             this.foods.forEach(food => {
                 if(food.id == element){
                     food.quantity = 1;
                     this.cart.push(food);
+                    this.saveCart();
                 }
             })
         },
         removeFromCart(index){
             this.cart.splice(index, 1);
+            this.saveCart();
         },
         refreshTotal(){
             this.totalPrice = 0;
@@ -137,7 +149,7 @@ const app = new Vue({
             this.totalPrice = (Math.round(this.totalPrice * 100) / 100).toFixed(2);
         },
         refreshGraphicYear(){
-            for(let i = 1; i <= 12; i++){   
+            for(let i = 1; i <= 12; i++){
                 let count = 0;
                 this.statsOrder.forEach((order) => {
                     if((order.delivery_time.substring(0,4) ==  this.selectedYear) && (order.delivery_time.substring(5,7) == i)){

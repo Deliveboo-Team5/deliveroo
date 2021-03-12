@@ -171,6 +171,12 @@ var app = new Vue({
         }
       }); // GRAFICO MESE
     });
+
+    if (localStorage.getItem('cart')) {
+      this.cart = JSON.parse(localStorage.getItem('cart'));
+    }
+
+    ;
   },
   methods: {
     selectCategory: function selectCategory(element) {
@@ -210,6 +216,10 @@ var app = new Vue({
         });
       }
     },
+    saveCart: function saveCart() {
+      var parsed = JSON.stringify(this.cart);
+      localStorage.setItem('cart', parsed);
+    },
     addToCart: function addToCart(element) {
       var _this4 = this;
 
@@ -218,11 +228,14 @@ var app = new Vue({
           food.quantity = 1;
 
           _this4.cart.push(food);
+
+          _this4.saveCart();
         }
       });
     },
     removeFromCart: function removeFromCart(index) {
       this.cart.splice(index, 1);
+      this.saveCart();
     },
     refreshTotal: function refreshTotal() {
       var _this5 = this;
@@ -287,7 +300,7 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Rinal\Desktop\Boolean\Proj\deliveroo\resources\js\script.js */"./resources/js/script.js");
+module.exports = __webpack_require__(/*! /Users/mirellenascimento/Dropbox/Boolean/Progetto/deliveroo/resources/js/script.js */"./resources/js/script.js");
 
 
 /***/ })
