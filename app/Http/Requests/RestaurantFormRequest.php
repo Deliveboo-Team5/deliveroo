@@ -27,12 +27,12 @@ class RestaurantFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'name_restaurant' => ['required','max:50'],
-            'img' => ['mimetypes:image/jpeg,image/png ,image/jpg','max:12040'],
-            'phone' => ['required','max:255'],
-            'address' => ['required','max:255'] ,
-            'VAT' => ['required','max:255','min:13'],
+            'name_restaurant' => ['required','max:50','min:3'],
+            'img' => ['mimes:jpeg, jpg','max:12040'],
+            'phone' => ['required','max:255','min:5'],
+            'address' => ['required','max:255','min:3'] ,
+            'VAT' => ['required','max:255','min:11'],
+            'category' => ['array','min:4','required']
        ];
-
     }
 }

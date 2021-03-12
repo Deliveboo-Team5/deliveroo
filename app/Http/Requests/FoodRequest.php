@@ -26,10 +26,10 @@ class FoodRequest extends FormRequest
     public function rules()
     {
         return [
-            'name_food' => ['required','max:50'],
-            'img' => ['mimetypes:image/jpeg, image/png, image/jpg','max:12400'],
-            'price' => ['required','max:10'],
-            'ingredients' => ['required','max:255'] ,
+            'name_food' => ['required','max:50','min:3'],
+            'img' => ['mimes:jpeg, jpg','max:12040'],
+            'price' => ['required','max:10','min:1'],
+            'ingredients' => ['required','max:500','min:3'] ,
             'is_visible' => ['required','boolean'],
         ];
     }
