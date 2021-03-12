@@ -36,15 +36,17 @@
 
                 {{-- Piatti ristorante --}}
                 @foreach ($restaurant->getFood as $restFood)
-                    <div class="card food row" value="{{$restFood->id}}" v-on:click="addToCart({{$restFood->id}}), refreshTotal()">
-                        <div class="col-12 col-md-3 food-img-container" style="background-image: url({{asset($restFood->img)}})">
+                    @if ($restFood->is_visible)
+                        <div class="card food row" value="{{$restFood->id}}" v-on:click="addToCart({{$restFood->id}}), refreshTotal()">
+                            <div class="col-12 col-md-3 food-img-container" style="background-image: url({{asset($restFood->img)}})">
+                            </div>
+                            <div class="col-12 col-md-9 d-flex flex-column">
+                                <h5 class="text-capitalize">{{$restFood->name_food}}</h5>
+                                <span>{{$restFood->ingredients}}</span>
+                                <span class="align-self-end">{{number_format($restFood->price, 2, '.', ',')}}€</span>
+                            </div>
                         </div>
-                        <div class="col-12 col-md-9 d-flex flex-column">
-                            <h5 class="text-capitalize">{{$restFood->name_food}}</h5>
-                            <span>{{$restFood->ingredients}}</span>
-                            <span class="align-self-end">{{number_format($restFood->price, 2, '.', ',')}}€</span>
-                        </div>
-                    </div>
+                    @endif
                 @endforeach
             </div>
             <div class="col-4 col-cart">
