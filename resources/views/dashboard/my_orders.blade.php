@@ -10,7 +10,17 @@
 
       <div class="row orders-list d-flex flex-column">
         <h3>Ordini</h3>
-
+        <ul class="d-flex nav-responsive justify-content-between d-lg-none list-inline">
+            <li class="list-inline-item">
+              <a class="btn btn-primary" href="{{asset('overview')}}">Overview</a>
+            </li>
+            <li class="list-inline-item">
+              <a class="btn btn-primary" href="{{asset('my_orders')}}">Ordini</a>
+            </li>
+            <li class="list-inline-item">
+              <a class="btn btn-primary" href="{{asset('foods')}}">Prodotti</a>
+            </li>
+        </ul>
         @if (count($data['orders']) > 0)
           @foreach($data['orders'] as $order)
           {{-- template orders --}}

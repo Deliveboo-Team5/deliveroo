@@ -1,27 +1,28 @@
 @extends('my_layouts.deliveboo')
 @section('content')
 <div class="container">
-  <div class="row">
+  <div class="row d-flex justify-content-center">
   <!-- left menu -->
     @include('dashboard.sidebar')
 
     <div class="col-10 dashboard-main">
-
       <!-- orders received -->
-      <div class="row dashboard d-flex flex-column">
+      <div class="row dashboard d-flex flex-column align-items-center">
         <div class="col">
           <h3>Dashboard</h3>
+          <ul class="d-flex nav-responsive justify-content-between d-lg-none list-inline">
+            <li class="list-inline-item">
+              <a class="btn btn-primary" href="{{asset('overview')}}">Overview</a>
+            </li>
+            <li class="list-inline-item">
+              <a class="btn btn-primary" href="{{asset('my_orders')}}">Ordini</a>
+            </li>
+            <li class="list-inline-item">
+              <a class="btn btn-primary" href="{{asset('foods')}}">Prodotti</a>
+            </li>
+          </ul>
         </div>
         <div class="row">
-          <!-- <div class="col d-flex justify-content-between flex-wrap">
-            <div class="card text-dark bg-light mb-3 text-center flex-grow-1">
-              <div class="card-header">Nuovi Ordini</div>
-              <div class="card-body">
-                <h1 class="card-title">Sei bellissimo</h5>
-                <p class="card-text"><a href="#">Controla gli Ordini</a></p>
-              </div>
-            </div> -->
-
             <div class="card text-dark bg-light mb-3 text-center flex-grow-1">
               <div class="card-header">Ordini di Oggi</div>
               <div class="card-body">
@@ -51,7 +52,6 @@
         <div class="row">
           <div class="col stat-data d-flex justify-content-center align-items-center">
             <canvas id="chartYear" width="400" height="200"></canvas>
-
           </div>
 
         </div>

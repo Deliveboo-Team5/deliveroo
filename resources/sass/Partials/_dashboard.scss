@@ -6,7 +6,16 @@
     position: -webkit-sticky; /* Safari */
     position: sticky;
     top: 115px;
-
+    li{
+      a{
+        width: 85px;
+        margin-bottom: 10px;
+        background-color: $primary-color;
+        &:visited{
+          background-color: inherit;
+        }
+      }
+    }
   }
 }
 
@@ -22,18 +31,35 @@
   }
 }
 
+.nav-responsive{
+  li{
+    a{
+      background-color: $primary-color;
+      width: 85px;
+      &:visited {
+          background-color: inherit;
+      }
+    }
+  }
+}
 
 .dashboard .card{
   width: 200px;
   margin: 10px;
+  padding: 0;
 }
+
 
 .dashboard .stat-data{
   width: 100%;
-  height: 600px;
+  height: 60vh;
   background-color: #F5F7FA;
   margin: 22px;
   border-radius: 5px;
+}
+
+.dashboard-main{
+  margin-top: 40px;
 }
 
 

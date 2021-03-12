@@ -10,6 +10,17 @@
 
       <div class="row menu-list d-flex flex-column">
         <h3>Menu</h3>
+        <ul class="d-flex nav-responsive justify-content-between d-lg-none list-inline">
+            <li class="list-inline-item">
+              <a class="btn btn-primary" href="{{asset('overview')}}">Overview</a>
+            </li>
+            <li class="list-inline-item">
+              <a class="btn btn-primary" href="{{asset('my_orders')}}">Ordini</a>
+            </li>
+            <li class="list-inline-item">
+              <a class="btn btn-primary" href="{{asset('foods')}}">Prodotti</a>
+            </li>
+        </ul>
         <div class="d-flex menu-create">
           <button type="button" class="btn btn-primary"><a href="{{route('foods.create')}}">Aggiungi un piatto</a></button>
         </div>

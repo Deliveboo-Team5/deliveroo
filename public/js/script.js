@@ -151,6 +151,7 @@ var app = new Vue({
 
       new Chart(document.getElementById("chartYear"), {
         type: 'bar',
+        responsive: true,
         data: {
           labels: _this.chartYear.statsLabel,
           datasets: [{
@@ -310,7 +311,7 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/marcosimonefontaine/Desktop/boolean/esercizi-boolean/deliveboo/resources/js/script.js */"./resources/js/script.js");
+module.exports = __webpack_require__(/*! C:\Users\Rinal\Desktop\Boolean\Proj\deliveroo\resources\js\script.js */"./resources/js/script.js");
 
 
 /***/ })

@@ -61,6 +61,7 @@ const app = new Vue({
 
                 new Chart(document.getElementById("chartYear"),{
                     type: 'bar',
+                    responsive: true,
                     data: {
                     labels: this.chartYear.statsLabel,
                     datasets: [
