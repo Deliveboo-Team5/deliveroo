@@ -40,7 +40,7 @@
                   @enderror
                 </div>
                 <div class="mb-3">
-                  <label for="img" class="form-label">Immagine del piatto (in formato jpeg, jpg):</label>
+                  <label for="img" class="form-label">Immagine del piatto:</label>
                   <input id="img" type="file" class="form-control @error('img') is-invalid @enderror" name="img" >
                   @error('img')
                     <span class="invalid-feedback" role="alert">

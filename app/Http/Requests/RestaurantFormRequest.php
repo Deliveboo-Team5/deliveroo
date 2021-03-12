@@ -28,11 +28,11 @@ class RestaurantFormRequest extends FormRequest
     {
         return [
             'name_restaurant' => ['required','max:50','min:3'],
-            'img' => ['mimes:jpeg, jpg','max:12040'],
+            'img' => ['image','max:12040'],
             'phone' => ['required','max:255','min:5'],
             'address' => ['required','max:255','min:3'] ,
             'VAT' => ['required','max:255','min:11'],
-            'category' => ['array','min:4','required']
+            'category' => ['array','min:1','required']
        ];
     }
 }
