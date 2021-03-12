@@ -5,16 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Order;
-
 use Braintree;
 use Braintree\Gateway;
-use Braintree\Transaction;
+use Braintree\Transaction; 
+
 
 
 
 class PaymentsController extends Controller
 {
-    public function checkout(Request $request){
+    public function checkout(PaymentRequest $requestData ,Request $request){
         $gateway = new Braintree\Gateway([
             'environment' => config('services.braintree.environment'),
             'merchantId' => config('services.braintree.merchantId'),
@@ -32,14 +32,13 @@ class PaymentsController extends Controller
                 'submitForSettlement' => true
             ]
         ]);
-    
         
-    
         if ($result->success) {
+            
             $transaction = $result->transaction;
             $newOrder = new Order([
                 'name_customer' => $request->name,
-                'delivery_address' => $request->address,
+                'delivery_address' =>  $request->address,
                 'email' => $request->email,
                 'phone' => $request->phone,
                 'delivery_time' => $request->delivery_time,

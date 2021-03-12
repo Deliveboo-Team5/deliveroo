@@ -24,15 +24,20 @@
                     </table>
                     <div class="d-flex flex-column">
                         <label for="name">Nome sul citofono</label>
-                        <input type="text" id="name" name="name">
+                        <input type="text" id="name" name="name_customer" required  minlength="4">
+                            
                         <label for="email">E-mail</label>
-                        <input type="text" id="email" name="email">
+                        <input type="email" id="email" name="email"  required minlength="4">
+                            
                         <label for="address">Indirizzo di consegna</label>
-                        <input type="text" id="address" name="address">
+                        <input type="text" id="address" name="address" minlength="4" required>
+                            
                         <label for="date">Ora di consegna</label>
-                        <input type="datetime-local" id="date" name="delivery_time">
+                        <input type="datetime-local" id="date" name="delivery_time" minlength="16" maxlength="16" required placeholder="YYYY-MM-DD HH:MM">
+                          
                         <label for="phone">Numero di telefono</label>
-                        <input type="text" id="phone" name="phone">
+                        <input type="text" id="phone" name="phone" minlength="4" required>
+                            
                     </div>
                     <input type="hidden"name="restaurant" value="{{$restaurant->id}}">
                     <template v-for="item in cart">
@@ -91,4 +96,16 @@
             });
             });
         });
+
+        const email = document.getElementById("email");
+
+        email.addEventListener("", function (event) {
+        if (email.validity.typeMismatch) {
+          email.setCustomValidity("inserire un email valida");
+        } else {
+           email.setCustomValidity("");
+        }
+});
+
+       
     </script>
