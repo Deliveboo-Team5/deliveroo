@@ -174,6 +174,7 @@ var app = new Vue({
 
     if (localStorage.getItem('cart')) {
       this.cart = JSON.parse(localStorage.getItem('cart'));
+      this.totalPrice = localStorage.getItem('total');
     }
 
     ;
@@ -191,6 +192,10 @@ var app = new Vue({
       console.log(element);
       var top = element.offsetTop;
       window.scrollTo(0, top - 70);
+    },
+    gotocart: function gotocart() {
+      var cartPosition = this.$refs.cart;
+      cartPosition.scrollIntoView();
     },
     filterRestaurant: function filterRestaurant() {
       var _this2 = this;
@@ -246,6 +251,8 @@ var app = new Vue({
         _this5.totalPrice += food.totalPrice;
       });
       this.totalPrice = (Math.round(this.totalPrice * 100) / 100).toFixed(2);
+      var totalPriceSave = this.totalPrice;
+      localStorage.setItem('total', totalPriceSave);
     },
     refreshGraphicYear: function refreshGraphicYear() {
       var _this6 = this;

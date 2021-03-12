@@ -100,7 +100,7 @@ img.img-restaurant {
 .food-img-container{
     padding: 0;
     height: 125px;
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
 
 }
@@ -111,8 +111,15 @@ img.food-image {
 .food {
     width: 100%;
     margin-top: 0.5rem;
+    margin-left: 0;
+    margin-right: 0;
     padding: 0.5rem;
     flex-direction: row !important;
+
+    &:hover{
+      cursor: pointer;
+      box-shadow: 0 0 5px $primary-color;
+    }
 }
 
 
@@ -121,6 +128,11 @@ img.food-image {
     flex-direction: row;
     justify-content: space-between;
     padding: 0.5rem 1rem;
+    margin-top: 0.5rem;
+
+    .quantity-input{
+      border:none;
+    }
 
     & .quantity-input {
         height:25px;
@@ -128,9 +140,22 @@ img.food-image {
         width: 50px;
     }
 
+    .remove{
+      font-size: 1.2rem;
+      color: $primary-color;
+    }
+
+
     & .remove {
         cursor: pointer;
     }
+
+}
+
+
+
+.total_price{
+  margin-top: 20px;
 }
 .home{
     h3{
@@ -167,5 +192,21 @@ img.food-image {
     button{
         color: $secondary-color;
         margin: 10px;
+    }
+}
+
+#cart{
+  display: none;
+}
+
+
+@media (max-width: $tablet-breakpoint){
+    .col-cart{
+    border: none;
+    }
+
+    #cart{
+      height: 70px;
+      display: block;
     }
 }

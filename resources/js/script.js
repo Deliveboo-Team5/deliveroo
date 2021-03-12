@@ -89,6 +89,8 @@ const app = new Vue({
 
                 if (localStorage.getItem('cart')) {
                       this.cart = JSON.parse(localStorage.getItem('cart'));
+                      this.totalPrice = localStorage.getItem('total');
+
                     };
 
     },
@@ -100,12 +102,19 @@ const app = new Vue({
                 this.activeCategory.splice(this.activeCategory.indexOf(element), 1)
             }
         },
+
         goto(refName) {
             var element = this.$refs[refName];
             console.log(element);
             var top = element.offsetTop;
             window.scrollTo(0, (top - 70));
         },
+
+        gotocart(){
+          let cartPosition = this.$refs.cart;
+          cartPosition.scrollIntoView();
+        },
+
         filterRestaurant(){
             if(this.activeCategory.length == 0){
                 return this.restaurants;
@@ -124,6 +133,7 @@ const app = new Vue({
         saveCart() {
           const parsed = JSON.stringify(this.cart);
           localStorage.setItem('cart', parsed);
+
         },
 
 
@@ -147,6 +157,8 @@ const app = new Vue({
                 this.totalPrice += food.totalPrice;
             })
             this.totalPrice = (Math.round(this.totalPrice * 100) / 100).toFixed(2);
+            let totalPriceSave = this.totalPrice;
+            localStorage.setItem('total', totalPriceSave);
         },
         refreshGraphicYear(){
             this.chartMonth.statsData = [];
