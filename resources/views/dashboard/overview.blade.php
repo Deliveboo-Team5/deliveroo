@@ -56,7 +56,7 @@
 
         </div>
         <div class="row">
-          
+
           <div class="col stat-data d-flex  flex-column justify-content-center align-items-center">
             <div>
               <label for="yearGraphic">Seleziona anno</label>

@@ -80,9 +80,13 @@ class FoodsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Restaurant $restaurant)
     {
-        //
+      $restaurantId = Auth::User()->getRestaurant->id;
+      $restaurant = Restaurant::find($restaurantId);
+
+
+      return view('restaurant.edit', compact('restaurant'));
     }
 
     /**

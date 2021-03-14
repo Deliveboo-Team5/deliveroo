@@ -32,7 +32,8 @@
                   <a :href="'restaurant/' + restaurant.id"  class="card-select card restaurant" :value="restaurant.id">
                       <img class="card-img-top" :src="restaurant.img" alt="Restaurant picture">
                       <div class="card-body p-relative">
-                          <h3 class="card-title">@{{restaurant.name_restaurant}}</h3>
+                          <h3 class="card-title" v-if="restaurant.name_restaurant.length < 30">@{{restaurant.name_restaurant}}</h3>
+                          <h3 class="card-title" v-else>@{{restaurant.name_restaurant.substring(0,30)+ "..."}}</h3>
                           <small>
                               @{{restaurant.address}}
                           </small>

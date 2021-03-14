@@ -11740,9 +11740,31 @@ main {
 
 .orders-list .card,
 .menu-list .card {
-  padding: 30px 0;
+  margin-top: 0.5rem;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0.5rem;
+  flex-direction: row !important;
   width: 100%;
-  min-width: 400px;
+}
+
+.orders-list .card .food-img-container,
+.menu-list .card .food-img-container {
+  padding: 0;
+  height: 125px;
+  min-height: 70%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.orders-list .card .card-body,
+.menu-list .card .card-body {
+  height: 100%;
+}
+
+.orders-list .card button,
+.menu-list .card button {
+  margin-top: 10px;
 }
 
 .orders-list input,
@@ -11772,17 +11794,57 @@ main {
   margin-bottom: 20px;
 }
 
+.food-details {
+  padding: 10px;
+  width: 100%;
+}
+
+.food-details .card-body {
+  padding: 0 1rem;
+  width: 100%;
+}
+
+.food-details .card-body button {
+  margin-left: 10px;
+}
+
+.food-details .food-img-container {
+  padding: 0;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.food-details ul,
+.food-details form {
+  margin-top: 30px;
+}
+
+.image-update {
+  padding-right: 5.5%;
+  margin: 20px 0 20px 0;
+}
+
 .order-details {
   margin-left: 50px;
   padding: 0;
+  width: 100%;
 }
 
 .order-details .card-body {
   padding: 0 1rem;
+  width: 100%;
 }
 
 .order-details .card-body button {
   margin-left: 10px;
+}
+
+.order-details .food-img-container {
+  padding: 0;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .order-details ul,
@@ -11792,6 +11854,10 @@ main {
 
 .order-details .order_food_details {
   margin-left: 2rem;
+}
+
+.order-details .update-form-restaurant input {
+  width: 100%;
 }
 
 footer {
@@ -12023,13 +12089,10 @@ img.food-image {
   margin-top: 20px;
 }
 
-<<<<<<< Updated upstream
 .total_price .cart_total {
   margin-right: 0.5rem;
 }
 
-=======
->>>>>>> Stashed changes
 .home h3,
 .home .h3 {
   font-size: 2rem;

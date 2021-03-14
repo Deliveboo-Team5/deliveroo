@@ -97,10 +97,10 @@ class RestaurantController extends Controller
             'publicKey' => config('services.braintree.publicKey'),
             'privateKey' => config('services.braintree.privateKey')
         ]);
-    
+
         $token = $gateway->ClientToken()->generate();
-    
-        
+
+
 
         $restaurant = Restaurant::find($id);
         return view('restaurant.show', [
@@ -115,10 +115,14 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Restaurant $restaurant)
     {
-        //
+      $categories = Category::all();
+      return view('restaurant.edit', compact(['categories', 'restaurant']));
     }
+
+
+
 
     /**
      * Update the specified resource in storage.
@@ -127,9 +131,30 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(RestaurantFormRequest $request, $id)
+    public function update(Request $request, Restaurant $restaurant)
     {
-        //
+      $data = $request;
+
+      $image = $restaurant->img;
+          if($data['img'] !== null){
+              $image = $data['img']->storePublicly('images');
+          }
+      $restaurant->img = $image;
+
+
+      $restaurant->name_restaurant = $data['name_restaurant'];
+      $restaurant->address = $data['address'];
+      $restaurant->phone = $data['phone'];
+      $restaurant->VAT = $data['VAT'];
+      $restaurant->save();
+
+      $restaurant->getCategory()->detach();
+      if(isset($data['category'])){
+        $restaurant->getCategory()->attach($data['category']);
+        }
+
+
+        return redirect(route('my_restaurant'));
     }
 
     /**
@@ -170,7 +195,7 @@ class RestaurantController extends Controller
         }
 
         $restaurants = restaurantShuffle($restaurantsRaw);
-        
+
         foreach($restaurants as $restaurant){
             $restaurant->category_id = [];
             $restaurant_categories = [];

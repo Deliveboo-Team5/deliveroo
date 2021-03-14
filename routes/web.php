@@ -28,6 +28,9 @@ Route::get('/', function () {
 
 Route::get('overview', 'OverviewController@index')->name('overview')->middleware('auth');
 
+Route::get('my_restaurant', 'MyRestaurantController@index')->name('my_restaurant')->middleware('auth');
+
+
 Route::get('my_orders', 'OrdersController@index')->middleware('auth');
 
 Route::get('statistics', function () {
@@ -40,9 +43,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('restaurant', 'RestaurantController')->except('index','show')->middleware('auth');
+Route::resource('restaurant', 'RestaurantController')->except('index','show','edit', 'update')->middleware('auth');
 
-Route::resource('restaurant', 'RestaurantController')->only('index','show');
+Route::resource('restaurant', 'RestaurantController')->only('index','show','edit', 'update');
 
 
 Route::get('/api/restaurant', 'RestaurantController@ajaxcall');
