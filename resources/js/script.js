@@ -134,8 +134,8 @@ const app = new Vue({
         addToCart(element){
             this.foods.forEach(food => {
                 if(food.id == element){
-                  if(food.restaurant_id !== element.restaurant_id){
-                    console.log('nooo');
+                  if((this.cart.length > 0) && (food.restaurant_id !== this.cart[0].restaurant_id)){
+                    // alert('Puoi ordinare da un ristorante alla volta. Svuota il carrello');
                   }else{
                     if(this.cart.includes(food)){
                       ++food.quantity;

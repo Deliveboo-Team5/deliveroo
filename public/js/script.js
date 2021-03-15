@@ -231,8 +231,7 @@ var app = new Vue({
 
       this.foods.forEach(function (food) {
         if (food.id == element) {
-          if (food.restaurant_id !== element.restaurant_id) {
-            console.log('nooo');
+          if (_this4.cart.length > 0 && food.restaurant_id !== _this4.cart[0].restaurant_id) {// alert('Puoi ordinare da un ristorante alla volta. Svuota il carrello');
           } else {
             if (_this4.cart.includes(food)) {
               ++food.quantity;
@@ -326,7 +325,7 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/marcosimonefontaine/Desktop/boolean/esercizi-boolean/deliveboo/resources/js/script.js */"./resources/js/script.js");
+module.exports = __webpack_require__(/*! /Users/mirellenascimento/Dropbox/Boolean/Progetto/deliveroo/resources/js/script.js */"./resources/js/script.js");
 
 
 /***/ })
