@@ -86,10 +86,14 @@
                 <a class="btn btn-primary" v-on:click="emptyCart" v-if="cart.length > 0">
                     Svuota il carrello
                 </a>
+
+                <a class="btn btn-primary" :href="cart[0].restaurant_id" v-if="(cart.length > 0) && (cart[0].restaurant_id !== {{$restaurant->id}})">
+                    Torna al ristorante
+                </a>
                 <div>
                     <div class="card cart-element" v-for="(element) in cart">
                         <div class="d-flex flex-column">
-                            <span id="name" class="text-capitalize"><strong>Piatto: </strong>@{{element.name_food}}</span>
+                            <span id="name" class="text-capitalize"><strong>Piatto: </strong>@{{element.restaurant_id}}</span>
                             <span for="name"><strong>Prezzo: </strong>@{{element.price.toFixed(2)}}€</span>
                             <span>
                                 <strong>Quantità: </strong>
