@@ -172,6 +172,7 @@ const app = new Vue({
             let ChartName = 'chartMonth' + this.selectedYear;
             new Chart(document.getElementById(ChartName),{
                 type: 'bar',
+                responsive: true,
                 data: {
                     labels: this.chartMonth.statsLabel,
                     datasets: [

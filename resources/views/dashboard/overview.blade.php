@@ -64,8 +64,10 @@
                 <option :value="year" v-for="year in chartYear.statsLabel">@{{year}}</option>
               </select>
             </div>
-            <template v-for='year in chartYear.statsLabel'>
-                <canvas :id="'chartMonth' + year" width="400" height="200" :class="selectedYear == year ? '' : 'd-none'"></canvas>
+            <template v-for="year in chartYear.statsLabel">
+              <div class="chart-container" :class="selectedYear == year ? '' : 'd-none'">
+                <canvas :id="'chartMonth' + year"></canvas>
+              </div>
             </template>
           </div>
         </div>
