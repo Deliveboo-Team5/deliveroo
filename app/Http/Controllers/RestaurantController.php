@@ -118,7 +118,11 @@ class RestaurantController extends Controller
     public function edit(Restaurant $restaurant)
     {
       $categories = Category::all();
-      return view('restaurant.edit', compact(['categories', 'restaurant']));
+       $rest_categories = [];
+      foreach($restaurant->getCategory as $restCategory){
+          array_push($rest_categories, $restCategory->id);
+      };
+      return view('restaurant.edit', compact(['categories', 'restaurant', 'rest_categories']));
     }
 
 

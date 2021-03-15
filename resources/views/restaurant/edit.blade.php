@@ -55,10 +55,9 @@
                 <p><br>Categorie:</p>
                 <div>
                   @foreach($categories as $category)
-                  @foreach($restaurant->getCategory as $cat)
                   <label for="{{"checked_".$category->name_category}}">{{$category->name_category}}</label>
-                  <input type="checkbox" id="{{"checked_".$category->name_category}}" name="category[]" value="{{$category->id}}" {{$category->id == $cat->id ? "checked" : ''}}>
-                  @endforeach
+                  <input type="checkbox" id="{{"checked_".$category->name_category}}" name="category[]" value="{{$category->id}}" {{in_array($category->id, $rest_categories) ? "checked" : ''}}>
+
                   @endforeach
                 </div>
               </div>

@@ -12258,6 +12258,18 @@ nav .hamburger {
   line-height: 0 !important;
 }
 
+.drop-main {
+  color: #00ccbc;
+}
+
+.menu-drop {
+  padding: 15px;
+}
+
+.dropdown-item {
+  padding: 7px 0;
+}
+
 @media (max-width: 768px) {
   nav .nav_btn {
     display: none;

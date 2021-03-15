@@ -20,18 +20,22 @@
                             </a>
                         @endif
                         @else
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                                <span>Benvenuto &#32;{{ Auth::user()->name }}</span>
-                                <a class="btn-light btn" href="{{ route('overview') }}">
-                                    <i class="far fa-chart-bar"></i>
-                                    &#32; Dashboard
-                                </a>
-                                @csrf
-                                <button type="submit" class="btn-light btn"><i class="fas fa-sign-out-alt"></i></i>&#32; Logout</button>
-                            </form>
+                             <div class="btn-group">
+                                <button type="button" class="btn btn-light dropdown-toggle drop-main" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Benvenuto &#32;{{ Auth::user()->name }}
+                                </button>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="dropdown-menu menu-drop">
+                                    <a class="btn-light btn dropdown-item text-center" href="{{ route('overview') }}">
+                                        <i class="far fa-chart-bar"></i>
+                                        &#32; Dashboard
+                                    </a>
+                                    <hr class="dropdown-divider">
+                                    @csrf
+                                    <button type="submit" class="btn-light btn dropdown-item text-center"><i class="fas fa-sign-out-alt"></i></i>&#32; Logout</button>
+                                </form>
                         @endguest
                     </div>
-                    <div class="d-flex d-lg-none flex-row align-items-center">
+                    <div class="d-flex d-md-none flex-row align-items-center">
                       <div class="cart_mobile align-self-end" v-if="!cart.length == 0">
                         <button class="btn" v-on:click="gotocart" type="button" name="button"><i class="fas fa-shopping-basket"></i>&#32;@{{totalPrice}}€</button>
                       </div>

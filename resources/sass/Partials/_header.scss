@@ -92,6 +92,18 @@ nav{
   }
 }
 
+.drop-main {
+    color: $primary-color;
+}
+
+.menu-drop {
+    padding: 15px;
+}
+
+.dropdown-item {
+    padding: 7px 0;
+}
+
 @media (max-width: $tablet-breakpoint){
     nav{
         .nav_btn{
