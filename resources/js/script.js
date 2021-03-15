@@ -80,6 +80,11 @@ const app = new Vue({
                                     suggestedMax: 10,
                                 }
                             }]
+                        },
+                        title:{
+                            display:true,
+                            text:'Ordini per anno',
+                            fontSize:20
                         }
                     }
                     });
@@ -201,6 +206,11 @@ const app = new Vue({
                                 suggestedMax: 10,
                             }
                         }]
+                    },
+                    title:{
+                        display:true,
+                        text:'Ordini per mese',
+                        fontSize:20
                     }
                 }
             });

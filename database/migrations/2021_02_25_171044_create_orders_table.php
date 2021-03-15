@@ -21,7 +21,7 @@ class CreateOrdersTable extends Migration
             $table->string('phone');
             $table->datetime('delivery_time');
             $table->double('total_price', 10, 2);
-            $table->longText('note');
+            $table->longText('note')->nullable();
             $table->timestamps();
             $table->unsignedBigInteger('restaurant_id');
             $table->foreign('restaurant_id')->references('id')->on('restaurants');

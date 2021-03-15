@@ -168,6 +168,11 @@ var app = new Vue({
                 suggestedMax: 10
               }
             }]
+          },
+          title: {
+            display: true,
+            text: 'Ordini per anno',
+            fontSize: 20
           }
         }
       });
@@ -309,6 +314,11 @@ var app = new Vue({
                 suggestedMax: 10
               }
             }]
+          },
+          title: {
+            display: true,
+            text: 'Ordini per mese',
+            fontSize: 20
           }
         }
       });
@@ -325,7 +335,11 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< Updated upstream
 module.exports = __webpack_require__(/*! /Users/mirellenascimento/Dropbox/Boolean/Progetto/deliveroo/resources/js/script.js */"./resources/js/script.js");
+=======
+module.exports = __webpack_require__(/*! /Users/marcosimonefontaine/Desktop/boolean/esercizi-boolean/deliveboo/resources/js/script.js */"./resources/js/script.js");
+>>>>>>> Stashed changes
 
 
 /***/ })

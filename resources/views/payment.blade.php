@@ -39,7 +39,7 @@
                         <input type="text" id="phone" name="phone" minlength="4" required>
 
                         <label for="note">Note al ristorante</label>
-                        <textarea name="note" id="note" cols="30" rows="10"></textarea>
+                        <textarea name="note" id="note" ></textarea>
                             
                     </div>
                     <input type="hidden"name="restaurant" value="{{$restaurant->id}}">
