@@ -85,7 +85,7 @@
                             Paga
                         </button>
 
-                        <!-- Modal -->
+                        <!-- Modal Payment -->
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
@@ -97,12 +97,27 @@
                                     <template>
                                         @include('payment')
                                     </template>
-
-                                    
-                                       
                                 </div>
                             </div>
                         </div>
+                        <!-- Modal need to Empty Cart-->
+                        <!-- <div class="modal" id="needToEmptyCart" ref="needToEmptyCart" tabindex="-1">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title">Puoi ordinare da solo un ristorante alla volta.</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <div class="modal-body">
+                                <p>Vuoi svuotare il tuo carello?</p>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" v-on:click="emptyCart" class="btn btn-primary">Svuota Carello</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div> -->
                     </div>
                 </div>
             </div>

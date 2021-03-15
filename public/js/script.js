@@ -231,16 +231,20 @@ var app = new Vue({
 
       this.foods.forEach(function (food) {
         if (food.id == element) {
-          if (_this4.cart.includes(food)) {
-            ++food.quantity;
-
-            _this4.saveCart();
+          if (food.restaurant_id !== element.restaurant_id) {
+            console.log('nooo');
           } else {
-            food.quantity = 1;
+            if (_this4.cart.includes(food)) {
+              ++food.quantity;
 
-            _this4.cart.push(food);
+              _this4.saveCart();
+            } else {
+              food.quantity = 1;
 
-            _this4.saveCart();
+              _this4.cart.push(food);
+
+              _this4.saveCart();
+            }
           }
         }
       });
@@ -322,7 +326,7 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/marcosimonefontaine/Desktop/boolean/esercizi-boolean/deliveboo/resources/js/script.js */"./resources/js/script.js");
+module.exports = __webpack_require__(/*! /Users/mirellenascimento/Dropbox/Boolean/Progetto/deliveroo/resources/js/script.js */"./resources/js/script.js");
 
 
 /***/ })

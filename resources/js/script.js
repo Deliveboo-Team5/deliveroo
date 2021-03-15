@@ -134,14 +134,19 @@ const app = new Vue({
         addToCart(element){
             this.foods.forEach(food => {
                 if(food.id == element){
-                  if(this.cart.includes(food)){
-                    ++food.quantity;
-                    this.saveCart();
+                  if(food.restaurant_id !== element.restaurant_id){
+                    console.log('nooo');
                   }else{
-                    food.quantity = 1;
-                    this.cart.push(food);
-                    this.saveCart();
+                    if(this.cart.includes(food)){
+                      ++food.quantity;
+                      this.saveCart();
+                    }else{
+                      food.quantity = 1;
+                      this.cart.push(food);
+                      this.saveCart();
+                    }
                   }
+
                 }
             })
         },
