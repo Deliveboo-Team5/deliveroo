@@ -24,7 +24,7 @@ class restaurantCategorySeeder extends Seeder
                 
                 DB::table("restaurant_category")->insert([
                     "restaurant_id" => $restaurant->id,
-                    "category_id" => $i
+                    "category_id" => $faker->numberBetween(1,$categories->count())
                 ]);
             }
         }

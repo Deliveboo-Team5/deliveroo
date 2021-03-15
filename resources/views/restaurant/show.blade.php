@@ -37,7 +37,17 @@
                 {{-- Piatti ristorante --}}
                 @foreach ($restaurant->getFood as $restFood)
                     @if ($restFood->is_visible)
-                        <div class="card food row" value="{{$restFood->id}}" v-on:click="addToCart({{$restFood->id}}), refreshTotal()">
+                        <div v-if="cart.length > 0 && cart[0].restaurant_id !== {{$restFood->restaurant_id}}" class="card food row" value="{{$restFood->id}}" v-on:click="addToCart({{$restFood->id}}), refreshTotal()" data-bs-toggle="modal" data-bs-target="#needToEmptyCart">
+                            <div class="col-12 col-md-3 food-img-container" style="background-image: url({{asset($restFood->img)}})">
+                            </div>
+                            <div class="col-12 col-md-9 d-flex flex-column">
+                                <h5 class="text-capitalize">{{$restFood->name_food}}</h5>
+                                <span>{{$restFood->ingredients}}</span>
+                                <span class="align-self-end">{{number_format($restFood->price, 2, '.', ',')}}€</span>
+                            </div>
+                        </div>
+
+                        <div v-else class="card food row" value="{{$restFood->id}}" v-on:click="addToCart({{$restFood->id}}), refreshTotal()">
                             <div class="col-12 col-md-3 food-img-container" style="background-image: url({{asset($restFood->img)}})">
                             </div>
                             <div class="col-12 col-md-9 d-flex flex-column">
@@ -50,11 +60,11 @@
                 @endforeach
 
                 <!-- Modal need to Empty Cart-->
-                <!-- <div class="modal alert" id="needToEmptyCart" ref="needToEmptyCart" tabindex="-1">
+                <div class="modal alert" id="needToEmptyCart" ref="needToEmptyCart" tabindex="-1">
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title">Puoi ordinare da solo un ristorante alla volta.</h5>
+                        <h5 class="modal-title">Puoi ordinare solo da un ristorante alla volta.</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
                       <div class="modal-body">
@@ -62,11 +72,11 @@
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" @click="emptyCart" class="btn btn-primary">Svuota Carello</button>
+                        <button type="button" v-on:click="emptyCart" class="btn btn-primary" data-bs-dismiss="modal">Svuota Carello</button>
                       </div>
                     </div>
                   </div>
-                </div> -->
+                </div>
 
 
             </div>
