@@ -16,6 +16,6 @@ class Order extends Model
         return $this->belongsTo('App\Restaurant');
     }
 
-    protected $fillable = ['email', 'name_customer', 'delivery_address', 'phone', 'total_price', 'restaurant_id', 'delivery_time'];
+    protected $fillable = ['email', 'name_customer', 'delivery_address', 'phone', 'total_price','note', 'restaurant_id', 'delivery_time'];
 
 }

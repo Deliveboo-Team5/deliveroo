@@ -50,6 +50,7 @@
                   <li>Cliente:<strong> {{$order->name_customer}} </strong>| email:<strong> {{$order->email}} </strong>| Telefono:<strong> {{$order->phone}}</strong></li>
                   <li>Indirizzo di consegna:<strong> {{$order->delivery_address}}</strong></li>
                   <li>Orario di consegna: <strong>{{$order->delivery_time}}h</strong></li>
+                  <li>Note: <strong>{{$order->note}}</strong></li>
                   <li>Prodotti:
                       <div class="d-flex flex-column">
 

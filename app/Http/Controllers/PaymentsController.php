@@ -37,9 +37,10 @@ class PaymentsController extends Controller
             
             $transaction = $result->transaction;
             $newOrder = new Order([
-                'name_customer' => $request->name,
+                'name_customer' => $request->name_customer,
                 'delivery_address' =>  $request->address,
                 'email' => $request->email,
+                'note' => $request->note,
                 'phone' => $request->phone,
                 'delivery_time' => $request->delivery_time,
                 'total_price' => $request->amount,

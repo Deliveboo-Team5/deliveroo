@@ -9,6 +9,7 @@ $factory->define(Order::class, function (Faker $faker) {
     return [
         'delivery_address' => $faker->streetAddress(),
         'name_customer' => $faker->name(),
+        'note' => $faker->sentence($nbWords = 10, $variableNbWords = true),
         'email'=> $faker->email(),
         'phone' => $faker->phoneNumber(),
         'delivery_time' => $faker->dateTime(),
