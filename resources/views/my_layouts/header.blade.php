@@ -12,11 +12,11 @@
                         <!-- Authentication Links -->
                         @guest
                             <a class="btn-light btn" href="{{ route('login') }}">
-                                <i class="fas fa-user"></i> &#32; Login
+                                <i class="fas fa-utensils"></i> &#32; Login
                             </a>
                         @if (Route::has('register'))
                             <a class="btn-light btn" href="{{ route('register') }}">
-                                <i class="fas fa-sign-in-alt"></i> &#32; Sign in
+                                <i class="fas fa-sign-in-alt"></i> &#32; Diventa Partner
                             </a>
                         @endif
                         @else
