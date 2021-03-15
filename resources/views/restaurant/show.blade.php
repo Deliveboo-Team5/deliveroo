@@ -93,7 +93,7 @@
                 <div>
                     <div class="card cart-element" v-for="(element) in cart">
                         <div class="d-flex flex-column">
-                            <span id="name" class="text-capitalize"><strong>Piatto: </strong>@{{element.restaurant_id}}</span>
+                            <span id="name" class="text-capitalize"><strong>Piatto: </strong>@{{element.name_food}}</span>
                             <span for="name"><strong>Prezzo: </strong>@{{element.price.toFixed(2)}}€</span>
                             <span>
                                 <strong>Quantità: </strong>

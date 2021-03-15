@@ -85,18 +85,21 @@
             return;
             }
             form.addEventListener('submit', function (event) {
-            event.preventDefault();
+                event.preventDefault();
 
-            instance.requestPaymentMethod(function (err, payload) {
-                if (err) {
-                console.log('Request Payment Method Error', err);
-                return;
-                }
+                localStorage.clear();
+                
 
-                // Add the nonce to the form and submit
-                document.querySelector('#nonce').value = payload.nonce;
-                form.submit();
-            });
+                instance.requestPaymentMethod(function (err, payload) {
+                    if (err) {
+                    console.log('Request Payment Method Error', err);
+                    return;
+                    }
+
+                    // Add the nonce to the form and submit
+                    document.querySelector('#nonce').value = payload.nonce;
+                    form.submit();
+                });
             });
         });
 

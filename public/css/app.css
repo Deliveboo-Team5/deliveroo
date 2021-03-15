@@ -12205,6 +12205,11 @@ nav .hamburger {
   box-shadow: 0 0 0 0.25rem #00ccbc;
 }
 
+.btn-light:hover {
+  color: #00ccbc;
+  background-color: #EBEBEB;
+}
+
 .menu {
   margin-top: 70px;
   background-color: #00ccbc;
@@ -12243,6 +12248,10 @@ nav .hamburger {
 
 .dropdown .btn_dropdown {
   height: 100%;
+}
+
+.dropdown-toggle::after {
+  display: none;
 }
 
 .cart_mobile {

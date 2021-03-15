@@ -56,7 +56,7 @@ class PaymentsController extends Controller
                 ]);
             };
             //header("Location: " . $baseUrl . "transaction.php?id=" . $transaction->id);
-    
+            
             return back()->with('success_message', 'Il tuo ordine è stato inviato al ristorante. L\'ID dell\'ordine è: ' . $newOrder->id);
         } else {
             $errorString = "";
