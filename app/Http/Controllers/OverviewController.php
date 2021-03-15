@@ -27,7 +27,6 @@ class OverviewController extends Controller
             'total_earnings' => DB::table('orders')->where('restaurant_id', $restaurant)->sum('total_price'),
             'daily_earnings' => Order::where('restaurant_id', $restaurant)->where('delivery_time', 'like', $today.'%')->sum('total_price')
             ];
-
         return view('dashboard.overview', compact('data'));
     }
 }

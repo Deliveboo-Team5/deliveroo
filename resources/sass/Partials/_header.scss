@@ -46,6 +46,11 @@ nav{
 
 }
 
+.btn-light:hover{
+    color: $primary-color;
+    background-color: $box-color;
+}
+
 .menu{
     margin-top: 70px;
     background-color: $primary-color;
@@ -78,6 +83,10 @@ nav{
     .btn_dropdown{
         height: 100%;
     }
+}
+
+.dropdown-toggle::after{
+ display: none;
 }
 
 .cart_mobile{

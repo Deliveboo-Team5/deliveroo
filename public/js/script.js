@@ -104,7 +104,7 @@ var app = new Vue({
     statsOrder: [],
     selectedYear: '',
     chartMonth: {
-      statsLabel: ['Gennaio', 'Febraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'],
+      statsLabel: ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'],
       statsData: []
     },
     chartYear: {
