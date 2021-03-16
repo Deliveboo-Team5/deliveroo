@@ -15,20 +15,20 @@ class restaurantCategorySeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        
+
         $restaurants = Restaurant::all();
         $categories = Category::all();
-        
+
         foreach ($restaurants as $restaurant){
             for($i = 1; $i <= $faker->numberBetween(1,$categories->count()); $i++){
-                
+
                 DB::table("restaurant_category")->insert([
                     "restaurant_id" => $restaurant->id,
                     "category_id" => $faker->numberBetween(1,$categories->count())
                 ]);
             }
         }
-        
+
     }
-    
+
 }

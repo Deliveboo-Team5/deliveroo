@@ -14,6 +14,6 @@ $factory->define(Order::class, function (Faker $faker) {
         'phone' => $faker->phoneNumber(),
         'delivery_time' => $faker->dateTime(),
         'total_price' => $faker->randomFloat($nbMaxDecimals = 2, $min = 10, $max = 1000),
-        'restaurant_id' => $faker->numberBetween($min = 1, $max = 50),
+        'restaurant_id' => $faker->numberBetween($min = 1, $max = 12),
     ];
 });
