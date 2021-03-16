@@ -23,9 +23,9 @@ class orderFoodSeeder extends Seeder
             for($i = 1; $i <= 10; $i++){
                 
                 DB::table("order_food")->insert([
-                    "food_id" => $faker->numberBetween(1,50),
+                    "food_id" => $faker->numberBetween(1,24),
                     "order_id" => $order->id, 
-                    "quantity" =>  $faker->numberBetween(1,10)
+                    "quantity" =>  $faker->numberBetween(1,4)
                 ]);
             }
         }

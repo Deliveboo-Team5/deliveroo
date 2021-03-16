@@ -37,7 +37,7 @@
                     </div>
                     <div class="d-flex d-md-none flex-row align-items-center">
                       <div class="cart_mobile align-self-end" v-if="!cart.length == 0">
-                        <button class="btn" v-on:click="gotocart" type="button" name="button"><i class="fas fa-shopping-basket"></i>&#32;@{{totalPrice}}€</button>
+                        <button class="btn" v-on:click="gotocart" type="button" name="button"><i class="fas fa-shopping-basket"></i><a :href="'restaurant/' + cart[0].restaurant_id">&#32;@{{totalPrice}}€</a></button>
                       </div>
 
                       <div class="dropdown">

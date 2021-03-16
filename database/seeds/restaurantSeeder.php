@@ -88,7 +88,7 @@ class restaurantSeeder extends Seeder
           ],
           [
             'name_restaurant' => 'Ta Bueno Restaurante',
-            'img' => 'https://www.freepik.com/free-photo/interior-shot-cafe-with-chairs-near-bar-with-wooden-tables_7810365.htm#page=1&query=restaurant&position=13',
+            'img' => 'https://media-cdn.tripadvisor.com/media/photo-s/11/31/94/de/albufera-restaurante.jpg',
             'phone' => '02 3656 1135',
             'address' => 'Via Nicola Antonio Porpora, 143, Roma',
             'VAT' => '02365611355',
