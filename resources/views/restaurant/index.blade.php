@@ -26,7 +26,7 @@
 
     <div ref="restaurants" class="container home">
         <h3>Ristoranti</h3>
-        <div v-if="activeCategory == '' && searchByName == ''" class="row flex-wrap d-flex justify-content-between">
+        <div v-if="activeCategory == '' && searchByName == ''" class="row flex-wrap d-flex ">
           <div class="col-12 col-md-6 col-lg-4 col-xl-4 col-xxl-3 d-flex justify-content-center" v-for="(restaurant, index) in filterByName()">
               <form v-if="index < 8" action="" method="get">
                   <a :href="'restaurant/' + restaurant.id"  class="card-select card restaurant" :value="restaurant.id">
@@ -47,7 +47,7 @@
               </form>
           </div>
         </div>
-        <div v-else class="row flex-wrap d-flex justify-content-between">
+        <div v-else class="row flex-wrap d-flex ">
           <div class="col-12 col-md-6 col-lg-4 col-xl-4 col-xxl-3 d-flex justify-content-center" v-for="restaurant in filterByName()">
               <form action="" method="get">
                   <a :href="'restaurant/' + restaurant.id"  class="card-select card restaurant" :value="restaurant.id">

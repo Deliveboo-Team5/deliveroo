@@ -22,7 +22,7 @@
                         @else
                              <div class="btn-group">
                                 <button type="button" class="btn btn-light dropdown-toggle drop-main" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Benvenuto &#32;{{ Auth::user()->name }}
+                                    Ciao &#32;{{ Auth::user()->name }}
                                 </button>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="dropdown-menu menu-drop">
                                     <a class="btn-light btn dropdown-item text-center" href="{{ route('overview') }}">
@@ -37,7 +37,7 @@
                     </div>
                     <div class="d-flex d-md-none flex-row align-items-center">
                       <div class="cart_mobile align-self-end" v-if="!cart.length == 0">
-                        <button class="btn" v-on:click="gotocart" type="button" name="button"><i class="fas fa-shopping-basket"></i><a :href="'restaurant/' + cart[0].restaurant_id">&#32;@{{totalPrice}}€</a></button>
+                        <button class="btn" v-on:click="gotocart" type="button" name="button"><a :href="'restaurant/' + cart[0].restaurant_id"><i class="fas fa-shopping-basket"></i>&#32;@{{totalPrice}}€</a></button>
                       </div>
 
                       <div class="dropdown">

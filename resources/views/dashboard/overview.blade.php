@@ -43,14 +43,14 @@
               <div class="card-header">Totali Clienti</div>
               <div class="card-body">
                 <h1 class="card-title">{{$data['total_customer']}}</h5>
-                  <p class="card-text"><a href="#">Statistiche Clienti</a></p>
+                  <p class="card-text"><a href="#statistiche">Statistiche</a></p>
               </div>
             </div>
 
           </div>
         </div>
-        <div class="row">
-          <div class="col stat-data d-flex justify-content-center align-items-center">
+        <div class="row" id='statistiche'>
+          <div class="col stat-data d-flex justify-content-center align-items-center" >
             <canvas id="chartYear" width="400" height="200"></canvas>
           </div>
 
