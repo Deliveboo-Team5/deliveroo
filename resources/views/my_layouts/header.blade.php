@@ -4,7 +4,7 @@
             <div class="container-fluid">
                 <div class="container d-flex justify-content-between align-items-center">
                     <a class="navbar-brand d-flex d-none d-lg-block" href="{{asset('/')}}"><img class=""src="{{asset('img/deliveroo-logo.png')}}" alt="deliveroo_logo"></a>
-                    <a class="navbar-brand d-flex d-lg-none" href="{{asset('/')}}"><img class=""src="{{asset('img/deliveroo-md.png')}}" alt="deliveroo_logo"></a>
+                    <a class="navbar-brand d-flex d-lg-none log_btn" href="{{asset('/')}}"><img class=""src="{{asset('img/deliveroo-md.png')}}" alt="deliveroo_logo"></a>
                     @if (Request::url() === route('restaurant.index'))
                         <input class="form-control me-2 nav-form" type="search" placeholder="Cerca il ristorante..." aria-label="Search" v-model="searchByName" v-on:keyup="goto('restaurants')">
                     @endif
@@ -19,8 +19,8 @@
                                 <i class="fas fa-sign-in-alt"></i> &#32; Diventa Partner
                             </a>
                         @endif
-                        @else
-                             <div class="btn-group">
+                            @else
+                            <div class="btn-group">
                                 <button type="button" class="btn btn-light dropdown-toggle drop-main" data-bs-toggle="dropdown" aria-expanded="false">
                                     Ciao &#32;{{ Auth::user()->name }}
                                 </button>
@@ -33,11 +33,12 @@
                                     @csrf
                                     <button type="submit" class="btn-light btn dropdown-item text-center"><i class="fas fa-sign-out-alt"></i></i>&#32; Logout</button>
                                 </form>
+                            </div>
                         @endguest
                     </div>
                     <div class="d-flex d-md-none flex-row align-items-center">
                       <div class="cart_mobile align-self-end" v-if="!cart.length == 0">
-                        <button class="btn" v-on:click="gotocart" type="button" name="button"><a :href="'restaurant/' + cart[0].restaurant_id"><i class="fas fa-shopping-basket"></i>&#32;@{{totalPrice}}€</a></button>
+                        <button class="btn" type="button" name="button"><span v-on:click="gotocart"><i class="fas fa-shopping-basket"></i></span><a :href="'restaurant/' + cart[0].restaurant_id">&#32;@{{totalPrice}}€</a></button>
                       </div>
 
                       <div class="dropdown">
@@ -47,23 +48,26 @@
                               <div class="list-unstyled text-center dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenu2">
                                   <div class="d-flex justify-content-center align-items-center btn_dropdown">
                                       @guest
-                                          <a class="btn-light btn" href="{{ route('login') }}">
+                                          <a class="btn-light btn " href="{{ route('login') }}">
                                               <i class="fas fa-user"></i> &#32; Login
                                           </a>
                                           @if (Route::has('register'))
                                           <a class="btn-light btn" href="{{ route('register') }}">
-                                              <i class="fas fa-sign-in-alt"></i> &#32; Sign in
-                                          </a>
-                                          @endif
-                                          @else
-                                          <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                                              <a class="btn-light btn" href="{{ route('overview') }}">
-                                                  Dashboard
-                                              </a>
-                                              @csrf
-                                              <button type="submit" class="btn-light btn">Logout</button>
-                                          </form>
-                                      @endguest
+                                            <i class="fas fa-sign-in-alt"></i> &#32; Sign in
+                                        </a>
+                                        @endif
+                                        @else
+                                        
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-flex justify-content-center btn-group">
+                                                <a class="btn-light btn dropdown-item text-center btn_dash" href="{{ route('overview') }}">
+                                                    <i class="far fa-chart-bar"></i>
+                                                    &#32; Dashboard
+                                                </a>
+                                                @csrf
+                                                <button type="submit" class="btn-light btn dropdown-item text-center btn_dash"><i class="fas fa-sign-out-alt"></i></i>&#32; Logout</button>
+                                            </form>
+                                     
+                                        @endguest
                                   </div>
                               </div>
                       </div>

@@ -20,6 +20,9 @@
             <li class="list-inline-item">
               <a class="btn btn-primary" href="{{asset('foods')}}">Prodotti</a>
             </li>
+            <li class="list-inline-item">
+              <a class="btn btn-primary" href="{{asset('my_restaurant')}}">Ristorante</a>
+            </li>
           </ul>
         </div>
         <div class="row">
