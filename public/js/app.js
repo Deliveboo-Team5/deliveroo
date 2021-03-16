@@ -41041,8 +41041,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\MAMP\htdocs\deliveroo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\deliveroo\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/marcosimonefontaine/Desktop/boolean/esercizi-boolean/deliveboo/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/marcosimonefontaine/Desktop/boolean/esercizi-boolean/deliveboo/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

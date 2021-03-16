@@ -43,7 +43,7 @@
 
           {{-- open row --}}
           <div class="col card collapse" id="collapse{{$order->id}}">
-            <div class="d-flex flex-column">
+            <div class="card-body d-flex flex-column ">
               <div class="order-details">
                 <ul class="d-flex flex-column">
                   <li>Ordine numero: <strong>{{$order->id}}</strong></li>
@@ -67,7 +67,7 @@
                   <li>Totale ordini: <strong>€{{number_format($order->total_price, 2, '.', ',')}}</strong></li>
                 </ul>
               </div>
-              <div class="card-body d-flex align-items-baseline justify-content-end">
+              <div class="card-body d-flex flex-row-reverse">
                   <button type="button" class="btn btn-secondary" data-bs-toggle="collapse" data-bs-target="#collapse{{$order->id}}" aria-expanded="false" aria-controls="collapse{{$order->id}}">Nascondi dettagli</button>
               </div>
             </div>
